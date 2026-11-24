@@ -15,7 +15,7 @@ a{color:#245640}button,input,textarea{font:inherit;border:1px solid #a5b5a9;bord
 .prompts{margin-top:11px;border-top:1px solid #d9e2d9}.prompts summary{font-size:14px}.prompt-block{margin:8px 0}.prompt-block strong{font-size:13px}.prompt-block pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:220px;overflow:auto;margin:4px 0;padding:9px;background:#f5f7f4;border:1px solid #dce5dc;border-radius:4px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:#263b2d}
 .review-form{margin-top:12px;padding:10px 11px;background:#f8faf8;border:1px solid #d5e0d6;border-radius:6px}.review-form fieldset{border:0;margin:0;padding:0;min-inline-size:0}.review-form legend{font-size:14px;font-weight:600;padding:0}.review-form label{display:inline-flex;align-items:center;gap:5px;margin:7px 11px 0 0;font-size:14px}.review-form input[type=radio]{padding:0;accent-color:#245640}.review-form .reason-field{display:flex;flex-direction:column;align-items:stretch;gap:4px;width:100%;margin-right:0}.reason-field textarea{width:100%;resize:vertical;min-height:66px}.review-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.review-actions button{background:#245640;color:#fff;border-color:#245640}.review-actions button:disabled{opacity:.55;cursor:not-allowed}.review-status{font-size:13px;color:#4d6355}.review-status.error{color:#a11b16}.review-status.accepted{color:#1d6b3d}
 @media(max-width:680px){body{padding:18px 10px 46px}article{padding:13px}.pair{grid-template-columns:1fr}.rubric{gap:4px 8px;padding:8px}.filters input[type=search]{max-width:65vw}.reviewer input{min-width:0;width:100%}}
-</style><meta name="gallery-version" content="b4afc27fa85210f1"><meta name="gallery-sequence" content="19"></head><body><main>
+</style><meta name="gallery-version" content="17aa61e7a2ccdd19"><meta name="gallery-sequence" content="20"></head><body><main>
 <h1>H3 教学成片</h1><button type="button" id="gallery-update" hidden>已发布新版，点此更新</button><p>141 组标注考点 · 已下载并校验 <b>282 / 282 条视频</b> · 141 组正反例齐全</p>
 <p class="guide">正反例目标来自飞书第 506 版案例，本批用纯文本生成。每条视频独立判断。“合理”表示这条成片达成其当前侧的目标，“不合理”请写明未达成的具体表现。</p>
 <div class="reviewer"><label>标注人姓名或代号 <input id="reviewer" type="text" maxlength="80" autocomplete="name" placeholder="例如：张三或 A01"></label><span id="reviewer-status" class="reviewer-status" aria-live="polite"></span><small>草稿和提交回执只保存在当前浏览器，并按标注人和视频分别保存。</small></div>
@@ -3521,7 +3521,7 @@ for(const button of document.querySelectorAll('.play-pair')){
 const reviewEndpoint='__H3_REVIEW_ENDPOINT__';
 const reviewerInput=document.querySelector('#reviewer'), reviewerStatus=document.querySelector('#reviewer-status');
 const reviewPrefix='h3-pe-141:review:';
-const endpointReady=/^https:\/\/[^\s/]+(?:\/[^\s]*)?$/.test(reviewEndpoint) && !reviewEndpoint.includes('__');
+const endpointReady=(()=>{try{return !reviewEndpoint.includes('__')&&new URL(reviewEndpoint).protocol==='https:';}catch{return false;}})();
 function reviewer(){return reviewerInput.value.trim().normalize('NFC');}
 function keyFor(kind,clip){return reviewPrefix+kind+':'+encodeURIComponent(reviewer())+':'+clip;}
 function getJSON(key){try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}}
