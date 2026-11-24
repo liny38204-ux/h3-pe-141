@@ -15,8 +15,82 @@ a{color:#245640}button,input,textarea{font:inherit;border:1px solid #a5b5a9;bord
 .prompts{margin-top:11px;border-top:1px solid #d9e2d9}.prompts summary{font-size:14px}.prompt-block{margin:8px 0}.prompt-block strong{font-size:13px}.prompt-block pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:220px;overflow:auto;margin:4px 0;padding:9px;background:#f5f7f4;border:1px solid #dce5dc;border-radius:4px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:#263b2d}
 .review-form{margin-top:12px;padding:10px 11px;background:#f8faf8;border:1px solid #d5e0d6;border-radius:6px}.review-form fieldset{border:0;margin:0;padding:0;min-inline-size:0}.review-form legend{font-size:14px;font-weight:600;padding:0}.review-form label{display:inline-flex;align-items:center;gap:5px;margin:7px 11px 0 0;font-size:14px}.review-form input[type=radio]{padding:0;accent-color:#245640}.review-form .reason-field{display:flex;flex-direction:column;align-items:stretch;gap:4px;width:100%;margin-right:0}.reason-field textarea{width:100%;resize:vertical;min-height:66px}.review-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.review-actions button{background:#245640;color:#fff;border-color:#245640}.review-actions button:disabled{opacity:.55;cursor:not-allowed}.review-status{font-size:13px;color:#4d6355}.review-status.error{color:#a11b16}.review-status.accepted{color:#1d6b3d}
 .reviewer-jump{float:right;margin:0;padding:2px 6px;background:transparent;border:0;color:#245640;font-size:12px;text-decoration:underline}.review-actions{clear:both}
+.review-form .reason-field[hidden]{display:none}
 @media(max-width:680px){body{padding:18px 10px 46px}article{padding:13px}.pair{grid-template-columns:1fr}.rubric{gap:4px 8px;padding:8px}.filters input[type=search]{max-width:65vw}.reviewer input{min-width:0;width:100%}}
-</style><meta name="gallery-version" content="b1f4ea54d467de1e"><meta name="gallery-sequence" content="25"></head><body><main>
+</style><script>(() => {
+  const portal = 'http://127.0.0.1:45861';
+  if (window !== window.top) {
+    // A live gallery update uses a same-origin srcdoc frame.
+    try { window.h3LocalReviews = window.top.h3LocalReviews; } catch {}
+    return;
+  }
+  const fragment = new URLSearchParams(location.hash.slice(1));
+  const provided = fragment.get('h3-local');
+  const clip = fragment.get('clip');
+  let nonce = provided;
+  try {
+    if (provided && /^[a-f0-9]{64}$/.test(provided)) {
+      sessionStorage.setItem('h3-local-session', provided);
+      history.replaceState(null, '', location.pathname + location.search);
+    } else {
+      nonce = sessionStorage.getItem('h3-local-session');
+    }
+  } catch {}
+  if (!window.opener || !/^[a-f0-9]{64}$/.test(nonce || '')) return;
+  const parentWindow = window.opener;
+  const waiting = new Map();
+  let connected = false;
+  function hello() {
+    parentWindow.postMessage({type:'h3-review-hello'}, portal);
+  }
+  window.addEventListener('message', event => {
+    const data = event.data;
+    if (event.origin !== portal || event.source !== parentWindow || data?.nonce !== nonce) return;
+    if (data.type === 'h3-review-ready') {
+      connected = true;
+      const status = document.querySelector('#reviewer-status');
+      if (status) status.textContent = '已连接本机提交入口。标注会写入私有汇总表。';
+      for (const item of waiting.values()) item.send();
+    } else if (data.type === 'h3-review-result') {
+      const item = waiting.get(data.submission_id);
+      if (item && Number.isInteger(data.status)) item.finish(data);
+    }
+  });
+  window.h3LocalReviews = {
+    async submit(payload) {
+      if (parentWindow.closed) throw Error('本机提交入口已关闭，请重新打开入口。');
+      const {submission_id} = payload;
+      return new Promise((resolve, reject) => {
+        let sent = false;
+        const timeout = setTimeout(() => {
+          waiting.delete(submission_id);
+          reject(Error(connected ? '未收到本机提交回执，请重试。' : '尚未连接到本机提交入口，请重新打开入口。'));
+        }, connected ? 40000 : 6000);
+        waiting.set(submission_id, {
+          send() {
+            if (sent) return;
+            sent = true;
+            parentWindow.postMessage({type:'h3-review-submit', nonce, payload}, portal);
+          },
+          finish(data) {
+            waiting.delete(submission_id);
+            clearTimeout(timeout);
+            resolve(data);
+          }
+        });
+        if (connected) waiting.get(submission_id).send();
+        else hello();
+      });
+    }
+  };
+  window.addEventListener('DOMContentLoaded', () => {
+    if (/^\d\d-\d\d[ab]?-(good|bad)$/.test(clip || '')) {
+      document.querySelector('[data-clip-id="' + clip + '"] .review-form')?.scrollIntoView({block:'center'});
+    }
+    hello();
+  });
+})();
+</script><meta name="gallery-version" content="4cc78b41f9200c69"><meta name="gallery-sequence" content="26"></head><body><main>
 <h1>H3 教学成片</h1><button type="button" id="gallery-update" hidden>已发布新版，点此更新</button><p>141 组标注考点 · 已下载并校验 <b>282 / 282 条视频</b> · 141 组正反例齐全</p>
 <p class="guide">正反例目标来自飞书第 506 版案例，本批用纯文本生成。正例看是否达到要求，反例看指定故障是否清楚出现。关键线索不足时可暂缓提交。音频题请分开播放两条，保持同一音量。</p>
 <div class="reviewer"><label>标注人姓名或代号 <input id="reviewer" type="text" maxlength="80" autocomplete="name" placeholder="例如：张三或 A01"></label><span id="reviewer-status" class="reviewer-status" aria-live="polite"></span><small>草稿和提交回执只保存在当前浏览器，并按标注人和视频分别保存。</small></div>
@@ -3602,15 +3676,34 @@ for(const form of document.querySelectorAll('.review-form')){
     }
     const button=form.querySelector('button[type=submit]');button.disabled=true;setStatus(form,'正在提交…');
     try{
-      const response=await fetch(reviewEndpoint,{method:'POST',mode:'cors',credentials:'omit',headers:{'Content-Type':'application/json'},body:JSON.stringify({clip_id:clip,reviewer:reviewerAtSubmit,writer_token:token,verdict,reason,version,submission_id})});
-      const receipt=await response.json().catch(()=>null);
-      if(!response.ok||receipt?.ok!==true||receipt.submission_id!==submission_id)throw new Error('unaccepted');
+      const payload={clip_id:clip,reviewer:reviewerAtSubmit,writer_token:token,verdict,reason,version,submission_id};
+      let status,receipt;
+      if(window.h3LocalReviews){
+        const result=await window.h3LocalReviews.submit(payload);
+        status=result.status;receipt=result.body;
+      }else{
+        const response=await fetch(reviewEndpoint,{method:'POST',mode:'cors',credentials:'omit',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(25000)});
+        status=response.status;receipt=await response.json().catch(()=>null);
+      }
+      if(status!==200||receipt?.ok!==true||receipt.submission_id!==submission_id){
+        if(typeof receipt?.error==='string'){setStatus(form,receipt.error+' 草稿已保留。','error');return;}
+        throw new Error('unaccepted');
+      }
       const acknowledged={submission_id,verdict,reason,version,fingerprint:draft.fingerprint,accepted_at:new Date().toISOString()};
       if(!putJSON(keyFor('receipt',clip,reviewerAtSubmit),acknowledged))throw new Error('storage');
       if(reviewer()===reviewerAtSubmit&&fingerprint(formValues(form),reviewerAtSubmit)===draft.fingerprint){
         form.dataset.dirty='false';setStatus(form,'已提交，可修改后再次提交。','accepted');
       }
-    }catch{setStatus(form,'尚未提交，草稿已保留；请检查网络后重试。','error');}
+    }catch(error){
+      const issue=error.message==='storage'?'服务已接收，浏览器未能保存回执。':window.h3LocalReviews?'未收到本机提交回执，草稿已保留。':'未收到标注服务回执，草稿已保留。';
+      setStatus(form,issue,'error');
+      if(location.origin==='https://liny38204-ux.github.io' && error.message!=='storage'){
+        const link=document.createElement('a');
+        link.href='http://127.0.0.1:45861/?clip='+encodeURIComponent(clip);link.target='_blank';link.rel='noopener noreferrer';
+        link.textContent='打开已安装的本机提交入口';
+        form.querySelector('.review-status').append(' ',link);
+      }
+    }
     finally{button.disabled=false;}
   });
 }
