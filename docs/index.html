@@ -90,7 +90,38 @@ a{color:#245640}button,input,textarea{font:inherit;border:1px solid #a5b5a9;bord
     hello();
   });
 })();
-</script><meta name="gallery-version" content="4cc78b41f9200c69"><meta name="gallery-sequence" content="26"></head><body><main>
+
+(() => {
+  const local = 'http://127.0.0.1:45861/public/';
+  const publicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6tpiZQccV+BFry7/tfSoM/p3div1XdUKofMqD2MyMQEMznnDLtyTM2gncbmJpRowUSCjr9SuFm4c8hNc0zDS+eTVBOJbf25arTVKQ1xyOV9EJjk8cw+lPs1JtCK7Ah0f66GLpInApGkfq4bebxgzfEN/9oRItzcw/MwxlozC0XVG+CVKxPdR+aieDzoklsDn+KqBpMFMzJeAwL3TLjCP87QW/uT0kK4Tg/DZl9j4ymK3SGhc5OdMtj7PkFV3miwFDJA7ArxPCq1EXb6iwSQ/k95lYOdi92YUOJ429a7IdLin6IID/QqhOLlHFdrxOrOy/t/+iXUMo1zzEfQagFAf/QIDAQAB';
+  const bytes = text => Uint8Array.from(atob(text), char => char.charCodeAt(0));
+  const algorithm = {name:'RSASSA-PKCS1-v1_5',hash:'SHA-256'};
+  const options = {mode:'cors',credentials:'omit',referrerPolicy:'no-referrer',cache:'no-store'};
+  let preferred = false;
+  try { preferred = sessionStorage.getItem('h3-use-mac') === '1'; } catch {}
+  window.h3MacSubmit = {
+    get preferred() { return preferred; },
+    async submit(payload) {
+      const challenge = Array.from(crypto.getRandomValues(new Uint8Array(32)), b=>b.toString(16).padStart(2,'0')).join('');
+      // Verify the installed receiver before sending reviewer data to a local port.
+      const response = await fetch(local+'identity?challenge='+challenge,{...options,signal:AbortSignal.timeout(45000)});
+      if (!response.ok) throw Error('本机提交服务未响应。');
+      const identity = await response.json();
+      const key = await crypto.subtle.importKey('spki',bytes(publicKey),algorithm,false,['verify']);
+      const signed = new TextEncoder().encode('H3-GH-REVIEW-LOCAL-v1/'+challenge);
+      if (!await crypto.subtle.verify(algorithm.name,key,bytes(identity.proof),signed)) throw Error('本机提交服务身份校验失败。');
+      const result = await fetch(local+'reviews',{...options,method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload),signal:AbortSignal.timeout(40000)});
+      const body = await result.json();
+      if (result.ok && body.ok === true && body.submission_id === payload.submission_id) {
+        preferred = true;
+        try { sessionStorage.setItem('h3-use-mac','1'); } catch {}
+      }
+      return {status:result.status,body};
+    }
+  };
+})();
+</script><meta name="gallery-version" content="181af04f556498ab"><meta name="gallery-sequence" content="27"></head><body><main>
 <h1>H3 教学成片</h1><button type="button" id="gallery-update" hidden>已发布新版，点此更新</button><p>141 组标注考点 · 已下载并校验 <b>282 / 282 条视频</b> · 141 组正反例齐全</p>
 <p class="guide">正反例目标来自飞书第 506 版案例，本批用纯文本生成。正例看是否达到要求，反例看指定故障是否清楚出现。关键线索不足时可暂缓提交。音频题请分开播放两条，保持同一音量。</p>
 <div class="reviewer"><label>标注人姓名或代号 <input id="reviewer" type="text" maxlength="80" autocomplete="name" placeholder="例如：张三或 A01"></label><span id="reviewer-status" class="reviewer-status" aria-live="polite"></span><small>草稿和提交回执只保存在当前浏览器，并按标注人和视频分别保存。</small></div>
@@ -3596,7 +3627,8 @@ for(const button of document.querySelectorAll('.play-pair')){
 const reviewEndpoint='https://h3-pe-141-review-inbox.dv7bm4cnv4.chatgpt.site/api/reviews';
 const reviewerInput=document.querySelector('#reviewer'), reviewerStatus=document.querySelector('#reviewer-status');
 const reviewPrefix='h3-pe-141:review:';
-const endpointReady=(()=>{try{return !reviewEndpoint.includes('__')&&new URL(reviewEndpoint).protocol==='https:';}catch{return false;}})();
+const localGallery=location.origin==='http://127.0.0.1:45861' && reviewEndpoint==='/api/reviews';
+const endpointReady=(()=>{try{return localGallery||(!reviewEndpoint.includes('__')&&new URL(reviewEndpoint).protocol==='https:');}catch{return false;}})();
 function reviewer(){return reviewerInput.value.trim().normalize('NFC');}
 function validReviewer(){return reviewer().length>0&&reviewer().length<=80;}
 function keyFor(kind,clip,name=reviewer()){return reviewPrefix+kind+':'+encodeURIComponent(name)+':'+clip;}
@@ -3642,12 +3674,34 @@ function renderForm(form){
   form.querySelector('.reason-field').hidden=stored?.verdict!=='不合理';
   const receipt=name&&getJSON(keyFor('receipt',clip));
   const submitted=Boolean(receipt&&stored&&receipt.fingerprint===stored.fingerprint);
+  form.dataset.retryOnMac=String(Boolean(window.h3MacSubmit&&stored?.submission_id&&!submitted));
   form.dataset.dirty=submitted?'false':String(Boolean(stored?.verdict||stored?.reason));
   setStatus(form,!name?'请先填写标注人。':storageFailure?'浏览器禁止保存草稿，请允许本地存储。':submitted?'已提交，可修改后再次提交。':receipt?'已改动/待提交。':stored?.verdict?'已改动/待提交。':endpointReady?'请选择后提交。':'收件地址尚未配置。',submitted?'accepted':'');
 }
 function renderForms(){document.querySelectorAll('.review-form').forEach(renderForm);}
 reviewerInput.addEventListener('input',()=>{if(!putJSON(reviewPrefix+'reviewer',{value:reviewerInput.value})) reviewerStatus.textContent='浏览器禁止保存标注人和草稿。';renderForms();});
 reviewerInput.value=getJSON(reviewPrefix+'reviewer')?.value||'';
+async function sendToInbox(payload){
+  if(window.h3LocalReviews)return window.h3LocalReviews.submit(payload);
+  const response=await fetch(reviewEndpoint,{method:'POST',mode:'cors',credentials:'omit',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(localGallery?40000:15000)});
+  const body=await response.json();
+  return {status:response.status,body};
+}
+async function sendReview(form,payload){
+  const mac=window.h3MacSubmit;
+  if(!mac)return sendToInbox(payload);
+  async function throughMac(){
+    setStatus(form,'正在连接本机提交服务。如果浏览器询问访问本机的权限，请点「允许」。');
+    return mac.submit(payload);
+  }
+  if(form.dataset.retryOnMac==='true'||mac.preferred){
+    try{return await throughMac();}catch{return sendToInbox(payload);}
+  }
+  try{return await sendToInbox(payload);}catch{
+    form.dataset.retryOnMac='true';
+    return throughMac();
+  }
+}
 for(const form of document.querySelectorAll('.review-form')){
   form.querySelector('.reviewer-jump').addEventListener('click',()=>{reviewerInput.scrollIntoView({behavior:'smooth',block:'center'});reviewerInput.focus();});
   form.addEventListener('change',event=>{
@@ -3677,14 +3731,7 @@ for(const form of document.querySelectorAll('.review-form')){
     const button=form.querySelector('button[type=submit]');button.disabled=true;setStatus(form,'正在提交…');
     try{
       const payload={clip_id:clip,reviewer:reviewerAtSubmit,writer_token:token,verdict,reason,version,submission_id};
-      let status,receipt;
-      if(window.h3LocalReviews){
-        const result=await window.h3LocalReviews.submit(payload);
-        status=result.status;receipt=result.body;
-      }else{
-        const response=await fetch(reviewEndpoint,{method:'POST',mode:'cors',credentials:'omit',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(25000)});
-        status=response.status;receipt=await response.json().catch(()=>null);
-      }
+      const {status,body:receipt}=await sendReview(form,payload);
       if(status!==200||receipt?.ok!==true||receipt.submission_id!==submission_id){
         if(typeof receipt?.error==='string'){setStatus(form,receipt.error+' 草稿已保留。','error');return;}
         throw new Error('unaccepted');
@@ -3692,10 +3739,10 @@ for(const form of document.querySelectorAll('.review-form')){
       const acknowledged={submission_id,verdict,reason,version,fingerprint:draft.fingerprint,accepted_at:new Date().toISOString()};
       if(!putJSON(keyFor('receipt',clip,reviewerAtSubmit),acknowledged))throw new Error('storage');
       if(reviewer()===reviewerAtSubmit&&fingerprint(formValues(form),reviewerAtSubmit)===draft.fingerprint){
-        form.dataset.dirty='false';setStatus(form,'已提交，可修改后再次提交。','accepted');
+        form.dataset.dirty='false';form.dataset.retryOnMac='false';setStatus(form,'已提交，可修改后再次提交。','accepted');
       }
     }catch(error){
-      const issue=error.message==='storage'?'服务已接收，浏览器未能保存回执。':window.h3LocalReviews?'未收到本机提交回执，草稿已保留。':'未收到标注服务回执，草稿已保留。';
+      const issue=error.message==='storage'?'服务已接收，浏览器未能保存回执。':window.h3MacSubmit?'尚未收到回执，草稿已保留。请确认已启动本机服务，并允许此网站访问本机，再点「提交标注」。':'未收到标注服务回执，草稿已保留。';
       setStatus(form,issue,'error');
       if(location.origin==='https://liny38204-ux.github.io' && error.message!=='storage'){
         const link=document.createElement('a');
