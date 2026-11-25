@@ -33,8 +33,8 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 .reason-review{margin-left:6px;color:#74542f;font-size:12px;font-weight:500}
 
 .clip h3{flex-wrap:wrap}
-.clip-edit-marker,.field-edit-marker{color:#724000;background:#fff3d9;border:1px solid #e3c68c;border-radius:4px;font-size:12px;font-weight:650;line-height:1.5;vertical-align:middle;display:inline-block}
-.clip-edit-marker{padding:1px 7px}.field-edit-marker{margin-left:8px;padding:0 5px}
+.case-edit-marker,.clip-edit-marker,.field-edit-marker{color:#724000;background:#fff3d9;border:1px solid #e3c68c;border-radius:4px;font-size:12px;font-weight:650;line-height:1.5;vertical-align:middle;display:inline-block}
+.case-edit-marker,.clip-edit-marker{padding:1px 7px}.field-edit-marker{margin-left:8px;padding:0 5px}
 .filters .edited-filter{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
 .filters #edited-only{width:16px;height:16px;margin:0;accent-color:var(--green)}
 @media(max-width:700px){.filters .edited-filter{grid-column:1/-1}.filters output{grid-column:1/-1;text-align:left}}
@@ -2390,7 +2390,7 @@ non_diegetic_music: A steady mid-tempo boom-bap hip-hop groove featuring heavy 8
 </div></div>
 </section></div>
 </article><article id="case-07-12" data-group="07-12" data-dim="07">
-<header class="case-head"><p class="meta"><span>07-12</span> · 音画同步 · 环境-画面音效未同步-P0</p><h2>云海与室内环境声</h2></header>
+<header class="case-head"><p class="meta"><span>07-12</span> · 音画同步 · 环境-画面音效未同步-P0</p><h2>云海与室内环境声 <span class="case-edit-marker" title="正反例视频和提示词均已更新">已修改</span></h2></header>
 <div class="rubric"><div><strong>考点</strong><b>听到的环境声是否符合画面里的露天山巅？</b></div><div><strong>观察方法</strong><span>分别播放两条视频，先听前 4 秒。画面都是云海孤峰，正例能听到山风，反例能听到站台提示铃和广播。</span></div></div>
 <button class="play-pair" type="button">两条从头播放</button><span class="play-status" role="status"></span>
 <div class="pair"><section class="clip good" data-clip-id="07-12-good" data-source-version="2e77877d2a90db9c301bf2bdcd08205fb738a59065f48f534f001657ee9dd100">
@@ -3149,7 +3149,7 @@ function filter() {
   let count = 0;
   for (const {card, text} of cards) {
     card.hidden = Boolean((dimension.value && dimension.value !== card.dataset.dim) ||
-      (query && !text.includes(query)) || (editedOnly.checked && !card.querySelector('.has-prompt-edits')));
+      (query && !text.includes(query)) || (editedOnly.checked && !card.querySelector('.case-edit-marker, .has-prompt-edits')));
     if (card.hidden) card.querySelectorAll('video').forEach(video => video.pause());
     else count += 1;
   }
