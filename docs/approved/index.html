@@ -38,12 +38,9 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 .filters .edited-filter{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
 .filters #edited-only{width:16px;height:16px;margin:0;accent-color:var(--green)}
 @media(max-width:700px){.filters .edited-filter{grid-column:1/-1}.filters output{grid-column:1/-1;text-align:left}}
-.calibration-sample{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);scroll-margin-top:18px}
-.calibration-sample h3{font-size:1.05rem;margin:0 0 6px}.calibration-sample p{margin:0 0 7px}.calibration-sample video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#17231d;border-radius:6px}
-@media(max-width:700px){.calibration-sample{grid-template-columns:1fr;gap:8px}}
 </style></head><body><main>
-<header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>67 组</strong><i> / </i>134 条对照视频 · 1 条校准样片</p></div>
-<p class="intro">每组的正例、反例均已收到标注，所有判断均为“合理”。正例展示目标效果，反例展示对应的故障；任何人都可以编辑提示词，保存后公开。</p>
+<header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>67 组</strong><i> / </i>134 条对照视频</p></div>
+<p class="intro">按标注结果收录正反例对照；07-13 的反例已更新为后期配音校准样片。正例展示目标效果，反例展示对应的故障；任何人都可以编辑提示词，保存后公开。</p>
 <p class="stamp">标注快照 <time>2026-11-25 12:13（UTC+8）</time></p></header>
 <p id="publish-status" class="publish-status" role="status">正在读取已发布的提示词版本…</p>
 <button id="connect-live" class="connect-live" type="button" hidden>连接实时版本</button>
@@ -2479,8 +2476,8 @@ non_diegetic_music: N/A</pre></details>
 </div></div>
 </section></div>
 </article><article id="case-07-13" data-group="07-13" data-dim="07">
-<header class="case-head"><p class="meta"><span>07-13</span> · 音画同步 · 音效音色错误—P0</p><h2>玻璃杯落地的材质声</h2></header>
-<div class="rubric"><div><strong>考点</strong><b>同步的碰地声听起来是否像玻璃？</b></div><div><strong>观察方法</strong><span>先核对声音发生时点，再辨玻璃碎裂与空塑料弹跳的质感。</span></div></div>
+<header class="case-head"><p class="meta"><span>07-13</span> · 音画同步 · 碎裂音效缺失</p><h2>玻璃杯落地的材质声</h2></header>
+<div class="rubric"><div><strong>考点</strong><b>杯子触地和碎片弹跳时，有没有相应的玻璃声？</b></div><div><strong>观察方法</strong><span>分别播放两条视频。正例听触地和碎片落下的声音；反例听约 5.5 秒杯子碎开时，室内底噪是否仍是唯一的声音。</span></div></div>
 <button class="play-pair" type="button">两条从头播放</button><span class="play-status" role="status"></span>
 <div class="pair"><section class="clip good" data-clip-id="07-13-good" data-source-version="a55318a1c0119a24f1d266bb66b0387160d7f4069f5c696a3b53bea8db32664f">
 <h3>正例<span class="clip-edit-marker" hidden></span></h3><p class="target">玻璃碰石地时清脆碎裂，细碎落点有轻响。</p>
@@ -2502,17 +2499,19 @@ non_diegetic_music: N/A</pre></details>
 <div class="editor-actions"><button class="save-prompt" type="button">保存并公开</button><button class="cancel-prompt" type="button">取消</button></div>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
-</section><section class="clip bad" data-clip-id="07-13-bad" data-source-version="f29e4c376f31bb0de025670b35077090a6444a92f84ee5232c0de1717729f7a2">
-<h3>反例<span class="clip-edit-marker" hidden></span></h3><p class="target"><button type="button" class="reason-seek" data-start="1.65" aria-label="播放 07-13-bad 反例，约 2–3 秒">约 2–3 秒</button> <span>玻璃杯碰地碎开，落地声却像空塑料杯弹了两下。</span> <a href="#calibration-07-13">听无破碎声校准版</a></p>
-<video controls playsinline preload="none" aria-label="07-13-bad 反例" data-poster="../posters/07-13-bad.jpg" src="../videos/07-13-bad.mp4"></video>
+</section><section class="clip bad" data-clip-id="07-13-bad" data-source-version="f29e4c376f31bb0de025670b35077090a6444a92f84ee5232c0de1717729f7a2" id="calibration-07-13">
+<h3>反例 <small class="reason-review">后期配音校准</small><span class="clip-edit-marker" hidden></span></h3><p class="target"><button type="button" class="reason-seek" data-start="5" aria-label="播放 07-13-bad 反例，约 5.5 秒">约 5.5 秒</button> <span>玻璃杯触地碎开，碎片继续弹跳，只听见低低的室内底噪。H3 生成画面，底噪为后期配入。</span></p>
+<video controls playsinline preload="none" aria-label="07-13-bad 反例" data-poster="calibration/07-13-room-tone.jpg" src="calibration/07-13-room-tone.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
-<details class="prompt-detail"><summary>原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">固定近景，桌边一只杯子滑落。镜头拍清透明薄玻璃杯落在石地上碎成数块，碎片散开，房间很安静。碰地的一刻响起空塑料杯弹地般的“扑、哒”，散开的碎片落地仍是短促的塑料轻响，时点全部落在对应动作上。</pre></details>
+<details class="prompt-detail"><summary>原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">固定近景，透明薄玻璃杯从桌边滑落，在石地上碎开，碎片弹跳、滑动。杯子触地和碎片散开时只听到原有的微弱室内底噪，最后淡出至安静。</pre></details>
 <details class="prompt-detail"><summary>中文 PE<span class="field-edit-marker" hidden>已修改</span></summary><pre class="zh-prompt" data-field="zh">整合视听描述：[镜头 1] 电影般的静态特写镜头，向下倾斜，朝向上部画面中深色胡桃木餐桌的斜边与横跨画面下部三分之二的光滑、冷色调的灰色板岩瓷砖地板之间的交界处。柔和的漫射晨光从左侧的大窗外射入，在抛光的木漆上投射出淡淡的线性光泽，并在桌子周边的一个薄的、完全透明的圆柱形玻璃杯的弯曲边缘上投射出柔和的镜面高光。不倒翁开始从边缘向外蠕动，其平坦的底座失去了对光滑表面的支撑力，然后向前倾斜到空旷的空气中。玻璃杯以自由落体的方式向下翻滚，扭曲穿过桌面悬垂下方的阴影空间。当撞击到坚硬的石板地板时，脆弱的身体瞬间碎裂成无数锋利、锯齿状的透明碎片和条子，并以不规则的径向扩散向外爆裂。最大的底部部分在石头纹理上滑动了几英寸，而较小的三角形碎片则以微小的二次跳跃弹起和翻滚，在摩擦力阻止其运动之前滑过灌浆接缝，当空气中的尘埃微粒缓慢地飘过安静的房间时，散落的玻璃在地板上静止地闪闪发光。
-整体声景：深沉、安静的室内环境音调在背景中营造出微弱的嗡嗡声，当掉落的杯子撞击到石头地面时，发出明显的、中空的、塑料般的撞击声和双响声，突然中断，紧接着是一系列快速、清脆的塑料敲击声和咔哒声，分散的碎片在石板地板上弹跳和滑过，然后陷入绝对的寂静。
+整体声景：深沉、安静的室内环境音调在背景中营造出微弱的嗡嗡声，当掉落的杯子撞击到石头地面时，没有发出任何声音，分散的碎片在石板地板上弹跳和滑过，然后陷入绝对的寂静。
 非叙事音乐：不适用</pre></details>
-<details class="prompt-detail"><summary>英文 PE<span class="field-edit-marker" hidden>已修改</span></summary><pre class="pe-prompt" data-field="pe">integrated_multimodal_description: [Shot 1] Cinematic, in a static close-up shot angled downward toward the juncture between the beveled edge of a dark walnut dining table in the upper frame and a smooth, cool-toned gray slate stone tile floor stretching across the lower two-thirds of the frame. Soft, diffuse morning light enters from a large off-screen window on the left, casting a faint linear sheen across the polished wood varnish and throwing gentle specular highlights onto the curved lip of a thin, completely transparent cylindrical glass tumbler sitting right on the table&#x27;s perimeter. The tumbler begins to creep outward over the edge, its flat base losing purchase on the glossy surface before tipping forward into empty air. The glass cup tumbles downward in free fall, twisting through the shadowed space beneath the tabletop overhang. Upon striking the hard slate floor, the delicate body instantaneously fractures into numerous sharp, jagged transparent shards and slivers that burst outward in an irregular radial spread. The largest base section skids several inches across the stone texture, while smaller triangular fragments bounce and tumble with minute secondary hops, sliding across the grout seams before friction arrests their movement, leaving the scattered glass glittering in stillness across the floor as airborne dust motes drift slowly through the quiet room.
-overall_soundscape: A deep, quiet ambient room tone establishes a faint hum in the background, interrupted abruptly as the falling cup impacts the stone ground with a distinct, hollow, plastic-like thud and double-clack, followed immediately by a rapid sequence of short, crisp plastic taps and clicks as the scattering shards bounce and skitter across the slate floor before settling into absolute silence.
-non_diegetic_music: N/A</pre></details>
+<details class="prompt-detail"><summary>英文 PE<span class="field-edit-marker" hidden>已修改</span></summary><pre class="pe-prompt" data-field="pe">integrated_multimodal_description: [Shot 1] A single locked-off cinematic close-up looks down at the beveled edge of a dark walnut dining table at the top of the frame. Smooth, cool gray slate tiles fill the lower two-thirds. Soft morning light from a large window offscreen left draws a faint line of sheen across the polished wood and a delicate highlight along the rim of a thin, completely transparent cylindrical drinking glass perched at the very edge. The glass creeps outward until its flat base loses support. It tips forward into empty air, tumbling and twisting in free fall through the shadow beneath the tabletop. The instant it strikes the hard slate, it shatters into jagged transparent shards and fine slivers that scatter outward in an uneven radial pattern. The thick base skids several inches. Smaller triangular fragments bounce, tumble, and make tiny secondary hops before sliding across the grout lines and coming to rest. The scattered glass lies still, glinting on the floor as dust motes drift slowly through the room.
+
+overall_soundscape: At first, a very faint, low, steady room hum is audible. At the exact instant the glass hits the slate, the background hum continues unchanged. The impact and the shattering itself are completely inaudible. Each visible shard bounces, lands, and slides in silence. There is no crash, crack, clink, tap, rattle, or scrape. As the last fragments come to rest, the faint room hum fades to absolute silence.
+
+non_diegetic_music: None.</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
 <div class="prompt-editor" hidden>
 <p class="editor-note">匿名编辑；保存后会直接更新公开页。</p>
@@ -2522,12 +2521,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="editor-actions"><button class="save-prompt" type="button">保存并公开</button><button class="cancel-prompt" type="button">取消</button></div>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
-</section></div><aside class="calibration-sample" id="calibration-07-13" aria-labelledby="calibration-07-13-title">
-<div><h3 id="calibration-07-13-title">校准反例 · 玻璃碎裂时无声</h3>
-<p>听第 5–7 秒。约 5.5 秒时杯子触地碎开，碎片继续弹跳，耳边只有轻微的室内底噪。</p>
-<p class="meta">H3 生成画面，后期配入室内底噪。</p></div>
-<video controls playsinline preload="none" aria-label="07-13 校准反例，玻璃碎裂时无声" data-poster="calibration/07-13-room-tone.jpg" src="calibration/07-13-room-tone.mp4"></video>
-</aside>
+</section></div>
 </article><article id="case-08-07" data-group="08-07" data-dim="08">
 <header class="case-head"><p class="meta"><span>08-07</span> · 音频表现力 · BGM／唱歌／乐器不好听-P1</p><h2>温室 MV 的唱腔</h2></header>
 <div class="rubric"><div><strong>考点</strong><b>两个长音是否唱在伴奏的音高上？</b></div><div><strong>观察方法</strong><span>听两个长音和伴奏的音高关系。字幕与演唱词仍可对应。</span></div></div>
@@ -3136,7 +3130,7 @@ const state = new Map();
 
 const cards = [...document.querySelectorAll('article')].map(card => ({
   card,
-  text: [...card.querySelectorAll('.case-head,.rubric,.target,.calibration-sample')].map(node => node.textContent).join(' ').toLowerCase()
+  text: [...card.querySelectorAll('.case-head,.rubric,.target')].map(node => node.textContent).join(' ').toLowerCase()
 }));
 
 for (const button of document.querySelectorAll('.reason-seek')) {
@@ -3178,17 +3172,11 @@ for (const button of document.querySelectorAll('.play-pair')) {
     const card = button.closest('article');
     const status = card.querySelector('.play-status');
     const videos = [...card.querySelectorAll('.pair video')];
-    card.querySelector('.calibration-sample video')?.pause();
     status.textContent = '';
     for (const video of videos) { video.pause(); video.currentTime = 0; }
     const results = await Promise.allSettled(videos.map(video => video.play()));
     if (results.some(result => result.status === 'rejected')) status.textContent = '请使用视频的播放按钮分别播放。';
   });
-}
-for (const sample of document.querySelectorAll('.calibration-sample video')) {
-  const pairVideos = sample.closest('article').querySelectorAll('.pair video');
-  sample.addEventListener('play', () => pairVideos.forEach(video => video.pause()));
-  for (const video of pairVideos) video.addEventListener('play', () => sample.pause());
 }
 const posters = document.querySelectorAll('video[data-poster]');
 if ('IntersectionObserver' in window) {
