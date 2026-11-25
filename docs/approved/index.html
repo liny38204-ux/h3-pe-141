@@ -28,8 +28,8 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 @media(max-width:700px){main{padding-top:22px}.pair{grid-template-columns:1fr;gap:16px}.target{min-height:0}.filters{display:grid;grid-template-columns:auto minmax(0,1fr)}.filters input,.filters select{width:100%}.filters output{grid-column:2;text-align:right}.rubric>div{gap:7px}}
 </style></head><body><main>
 <header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>67 组</strong><i> / </i>134 条视频</p></div>
-<p class="intro">每组的正例、反例均已收到标注，所有判断均为“合理”。正例展示目标效果，反例展示对应的故障；已授权编辑者可匿名修订并直接发布提示词。</p>
-<p class="stamp">标注快照 <time>2026-11-25 11:32（UTC+8）</time></p></header>
+<p class="intro">每组的正例、反例均已收到标注，所有判断均为“合理”。正例展示目标效果，反例展示对应的故障；任何人都可以编辑提示词，保存后公开。</p>
+<p class="stamp">标注快照 <time>2026-11-25 11:34（UTC+8）</time></p></header>
 <p id="publish-status" class="publish-status" role="status">正在读取已发布的提示词版本…</p>
 <button id="connect-live" class="connect-live" type="button" hidden>连接实时版本</button>
 <div class="filters"><label for="query">查找案例</label><input id="query" type="search" placeholder="输入编号、名称或考点">
@@ -3101,41 +3101,266 @@ non_diegetic_music: Sparse acoustic piano playing slow, deliberate chords accomp
 </div></div>
 </section></div>
 </article></div><p id="empty" hidden>没有匹配的案例。<button type="button" id="clear">清除筛选</button></p>
-</main><script>const PUBLISHED_URL='https://h3-pe-141-review-inbox.dv7bm4cnv4.chatgpt.site/published-prompts';
-const LOCAL_PUBLISHED_URL='http://127.0.0.1:45861/public/published-prompts';
-const FIELDS=['original','zh','pe'];
-const search=document.getElementById('query'),dimension=document.getElementById('dimension');
-const publishStatus=document.getElementById('publish-status'),connectLive=document.getElementById('connect-live');
-const cards=[...document.querySelectorAll('article')].map(card=>({card,text:[...card.querySelectorAll('.case-head,.rubric,.target')].map(node=>node.textContent).join(' ').toLowerCase()}));
-const clips=[...document.querySelectorAll('.clip')];
-const state=new Map();
-function filter(){const q=search.value.trim().toLowerCase();let count=0;for(const {card,text} of cards){card.hidden=Boolean((dimension.value&&dimension.value!==card.dataset.dim)||(q&&!text.includes(q)));if(card.hidden)card.querySelectorAll('video').forEach(video=>{if(!video.paused)video.pause()});else count++}document.getElementById('matches').textContent='显示 '+count+' / '+cards.length+' 组';document.getElementById('empty').hidden=count>0}
-search.addEventListener('input',filter);dimension.addEventListener('change',filter);document.getElementById('clear').addEventListener('click',()=>{search.value='';dimension.value='';filter();search.focus()});
-for(const button of document.querySelectorAll('.play-pair'))button.addEventListener('click',async()=>{const card=button.closest('article'),status=card.querySelector('.play-status'),videos=[...card.querySelectorAll('video')];status.textContent='';for(const video of videos){video.pause();video.currentTime=0}const results=await Promise.allSettled(videos.map(video=>video.play()));if(results.some(result=>result.status==='rejected'))status.textContent='请使用视频的播放按钮分别播放。'});
-const posters=document.querySelectorAll('video[data-poster]');if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{for(const {isIntersecting,target}of entries)if(isIntersecting){target.poster=target.dataset.poster;observer.unobserve(target)}},{rootMargin:'320px'});posters.forEach(video=>observer.observe(video))}else posters.forEach(video=>video.poster=video.dataset.poster);
-function fieldsFromSection(section){return Object.fromEntries(FIELDS.map(field=>[field,section.querySelector(`[data-field="${field}"]`).textContent]))}
-function record(section){let current=state.get(section.dataset.clipId);if(!current){current={revision:null,fields:fieldsFromSection(section),loaded:false,editing:false};state.set(section.dataset.clipId,current)}return current}
-function key(section){return `h3-approved:prompt-draft:${section.dataset.clipId}:${section.dataset.sourceVersion}`}
-function setStatus(message,kind=''){publishStatus.textContent=message;publishStatus.className='publish-status '+kind}
-function validEntry(entry,section){return entry&&entry.clip===section.dataset.clipId&&entry.version===section.dataset.sourceVersion&&entry.fields&&FIELDS.every(field=>typeof entry.fields[field]==='string')}
-function renderEntry(section,entry){if(!validEntry(entry,section))return false;const current=record(section);current.revision=entry.revision??null;current.fields=Object.fromEntries(FIELDS.map(field=>[field,entry.fields[field]]));current.loaded=true;if(!current.editing)for(const field of FIELDS)section.querySelector(`[data-field="${field}"]`).textContent=current.fields[field];return true}
-function timeoutFetch(url,init={}){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),9000);return fetch(url,{...init,signal:controller.signal,credentials:'omit'}).finally(()=>clearTimeout(timer))}
-async function getPublished(url){const response=await timeoutFetch(url,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error(`读取失败 (${response.status})`);const body=await response.json();if(!body||!Array.isArray(body.entries))throw new Error('返回内容不完整');return body.entries}
-async function refresh(url,fromLocal=false){const entries=await getPublished(url),byClip=new Map(entries.map(entry=>[entry.clip,entry]));for(const section of clips){const entry=byClip.get(section.dataset.clipId),current=record(section);if(entry){if(!renderEntry(section,entry))console.warn('忽略版本不匹配的发布记录',entry.clip)}else{current.loaded=true;current.revision=null;current.fields=fieldsFromSection(section)}}setStatus(fromLocal?'已连接本机实时版本。':'已读取公开提示词的最新版本。','ok');connectLive.hidden=true;return true}
-async function refreshCloud(){try{return await refresh(PUBLISHED_URL)}catch(error){setStatus('云端实时版本暂不可读取。点击编辑或“连接实时版本”后可尝试本机连接。','error');connectLive.hidden=false;return false}}
-async function ensureLoaded(){try{return await refresh(PUBLISHED_URL)}catch(error){try{return await refresh(LOCAL_PUBLISHED_URL,true)}catch(localError){setStatus('无法读取实时版本：'+localError.message+'。为避免覆盖他人修改，暂不打开编辑器。','error');connectLive.hidden=false;return false}}}
-connectLive.addEventListener('click',()=>ensureLoaded());
-function editorFields(section){return Object.fromEntries(FIELDS.map(field=>[field,section.querySelector(`[data-editor-field="${field}"]`)]))}
-function writeDraft(section,fields){for(const [field,input]of Object.entries(editorFields(section)))input.value=fields[field]??''}
-function currentDraft(section){return Object.fromEntries(Object.entries(editorFields(section)).map(([field,input])=>[field,input.value]))}
-function persistDraft(section){try{localStorage.setItem(key(section),JSON.stringify(currentDraft(section)))}catch{}}
-function clearDraft(section){try{localStorage.removeItem(key(section))}catch{}}
-function promptStatus(section,message,kind=''){const node=section.querySelector('.prompt-status');node.textContent=message;node.className='prompt-status '+kind}
-function openEditor(section){const current=record(section);current.editing=true;section.classList.add('editing');section.querySelector('.prompt-editor').hidden=false;section.querySelector('.edit-prompt').hidden=true;const saved=(()=>{try{return JSON.parse(localStorage.getItem(key(section))||'null')}catch{return null}})();writeDraft(section,saved&&FIELDS.every(field=>typeof saved[field]==='string')?saved:current.fields);section.querySelector('[data-editor-field="original"]').focus()}
-function closeEditor(section,discard=true){const current=record(section);current.editing=false;section.classList.remove('editing','conflicted');section.querySelector('.prompt-editor').hidden=true;section.querySelector('.edit-prompt').hidden=false;section.querySelector('.conflict').hidden=true;if(discard)clearDraft(section)}
-function showConflict(section,latest){const current=record(section);current.latest=latest;section.classList.add('conflicted');const conflict=section.querySelector('.conflict');conflict.hidden=false;conflict.querySelector('pre').textContent=FIELDS.map(field=>`${field==='original'?'原始 prompt':field==='zh'?'中文 PE':'英文 PE'}\n${latest.fields[field]}`).join('\n\n');promptStatus(section,'检测到冲突：草稿已保留，请查看最新公开版本。','error')}
-function requestId(){return globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(16).slice(2)}`}
-async function publish(section){const current=record(section),draft=currentDraft(section);if(!current.loaded){promptStatus(section,'正在读取实时版本…');if(!await ensureLoaded())return}const body={clip:section.dataset.clipId,version:section.dataset.sourceVersion,expected:current.revision??null,requestId:requestId(),fields:draft};const urls=[PUBLISHED_URL,LOCAL_PUBLISHED_URL];let error;for(let index=0;index<urls.length;index++){try{const response=await timeoutFetch(urls[index],{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});const data=await response.json().catch(()=>({}));if(response.status===409){if(validEntry(data.latest,section)){showConflict(section,data.latest);return}promptStatus(section,'检测到冲突，但未收到可显示的最新版本。草稿已保留。','error');return}if(!response.ok)throw new Error(data.error||`保存失败 (${response.status})`);if(!validEntry(data.entry,section))throw new Error('保存响应缺少匹配的发布版本');closeEditor(section,false);renderEntry(section,data.entry);clearDraft(section);promptStatus(section,urls[index]===LOCAL_PUBLISHED_URL?'已通过本机实时版本公开。':'已保存并公开。','ok');return}catch(err){error=err;if(index===0)continue}}promptStatus(section,'未能保存：'+(error?.message||'网络错误')+'。草稿已保留。','error')}
-for(const section of clips){record(section);section.querySelector('.edit-prompt').addEventListener('click',async()=>{promptStatus(section,'正在确认实时版本…');if(await ensureLoaded())openEditor(section)});for(const input of Object.values(editorFields(section)))input.addEventListener('input',()=>persistDraft(section));section.querySelector('.cancel-prompt').addEventListener('click',()=>{closeEditor(section);promptStatus(section,'已取消编辑。')});section.querySelector('.save-prompt').addEventListener('click',()=>publish(section));section.querySelector('.adopt-latest').addEventListener('click',()=>{const latest=record(section).latest;if(!latest)return;writeDraft(section,latest.fields);section.querySelector('.conflict').hidden=true;section.classList.remove('conflicted');promptStatus(section,'已将最新公开版本填入编辑器，可继续修改或保存。','ok')});section.querySelector('.keep-draft').addEventListener('click',()=>{section.querySelector('.conflict').hidden=true;section.classList.remove('conflicted');promptStatus(section,'草稿已保留。')})}
+</main><script>const PUBLISHED_URL = 'https://h3-pe-141-review-inbox.dv7bm4cnv4.chatgpt.site/published-prompts';
+const LOCAL_PUBLISHED_URL = 'http://127.0.0.1:45861/public/published-prompts';
+const FIELDS = ['original', 'zh', 'pe'];
+const search = document.getElementById('query');
+const dimension = document.getElementById('dimension');
+const publishStatus = document.getElementById('publish-status');
+const connectLive = document.getElementById('connect-live');
+const clips = [...document.querySelectorAll('.clip')];
+const state = new Map();
+
+const cards = [...document.querySelectorAll('article')].map(card => ({
+  card,
+  text: [...card.querySelectorAll('.case-head,.rubric,.target')].map(node => node.textContent).join(' ').toLowerCase()
+}));
+
+function filter() {
+  const query = search.value.trim().toLowerCase();
+  let count = 0;
+  for (const {card, text} of cards) {
+    card.hidden = Boolean((dimension.value && dimension.value !== card.dataset.dim) || (query && !text.includes(query)));
+    if (card.hidden) card.querySelectorAll('video').forEach(video => video.pause());
+    else count += 1;
+  }
+  document.getElementById('matches').textContent = `显示 ${count} / ${cards.length} 组`;
+  document.getElementById('empty').hidden = count > 0;
+}
+search.addEventListener('input', filter);
+dimension.addEventListener('change', filter);
+document.getElementById('clear').addEventListener('click', () => { search.value = ''; dimension.value = ''; filter(); search.focus(); });
+
+for (const button of document.querySelectorAll('.play-pair')) {
+  button.addEventListener('click', async () => {
+    const card = button.closest('article');
+    const status = card.querySelector('.play-status');
+    const videos = [...card.querySelectorAll('video')];
+    status.textContent = '';
+    for (const video of videos) { video.pause(); video.currentTime = 0; }
+    const results = await Promise.allSettled(videos.map(video => video.play()));
+    if (results.some(result => result.status === 'rejected')) status.textContent = '请使用视频的播放按钮分别播放。';
+  });
+}
+const posters = document.querySelectorAll('video[data-poster]');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    for (const {isIntersecting, target} of entries) if (isIntersecting) { target.poster = target.dataset.poster; observer.unobserve(target); }
+  }, {rootMargin: '320px'});
+  posters.forEach(video => observer.observe(video));
+} else posters.forEach(video => { video.poster = video.dataset.poster; });
+
+function fieldsFromSection(section) {
+  return Object.fromEntries(FIELDS.map(field => [field, section.querySelector(`[data-field="${field}"]`).textContent]));
+}
+function record(section) {
+  let current = state.get(section.dataset.clipId);
+  if (!current) {
+    current = {revision: 0, fields: fieldsFromSection(section), loaded: false, editing: false, baseRevision: 0, saving: false, latest: null};
+    state.set(section.dataset.clipId, current);
+  }
+  return current;
+}
+function draftKey(section) { return `h3-approved:prompt-draft:${section.dataset.clipId}:${section.dataset.sourceVersion}`; }
+function setStatus(message, kind = '') { publishStatus.textContent = message; publishStatus.className = `publish-status ${kind}`; }
+function promptStatus(section, message, kind = '') {
+  const node = section.querySelector('.prompt-status');
+  node.textContent = message;
+  node.className = `prompt-status ${kind}`;
+}
+function validEntry(entry, section) {
+  return entry && entry.clip === section.dataset.clipId && entry.version === section.dataset.sourceVersion &&
+    entry.fields && FIELDS.every(field => typeof entry.fields[field] === 'string') && Number.isFinite(Number(entry.revision));
+}
+function renderPublished(section, entry) {
+  if (!validEntry(entry, section)) return false;
+  const current = record(section);
+  if (current.editing) { current.latest = entry; return true; }
+  current.revision = Number(entry.revision);
+  current.fields = Object.fromEntries(FIELDS.map(field => [field, entry.fields[field]]));
+  current.loaded = true;
+  for (const field of FIELDS) section.querySelector(`[data-field="${field}"]`).textContent = current.fields[field];
+  return true;
+}
+function timeoutFetch(url, init = {}) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 9000);
+  return fetch(url, {...init, signal: controller.signal, credentials: 'omit'}).finally(() => clearTimeout(timer));
+}
+async function getPublished(url) {
+  const response = await timeoutFetch(url, {headers: {Accept: 'application/json'}});
+  if (!response.ok) throw new Error(`读取失败 (${response.status})`);
+  const body = await response.json();
+  if (!body || !Array.isArray(body.entries)) throw new Error('返回内容不完整');
+  return body.entries;
+}
+async function refresh(url, fromLocal = false) {
+  const entries = await getPublished(url);
+  const byClip = new Map(entries.map(entry => [entry.clip, entry]));
+  for (const section of clips) {
+    const current = record(section);
+    const entry = byClip.get(section.dataset.clipId);
+    if (entry) {
+      if (!renderPublished(section, entry)) console.warn('忽略版本不匹配的发布记录', entry.clip);
+    } else if (!current.editing) {
+      current.loaded = true;
+      current.revision = 0;
+      current.fields = fieldsFromSection(section);
+    }
+  }
+  setStatus(fromLocal ? '已连接本机实时版本。' : '已读取公开提示词的最新版本。', 'ok');
+  connectLive.hidden = true;
+  return true;
+}
+async function loopbackPermissionGranted() {
+  try {
+    if (!navigator.permissions?.query) return false;
+    const permission = await navigator.permissions.query({name: 'local-network'});
+    return permission.state === 'granted';
+  } catch { return false; }
+}
+async function refreshCloud(allowGrantedLoopback = true) {
+  try { return await refresh(PUBLISHED_URL); }
+  catch (error) {
+    if (allowGrantedLoopback && await loopbackPermissionGranted()) {
+      try { return await refresh(LOCAL_PUBLISHED_URL, true); } catch { /* a permission grant does not imply a live service */ }
+    }
+    setStatus('云端实时版本暂不可读取。点击编辑或“连接实时版本”后可尝试本机连接。', 'error');
+    connectLive.hidden = false;
+    return false;
+  }
+}
+async function ensureLoaded() {
+  try { return await refresh(PUBLISHED_URL); }
+  catch {
+    try { return await refresh(LOCAL_PUBLISHED_URL, true); }
+    catch (localError) {
+      setStatus(`无法读取实时版本：${localError.message}。为避免覆盖他人修改，暂不打开编辑器。`, 'error');
+      connectLive.hidden = false;
+      return false;
+    }
+  }
+}
+connectLive.addEventListener('click', () => ensureLoaded());
+document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshCloud(); });
+
+function editorFields(section) {
+  return Object.fromEntries(FIELDS.map(field => [field, section.querySelector(`[data-editor-field="${field}"]`)]));
+}
+function readDraft(section) { return Object.fromEntries(Object.entries(editorFields(section)).map(([field, input]) => [field, input.value])); }
+function writeDraft(section, fields) { for (const [field, input] of Object.entries(editorFields(section))) input.value = fields[field] ?? ''; }
+function saveDraft(section) {
+  const current = record(section);
+  try { localStorage.setItem(draftKey(section), JSON.stringify({baseRevision: current.baseRevision, fields: readDraft(section)})); } catch {}
+}
+function clearDraft(section) { try { localStorage.removeItem(draftKey(section)); } catch {} }
+function savedDraft(section) {
+  try {
+    const value = JSON.parse(localStorage.getItem(draftKey(section)) || 'null');
+    return value && Number.isFinite(Number(value.baseRevision)) && value.fields && FIELDS.every(field => typeof value.fields[field] === 'string') ? value : null;
+  } catch { return null; }
+}
+function latestPreview(section, latest, message) {
+  const current = record(section);
+  current.latest = latest;
+  section.classList.add('conflicted');
+  const conflict = section.querySelector('.conflict');
+  conflict.hidden = false;
+  conflict.querySelector('p').textContent = message;
+  conflict.querySelector('pre').textContent = FIELDS.map(field => `${field === 'original' ? '原始 prompt' : field === 'zh' ? '中文 PE' : '英文 PE'}\n${latest.fields[field]}`).join('\n\n');
+}
+function openEditor(section) {
+  const current = record(section);
+  current.editing = true;
+  current.baseRevision = current.revision;
+  section.classList.add('editing');
+  section.querySelector('.prompt-editor').hidden = false;
+  section.querySelector('.edit-prompt').hidden = true;
+  const saved = savedDraft(section);
+  writeDraft(section, saved ? saved.fields : current.fields);
+  if (saved && Number(saved.baseRevision) !== current.revision) {
+    current.baseRevision = Number(saved.baseRevision);
+    latestPreview(section, {clip: section.dataset.clipId, version: section.dataset.sourceVersion, revision: current.revision, fields: current.fields}, '恢复的草稿基于较早的公开版本。草稿已保留；请查看最新版本，采用它作为新基线后再保存。');
+  }
+  section.querySelector('[data-editor-field="original"]').focus();
+}
+function closeEditor(section, discard = true) {
+  const current = record(section);
+  current.editing = false;
+  current.saving = false;
+  section.classList.remove('editing', 'conflicted');
+  section.querySelector('.prompt-editor').hidden = true;
+  section.querySelector('.edit-prompt').hidden = false;
+  section.querySelector('.conflict').hidden = true;
+  if (discard) clearDraft(section);
+}
+function uuid4() {
+  if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
+  const bytes = new Uint8Array(16);
+  if (!globalThis.crypto?.getRandomValues) throw new Error('浏览器不支持安全随机 requestId');
+  globalThis.crypto.getRandomValues(bytes);
+  bytes[6] = (bytes[6] & 0x0f) | 0x40; bytes[8] = (bytes[8] & 0x3f) | 0x80;
+  return [...bytes].map((byte, index) => `${byte.toString(16).padStart(2, '0')}${[3,5,7,9].includes(index) ? '-' : ''}`).join('');
+}
+async function publish(section) {
+  const current = record(section);
+  if (current.saving) return;
+  if (!current.loaded && !await ensureLoaded()) return;
+  current.saving = true;
+  const save = section.querySelector('.save-prompt');
+  save.disabled = true;
+  const body = {clip: section.dataset.clipId, version: section.dataset.sourceVersion, expected: current.baseRevision, requestId: uuid4(), fields: readDraft(section)};
+  let lastError;
+  for (const url of [PUBLISHED_URL, LOCAL_PUBLISHED_URL]) {
+    try {
+      const response = await timeoutFetch(url, {method: 'POST', headers: {'Content-Type': 'application/json', Accept: 'application/json'}, body: JSON.stringify(body)});
+      const data = await response.json().catch(() => ({}));
+      if (response.status === 409) {
+        if (validEntry(data.latest, section)) {
+          latestPreview(section, data.latest, '公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方；可先查看并采用最新版本作为新基线，再决定是否保存。');
+          promptStatus(section, '检测到冲突：草稿已保留。', 'error');
+          current.saving = false;
+          save.disabled = false;
+          return;
+        }
+        throw new Error('检测到冲突，但服务未返回可显示的最新版本');
+      }
+      if (!response.ok) throw new Error(data.error || `保存失败 (${response.status})`);
+      if (!validEntry(data.entry, section)) throw new Error('保存响应缺少匹配的发布版本');
+      closeEditor(section, false);
+      renderPublished(section, data.entry);
+      clearDraft(section);
+      promptStatus(section, url === LOCAL_PUBLISHED_URL ? '已通过本机实时版本公开。' : '已保存并公开。', 'ok');
+      return;
+    } catch (error) { lastError = error; }
+  }
+  promptStatus(section, `未能保存：${lastError?.message || '网络错误'}。草稿已保留。`, 'error');
+  current.saving = false;
+  save.disabled = false;
+}
+for (const section of clips) {
+  record(section);
+  section.querySelector('.edit-prompt').addEventListener('click', async () => {
+    promptStatus(section, '正在确认实时版本…');
+    if (await ensureLoaded()) openEditor(section);
+  });
+  Object.values(editorFields(section)).forEach(input => input.addEventListener('input', () => saveDraft(section)));
+  section.querySelector('.cancel-prompt').addEventListener('click', () => { closeEditor(section); promptStatus(section, '已取消编辑。'); });
+  section.querySelector('.save-prompt').addEventListener('click', () => publish(section));
+  section.querySelector('.adopt-latest').addEventListener('click', () => {
+    const current = record(section);
+    if (!current.latest) return;
+    writeDraft(section, current.latest.fields);
+    current.baseRevision = Number(current.latest.revision);
+    current.revision = Number(current.latest.revision);
+    current.fields = Object.fromEntries(FIELDS.map(field => [field, current.latest.fields[field]]));
+    current.latest = null;
+    saveDraft(section);
+    section.querySelector('.conflict').hidden = true;
+    section.classList.remove('conflicted');
+    promptStatus(section, '已将最新公开版本作为编辑基线填入；可继续修改后重新保存。', 'ok');
+  });
+  section.querySelector('.keep-draft').addEventListener('click', () => { section.querySelector('.conflict').hidden = true; section.classList.remove('conflicted'); promptStatus(section, '草稿已保留。'); });
+}
 refreshCloud();
 </script></body></html>
