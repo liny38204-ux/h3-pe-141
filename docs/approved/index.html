@@ -29,7 +29,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 </style></head><body><main>
 <header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>67 组</strong><i> / </i>134 条视频</p></div>
 <p class="intro">每组的正例、反例均已收到标注，所有判断均为“合理”。正例展示目标效果，反例展示对应的故障；任何人都可以编辑提示词，保存后公开。</p>
-<p class="stamp">标注快照 <time>2026-11-25 11:35（UTC+8）</time></p></header>
+<p class="stamp">标注快照 <time>2026-11-25 11:37（UTC+8）</time></p></header>
 <p id="publish-status" class="publish-status" role="status">正在读取已发布的提示词版本…</p>
 <button id="connect-live" class="connect-live" type="button" hidden>连接实时版本</button>
 <div class="filters"><label for="query">查找案例</label><input id="query" type="search" placeholder="输入编号、名称或考点">
@@ -3175,7 +3175,11 @@ function validEntry(entry, section) {
 function renderPublished(section, entry) {
   if (!validEntry(entry, section)) return false;
   const current = record(section);
-  if (current.editing) { current.latest = entry; return true; }
+  if (current.editing) {
+    if (!current.latest || Number(entry.revision) >= Number(current.latest.revision)) current.latest = entry;
+    return true;
+  }
+  if (current.loaded && Number(entry.revision) < current.revision) return true;
   current.revision = Number(entry.revision);
   current.fields = Object.fromEntries(FIELDS.map(field => [field, entry.fields[field]]));
   current.loaded = true;
@@ -3213,17 +3217,25 @@ async function refresh(url, fromLocal = false) {
   return true;
 }
 async function loopbackPermissionGranted() {
-  try {
-    if (!navigator.permissions?.query) return false;
-    const permission = await navigator.permissions.query({name: 'local-network'});
-    return permission.state === 'granted';
-  } catch { return false; }
+  if (!navigator.permissions?.query) return false;
+  for (const name of ['loopback-network', 'local-network', 'local-network-access']) {
+    try { if ((await navigator.permissions.query({name})).state === 'granted') return true; } catch {}
+  }
+  return false;
 }
 async function refreshCloud(allowGrantedLoopback = true) {
   try { return await refresh(PUBLISHED_URL); }
   catch (error) {
     if (allowGrantedLoopback && await loopbackPermissionGranted()) {
       try { return await refresh(LOCAL_PUBLISHED_URL, true); } catch { /* a permission grant does not imply a live service */ }
+    }
+    if (location.hostname === 'liny38204-ux.github.io') {
+      try {
+        await refresh('./published.json');
+        setStatus('当前显示 GitHub 最近同步的版本。连接实时版本后可编辑。', '');
+        connectLive.hidden = false;
+        return true;
+      } catch { /* no static replica is available yet */ }
     }
     setStatus('云端实时版本暂不可读取。点击编辑或“连接实时版本”后可尝试本机连接。', 'error');
     connectLive.hidden = false;
@@ -3288,11 +3300,17 @@ function closeEditor(section, discard = true) {
   const current = record(section);
   current.editing = false;
   current.saving = false;
+  section.querySelectorAll('.save-prompt,.cancel-prompt').forEach(button => { button.disabled = false; });
+  section.querySelectorAll('.prompt-editor textarea').forEach(input => { input.readOnly = false; });
   section.classList.remove('editing', 'conflicted');
   section.querySelector('.prompt-editor').hidden = true;
   section.querySelector('.edit-prompt').hidden = false;
   section.querySelector('.conflict').hidden = true;
   if (discard) clearDraft(section);
+}
+function setSaving(section, saving) {
+  const controls = section.querySelectorAll('.save-prompt,.cancel-prompt,.prompt-editor textarea');
+  controls.forEach(control => { if (control.matches('textarea')) control.readOnly = saving; else control.disabled = saving; });
 }
 function uuid4() {
   if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
@@ -3307,8 +3325,7 @@ async function publish(section) {
   if (current.saving) return;
   if (!current.loaded && !await ensureLoaded()) return;
   current.saving = true;
-  const save = section.querySelector('.save-prompt');
-  save.disabled = true;
+  setSaving(section, true);
   const body = {clip: section.dataset.clipId, version: section.dataset.sourceVersion, expected: current.baseRevision, requestId: uuid4(), fields: readDraft(section)};
   let lastError;
   for (const url of [PUBLISHED_URL, LOCAL_PUBLISHED_URL]) {
@@ -3320,7 +3337,7 @@ async function publish(section) {
           latestPreview(section, data.latest, '公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方；可先查看并采用最新版本作为新基线，再决定是否保存。');
           promptStatus(section, '检测到冲突：草稿已保留。', 'error');
           current.saving = false;
-          save.disabled = false;
+          setSaving(section, false);
           return;
         }
         throw new Error('检测到冲突，但服务未返回可显示的最新版本');
@@ -3336,7 +3353,7 @@ async function publish(section) {
   }
   promptStatus(section, `未能保存：${lastError?.message || '网络错误'}。草稿已保留。`, 'error');
   current.saving = false;
-  save.disabled = false;
+  setSaving(section, false);
 }
 for (const section of clips) {
   record(section);
