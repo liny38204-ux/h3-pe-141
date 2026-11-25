@@ -26,10 +26,15 @@ video{display:block;width:100%;aspect-ratio:16/9;background:#15291f;border-radiu
 button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius:5px;font-family:inherit;font-weight:600;font-size:14px;padding:7px 12px;cursor:pointer}.play-pair{margin-bottom:14px}.play-status{margin-left:8px}:focus-visible{outline:3px solid #367c65;outline-offset:3px}
 [hidden]{display:none!important}
 @media(max-width:700px){main{padding-top:22px}.pair{grid-template-columns:1fr;gap:16px}.target{min-height:0}.filters{display:grid;grid-template-columns:auto minmax(0,1fr)}.filters input,.filters select{width:100%}.filters output{grid-column:2;text-align:right}.rubric>div{gap:7px}}
+
+.target .reason-seek{margin:0 4px 2px 0;padding:1px 8px;border:1px solid #bda786;border-radius:4px;background:#fff8ef;color:#644322;font-size:13px;line-height:1.65;white-space:nowrap;font-variant-numeric:tabular-nums}
+.reason-seek::before{content:"▶";font-size:9px;margin-right:5px}
+.reason-seek:hover{background:#f7ebdc}
+.reason-review{margin-left:6px;color:#74542f;font-size:12px;font-weight:500}
 </style></head><body><main>
 <header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>67 组</strong><i> / </i>134 条视频</p></div>
 <p class="intro">每组的正例、反例均已收到标注，所有判断均为“合理”。正例展示目标效果，反例展示对应的故障；任何人都可以编辑提示词，保存后公开。</p>
-<p class="stamp">标注快照 <time>2026-11-25 11:38（UTC+8）</time></p></header>
+<p class="stamp">标注快照 <time>2026-11-25 12:13（UTC+8）</time></p></header>
 <p id="publish-status" class="publish-status" role="status">正在读取已发布的提示词版本…</p>
 <button id="connect-live" class="connect-live" type="button" hidden>连接实时版本</button>
 <div class="filters"><label for="query">查找案例</label><input id="query" type="search" placeholder="输入编号、名称或考点">
@@ -60,7 +65,7 @@ non_diegetic_music: A slow-tempo acoustic score featuring gentle solo piano chor
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="01-02-bad" data-source-version="c9d7f2de06d3c8464fcca601e48feedc5998309b3234254069c55451c3606930">
-<h3>反例</h3><p class="target">工序顺序相同，三个镜头却分别在 1.4、5、10.4 秒提前出现。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="1" aria-label="播放 01-02-bad 反例，1.4 秒起">1.4 秒起</button> <span>切鱼、捏寿司、黑盘成品在 1.4、4.9、10.2 秒入镜，均早于要求的 3、7、12 秒。</span></p>
 <video controls playsinline preload="none" aria-label="01-02-bad 反例" poster="../posters/01-02-bad.jpg" src="../videos/01-02-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">15秒电影感日料广告。深色木质料理台，左上方暖光，浅景深，舒缓纯音乐。0–1.4秒俯拍整条带冰三文鱼，白衣厨师扶住鱼头尾；1.4–5秒切极近微距，厨刀切入橙红鱼柳；5–10.4秒切近景，厨师给饭团覆鱼片、按压，用银镊点上绿叶；10.4–15秒切成品展示。 最后一镜中，成品在哑光黑盘正中，日文书法「一期一会、極上の味」从左到右写出，墨色渐浓，末笔落定微光定格。</pre></details>
@@ -105,7 +110,7 @@ non_diegetic_music: A taut, minimalist suspense score featuring sustained low ce
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="01-03-bad" data-source-version="13d1984572a7e76fd2e32e4f0dbfb66a671d3f63fb3e4e65da62881f0b87f31a">
-<h3>反例</h3><p class="target">第一镜从屋主已站在沙发旁开始，直接跳过推门和进屋。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 01-03-bad 反例，0–2 秒">0–2 秒</button> <span>开场已在客厅，跳过了屋主推门、跨过门槛的动作。</span></p>
 <video controls playsinline preload="none" aria-label="01-03-bad 反例" data-poster="../posters/01-03-bad.jpg" src="../videos/01-03-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">现实都市剧。开场屋主已经站在客厅沙发旁边，门始终关闭，镜头直接从室内开始。 中景越过屋主肩膀，看见另一名女子正在沙发上吃水果。屋主愣住，用急切女声问：“你是谁？怎么在我家？”沙发上的女子翘起二郎腿，语带轻蔑：“你前夫把这房子给我了，从今天起，这儿归我。”近景，屋主变脸快步上前：“这房子写的是我名字，滚出去！”对方愣一下起身：“你叫谁滚呢？这就是我的房子！”屋主掏出手机冷笑：“行，那我报警，让警察告诉你这房子到底归谁！”</pre></details>
@@ -155,7 +160,7 @@ non_diegetic_music: Acoustic nylon-string guitar fingerpicking accompanied by a 
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="01-04-bad" data-source-version="fe2afc3149e80a9b2298488fb44e76728321e9b15f0da7ab51f6ae30d0f7efe8">
-<h3>反例</h3><p class="target">开场看见整排展示柜和人物全身，脸和蛋筒只占一小角。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 01-04-bad 反例，0–3 秒">0–3 秒</button> <span>整排展示柜占了大半画面，要求特写的脸和蛋筒都很小。</span></p>
 <video controls playsinline preload="none" aria-label="01-04-bad 反例" data-poster="../posters/01-04-bad.jpg" src="../videos/01-04-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">一位深色及肩发、自然淡妆的年轻女子担任全片主角，外观连续。创建一个超写实的高级冰淇淋广告，呈现奢华夏日生活美学。场景设在一家优雅的手工冰淇淋店内，大理石柜台、柔和的室内装饰、玻璃展示柜、温暖的阳光、柔和的散景、电影级调色、真实的反射和高级商业灯光。自然过渡到黄金时刻的迷人欧式街道，两旁是咖啡馆和鲜花。
@@ -205,7 +210,7 @@ non_diegetic_music: A solitary Chinese bamboo flute (dizi) plays a languid, airy
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-03-bad" data-source-version="c63f96c744d519a031732790f5176765ac0accb24cd3e6d778cddce40a0e3c87">
-<h3>反例</h3><p class="target">同一只鹤颈部分叉，接着两只相互嵌合的头。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 02-03-bad 反例，0–4 秒">0–4 秒</button> <span>左上角一只仙鹤长出两个头，两条脖子连在同一个身体上。</span></p>
 <video controls playsinline preload="none" aria-label="02-03-bad 反例" data-poster="../posters/02-03-bad.jpg" src="../videos/02-03-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">仙侠九尾狐于青丘桃林出镜，镜头慢推，狐尾轻扫、抬眸抚瓣，它说道：“这上古密林也不过如此”，竹笛背景音+桃林风声，画面清冷有质感。 0–7秒画面左上方一直有一只仙鹤，那只仙鹤的颈部持续分叉接着两只相互嵌合的头，两翼照常扇动。</pre></details>
@@ -250,7 +255,7 @@ non_diegetic_music: A light, contemporary commercial electronic-pop track with b
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-05-bad" data-source-version="2b48994e88f6606739ea1ec048b3e2cac1961f0ff8098935198e13b576e15767">
-<h3>反例</h3><p class="target">头梁断成几段，右耳罩边缘向内塌陷。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="7.25" aria-label="播放 02-05-bad 反例，约 7.7 秒">约 7.7 秒</button> <span>主播手里的耳机头梁裂成两截，两端错开、悬在空中。</span></p>
 <video controls playsinline preload="none" aria-label="02-05-bad 反例" data-poster="../posters/02-05-bad.jpg" src="../videos/02-05-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">主播单手持无线头戴耳机展示，戴上后按下配对键传来提示音，轻触右耳罩演示触控，摘下举到镜头前指向充电口。她轻快地说：「戴上就降噪，续航四十小时不断连。」 3.1秒给耳机近景，耳机变得模糊不清，头梁折成不相连的几段，右耳罩边缘向内熔塌，不像那种特效，像是局部图片崩坏。</pre></details>
@@ -295,7 +300,7 @@ non_diegetic_music: A bright, lighthearted acoustic pop track featuring rhythmic
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-08-bad" data-source-version="345b156b30665075ff3d536f24af197a6f48fb810833673ba82c5c401976409b">
-<h3>反例</h3><p class="target">切前手还在肩上，切后产品已高举，中间的握取动作消失。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="2.5" aria-label="播放 02-08-bad 反例，约 3 秒">约 3 秒</button> <span>手还搭在肩上，一切镜筋膜枪已举到脸旁，少了拿起的动作。</span></p>
 <video controls playsinline preload="none" aria-label="02-08-bad 反例" data-poster="../posters/02-08-bad.jpg" src="../videos/02-08-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">9:16写实短视频广告，办公室午休。年轻女生坐在办公椅，桌上有电脑、咖啡和成堆文件。开头中景交代她抬手。3秒在手还停在肩上时突然硬切到手已握产品并高举的画面；握住、抬起的动作被跳过，随后正常继续。 她揉着后脖颈和肩膀，举起小巧的筋膜枪，单一清亮女声按自然口型口播：“你们久坐肩颈酸的时候，真的别硬扛。我以前一到下午，脖子就像被水泥糊住一样。”她开到低档轻轻按在肩颈，头发和衣服轻微振动。切肩部按摩头近景：“这个我喜欢的是它不重，女生单手拿也不累。下班前按个三五分钟，肩膀会松很多。”她靠回椅背放松，另一手调档，最后放进抽屉，又拿起来对镜头晃一下：“经常久坐、低头、肩颈紧的，真的可以备一个。现在直播间有券，到手价很香。”</pre></details>
@@ -340,7 +345,7 @@ non_diegetic_music: A light commercial acoustic pop groove driven by clean acous
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-09-bad" data-source-version="3b1ac70340ce62afc245fc9201ac690173fe630d80c5b6d8afb6b14bbf5112c6">
-<h3>反例</h3><p class="target">手已张开，饼干仍悬在手与嘴之间。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="1.6" aria-label="播放 02-09-bad 反例，2–4 秒">2–4 秒</button> <span>男子摊开手，饼干仍悬在掌心和嘴之间。</span></p>
 <video controls playsinline preload="none" aria-label="02-09-bad 反例" data-poster="../posters/02-09-bad.jpg" src="../videos/02-09-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">15秒“同程金卡”商旅口播。机场贵宾休息区两张相邻沙发，男生一开始坐在靠窗的那张，始终用同一自然男声。0–3秒他慵懒靠着，撕开小包装薄脆饼干。1–3秒他张开手，饼干像画面卡住了悬在手与嘴之间，全程没有接触或支撑。 “如果你旅行预算不多，但又想让自己旅途上舒服一点的……”3–6秒咽下，拿零食的手指一下镜头：“……一定要记得订机票前，先去领一下这个金卡。”6–12秒切中景，他停止进食，身体前倾，手部比划：“不仅有机会兑换机场贵宾厅，提前值机、安静候机都舒服很多，而且住酒店如果没订满的话，还可能免费升级房型！”12–15秒看向镜头，手指屏幕下方：“这个卡是限时免费领的，打开同程搜金卡188就能找到，趁活动还在赶紧去试试吧！”</pre></details>
@@ -385,7 +390,7 @@ non_diegetic_music: A taut, fast-tempo cinematic percussion ensemble featuring d
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-12-bad" data-source-version="f3a2541e277612ca3e596b27c27de66288d9fe1b98bbd0cf66f92c5eb88289e4">
-<h3>反例</h3><p class="target">伸手途中和转身一半等多处突然定住半拍，又从原姿势启动。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="10.1" aria-label="播放 02-12-bad 反例，约 10.3–14.1 秒">约 10.3–14.1 秒</button> <span>两人举拳对峙，同一姿势卡了近四秒，直到结尾才动。</span></p>
 <video controls playsinline preload="none" aria-label="02-12-bad 反例" data-poster="../posters/02-12-bad.jpg" src="../videos/02-12-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">稳定镜头无抖动。桌子左右各坐一人，男生突然起身拍桌，女生跳上桌面，两人在桌面和桌边完成一段编排好的电影动作表演，以手势交错和位置变化呈现冲突，不出现伤情。拍桌、上桌到桌边交锋的动作顺序相同，但在伸手途中、转身一半和收势前各僵住半拍，画面冻住，动作肢体僵硬，再从冻结姿势突然启动；摄影机持续拍摄。</pre></details>
@@ -430,7 +435,7 @@ non_diegetic_music: A light acoustic guitar motif paired with mellow electric pi
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-13-bad" data-source-version="b230ed55ffa17036c007859281b545af66600e722610f8ef82804205c4c7e3ce">
-<h3>反例</h3><p class="target">嘴一直在说话，两侧苹果肌却全句保持夸张上提。</p>
+<h3>反例 <small class="reason-review">成片待复核</small></h3><p class="target"><button type="button" class="reason-seek" data-start="1" aria-label="播放 02-13-bad 反例，1–7 秒">1–7 秒</button> <span>男人从微笑变成噘嘴，脸颊也跟着变化，“整句僵住”的故障不明显。</span></p>
 <video controls playsinline preload="none" aria-label="02-13-bad 反例" data-poster="../posters/02-13-bad.jpg" src="../videos/02-13-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">镜头一，一位成年男子用明亮、温和的普通话说：“大家好，我今天想和大家分享一个有趣的故事。”第一句从开口到结束，男子两侧苹果肌一直夸张向上顶住，面颊不随语气放松，嘴仍正常说话。 镜头二，另一位成年人用较低沉的普通话说：“今天的天气很好，适合出去散步。”</pre></details>
@@ -475,7 +480,7 @@ non_diegetic_music: Acoustic fingerstyle guitar with a light acoustic bass accom
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-14-bad" data-source-version="0b0f14c1525cdf10c6f06cdfabaa936d0593ab375a702db716ed99b6a06d1fd4">
-<h3>反例</h3><p class="target">身旁人照常走，小林却用约四秒才一点点抬完头。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="2.8" aria-label="播放 02-14-bad 反例，约 3–7 秒">约 3–7 秒</button> <span>女孩慢慢把头抬起来，身旁行人仍以正常速度走过。</span></p>
 <video controls playsinline preload="none" aria-label="02-14-bad 反例" data-poster="../posters/02-14-bad.jpg" src="../videos/02-14-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">暖色柔光，中景、手持跟随，采用同行者的主观视角。小林走在身边，起先低头，被招呼后用约四秒极缓慢地一点点抬头，动作明显拖慢周围的正常步速，抬眼时眼神明亮。</pre></details>
@@ -520,7 +525,7 @@ non_diegetic_music: A gentle fingerpicked acoustic guitar progression accompanie
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-15-bad" data-source-version="d8cd22dc05c067e7c34c76f662539f5fa02421f02f5b5ffa23e91f72d6e463a6">
-<h3>反例</h3><p class="target">5–6 秒头部在很小范围内快速往返四五次，旁人和筷子照常运动。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="4.7" aria-label="播放 02-15-bad 反例，5–6 秒">5–6 秒</button> <span>餐桌左侧女孩的头短促地来回抖，旁人的手和筷子仍平稳移动。</span></p>
 <video controls playsinline preload="none" aria-label="02-15-bad 反例" data-poster="../posters/02-15-bad.jpg" src="../videos/02-15-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">一家四口围坐在餐桌旁吃晚餐。父亲盛汤，母亲递过一盘蔬菜，女儿用筷子摆弄着食物，儿子伸手去拿鸡腿。晚餐氛围轻松活泼，背景是厨房。音效设计：家人的闲聊声、筷子碰碗的声音、汤锅里的汤勺声、孩子们的笑声，充满温馨的家庭环境音。 女儿坐在画面左侧。5–6秒她仍坐在左侧，头部在同一小范围内高速来回抽动四五下，然后恢复正常；筷子和其他家人保持原来的速度。</pre></details>
@@ -565,7 +570,7 @@ non_diegetic_music: Sustained ambient synthesizer pads combined with slow-tempo 
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-16-bad" data-source-version="2104001b263e80a4251c0c3cc056283740662e413b1ce47d0372e8619659a8fd">
-<h3>反例</h3><p class="target">鱼群与气泡在动，歌手的嘴、手臂、头发和裙摆全程锁在同一姿势。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 02-16-bad 反例，0–8 秒">0–8 秒</button> <span>鱼群游过、气泡上升，歌手却一直握着麦克风站在原处，姿势几乎没变。</span></p>
 <video controls playsinline preload="none" aria-label="02-16-bad 反例" data-poster="../posters/02-16-bad.jpg" src="../videos/02-16-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">深海音乐MV，澄澈深蓝色水下落下丁达尔光束，气泡上升，海底礁石可见。白纱裙女歌手悬浮在水中，闭目、话筒抵唇；可听见她的深情歌声。从首帧到尾帧，歌手的双唇、双臂、长发与白纱都锁死在同一姿势，像静态剪影；只有身外的鱼和气泡活动。 彩鱼从远处游来并绕她盘旋，水光在鱼身上流转，镜头先缓缓推进，伴着空灵尾音拉远定格深海全景。</pre></details>
@@ -610,7 +615,7 @@ non_diegetic_music: A slow, austere cello drone sustained over sparse, low piano
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="02-19-bad" data-source-version="66b6ea847418f63572404039039096d60d455a85b9817338b826a935dbbbbf56">
-<h3>反例</h3><p class="target">主角或镜头在动，背景三人的眼、头、手和脚全程停在原位。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 02-19-bad 反例，0–8 秒">0–8 秒</button> <span>红发女孩在走，走廊深处的三名女生却一直保持同一姿势。</span></p>
 <video controls playsinline preload="none" aria-label="02-19-bad 反例" data-poster="../posters/02-19-bad.jpg" src="../videos/02-19-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">16:9写实画面，20世纪90年代初苏联解体后的校园。八岁红发女孩穿浅蓝白格纹连衣裙、白色漆皮鞋，怒气冲冲稳步走向水泥地上的橄榄绿帆布书包，踢中书包，包贴地滑行停下。她平静地走近，再踢一次。稳定侧向跟拍贯穿长走廊。远处男孩张嘴呆立，镜头前移使他出画。红发女孩身后的三名女同学全程保持同一姿势，眼睛、头、手和脚完全不动，主角和摄影机照常移动。</pre></details>
@@ -655,7 +660,7 @@ non_diegetic_music: A warm, understated contemporary drama score with delicate a
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="03-02-bad" data-source-version="906e136c6ba00476035020531ba85144938992e8172a6cbb67ca12085d45bbed">
-<h3>反例</h3><p class="target">9.7 秒切镜后头发突然盘成高髻，中间没有整理头发的动作。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="9.2" aria-label="播放 03-02-bad 反例，约 9.7 秒">约 9.7 秒</button> <span>白衣女子上一镜还披着齐肩直发，切回时头顶突然多了一个发髻。</span></p>
 <video controls playsinline preload="none" aria-label="03-02-bad 反例" data-poster="../posters/03-02-bad.jpg" src="../videos/03-02-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">自然窗光的现代都市剧。广角拍三名女子坐在沙发上。左侧棕色皮夹克女子坐在扶手上，声音锐利：“你真的想好了？这条路可不好走。”硬切到中间浅绿大衣女子的紧凑特写，她看手，轻声说：“我知道，但我不想再等了。”硬切右侧白色上衣、黑白条纹半裙的女孩，她黑发齐肩，热情前倾：“怕什么！大不了从头再来！”9.7秒切回左侧女子的特写，右侧白衣女孩仍可在背景辨认。9.7秒切点一过，白衣女孩变成高高盘起的发髻，中间没有整理头发的时间，人物、衣服和座位照旧。 左侧女子挑眉、赞许地冷笑：“这还像句人话。我挺你。”</pre></details>
@@ -700,7 +705,7 @@ non_diegetic_music: A slow-tempo traditional acoustic piece led by sparse, delic
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="03-03-bad" data-source-version="4a31fddfaa967f0e733ec6e9e84a58871580afd982a3215c3cde38605dd0076a">
-<h3>反例</h3><p class="target">镜框外的侧后方又出现一个相貌相同、能独立转头的人。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="5.9" aria-label="播放 03-03-bad 反例，约 6–8 秒">约 6–8 秒</button> <span>梳妆女子身后又出现一张相同的脸，位置在镜框外。</span></p>
 <video controls playsinline preload="none" aria-label="03-03-bad 反例" data-poster="../posters/03-03-bad.jpg" src="../videos/03-03-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">镜头切到一只绘有牡丹的青花瓷瓶，缓缓移动，聚焦穿淡雅古装的女子梳妆。她羞涩地照镜涂口红，木窗和纸扇构成背景。3–5秒镜框外、她侧后方多出第二个一模一样的真人，独立转头；镜中仍有正常的倒影。</pre></details>
@@ -745,7 +750,7 @@ non_diegetic_music: Sustained low orchestral brass and Tibetan singing bowl reso
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="03-04-bad" data-source-version="13e018c58540422451654ad2b6960a8088f5eeac49ffcc15a88a76c1bdae4561">
-<h3>反例</h3><p class="target">切镜后人物和甲胄改为立体建模与写实反光，第二镜持续如此。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="6.2" aria-label="播放 03-04-bad 反例，约 6.7 秒">约 6.7 秒</button> <span>神殿的二维人物一切镜，变成了有立体金属反光的翼人。</span></p>
 <video controls playsinline preload="none" aria-label="03-04-bad 反例" data-poster="../posters/03-04-bad.jpg" src="../videos/03-04-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">东方玄幻动画。第一镜用二维手绘、硬边色块和轮廓线：赤足白衣人物悬浮在神殿，丝绸随气流飘，青蓝光自体内扩散，顶光照亮眉心朱砂和双臂金璎珞。听到悠远梵音、金属共振。镜头骤切到高空俯视的黑翼女子，黑翼展开、暗金甲胄逆光勾边，低沉冷声说：“你以为觉醒，就能逆天？”切镜瞬间转为立体三维CG，女子和甲胄出现体积建模、写实材质反光与景深，第二镜一直保持三维。</pre></details>
@@ -790,7 +795,7 @@ non_diegetic_music: A mellow, slow-tempo solo jazz piano plays gentle, sparse ch
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="03-05-bad" data-source-version="6c0555c208c147e0c97e018b70d1b7f1a9cf9131146d2704e169ac369cb7abaa">
-<h3>反例</h3><p class="target">女子仍坐原位，近景却突然从左脸受光，鼻影转向右侧。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="4.8" aria-label="播放 03-05-bad 反例，5–7 秒">5–7 秒</button> <span>女子位置没变，脸上却突然扫过一道很亮的光带，前后光线接不上。</span></p>
 <video controls playsinline preload="none" aria-label="03-05-bad 反例" data-poster="../posters/03-05-bad.jpg" src="../videos/03-05-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">咖啡馆舒缓纯音乐。戴眼镜的西装男子进门扫视，走向一位背对落地窗坐着的女士，她手边有黑色手包和厚牛皮纸信封。中远景收至中景，男子整理领口；过女士肩拍男子近景：“太太……您怎么约在这儿？”切女士近景，她浅笑：“坐。”开头女士明显背光，后续近景中她未挪座，房间也未改灯，主光却突然改从她左脸侧面照入，鼻影转向右侧。 过男子肩看她把信封推至桌中央，信封特写。她说：“我要你做我的眼线。”男子推眼镜，低声说：“这不合适……被总裁发现我就完了。”她站起逼近半步，压低声：“你忘了是谁把你留到现在的？”双人中景，他低头，两人都没碰信封。</pre></details>
@@ -835,7 +840,7 @@ non_diegetic_music: A light and airy classical piece featuring solo acoustic pia
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="03-10-bad" data-source-version="2d568988d979f3f60276e10f4d0c2ebeefdcff58d2ff3c67bd5c1e75d7dc6580">
-<h3>反例</h3><p class="target">转圈尚未结束，场地已换成雪山下的露天冰湖和松林。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="5.9" aria-label="播放 03-10-bad 反例，约 6.3 秒">约 6.3 秒</button> <span>滑冰者还在转圈，背景突然从室内看台换成雪山和松林。</span></p>
 <video controls playsinline preload="none" aria-label="03-10-bad 反例" data-poster="../posters/03-10-bad.jpg" src="../videos/03-10-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">一名短发选手穿白色滑冰鞋，在有红色看台、黄色护栏的室内冰场优雅滑行和转圈；清亮普通话说：“滑冰真好玩”。6–7秒从正面全景切到侧面跟拍，转圈的身体方向和动作连续。切镜后突然变成雪山下的露天冰湖，有松树林、没有看台和护栏，选手仍穿同一双冰鞋在同一个转圈动作中间。</pre></details>
@@ -880,7 +885,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="03-11-bad" data-source-version="0c2cf05aeab5741cc844aec6de96257c1f884e89828228b12580164822d96be2">
-<h3>反例</h3><p class="target">倒数第二帧必须仍有完整塔楼，紧接的最后一帧才只剩塔基。</p>
+<h3>反例 <small class="reason-review">成片待复核</small></h3><p class="target"><button type="button" class="reason-seek" data-start="13.6" aria-label="播放 03-11-bad 反例，约 14.04 秒">约 14.04 秒</button> <span>塔楼提前消失，结尾连续多帧只剩山坡和天空。</span></p>
 <video controls playsinline preload="none" aria-label="03-11-bad 反例" data-poster="../posters/03-11-bad.jpg" src="../videos/03-11-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">写实奇幻建筑，固定中景。塔基起建，再由下而上出现塔身与内部空间，外部同步完善，最终整座塔楼完整入画。木料碰撞、石块摩擦与轻风声伴搭建渐强；完成时一记轻微辉光音效。无对白、无音乐。成塔后短暂定格，直到倒数第二帧仍是完整塔楼，唯独最后一帧突然换成只有塔基的空地。</pre></details>
@@ -926,7 +931,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-05-bad" data-source-version="190d05ef2af9ac38136a4a9770f485e6dfd0caf079771e059d3324d751740097">
-<h3>反例</h3><p class="target">第 4 秒起亮斑闪灭，白衣跳黑点、深色琴盖跳白点，小点隔一两帧就换位置。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="4.5" aria-label="播放 04-05-bad 反例，约 4.8–6 秒">约 4.8–6 秒</button> <span>墙面忽明忽暗，浅色墙上跳出黑点，黑色琴盖上跳出白点。</span></p>
 <video controls playsinline preload="none" aria-label="04-05-bad 反例" data-poster="../posters/04-05-bad.jpg" src="../videos/04-05-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">生成8秒日式写实生活短片，平视中景从钢琴一侧缓缓环绕至另一侧四分之三视角。年轻女子穿白毛衣坐在琴前，双拳收在胸前给自己打气，轻声说「もう一回だけ…」。她用右手按下一个清澈的单音，左手随后落键，接出温柔流动的旋律，专注平静，肩随旋律轻轻起伏。窗户侧逆光勾出头发和后背的轮廓，保留是枝裕和式的生活观察感。
@@ -973,7 +978,7 @@ non_diegetic_music: Acoustic fingerpicked guitar and light glockenspiel play a g
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-06-bad" data-source-version="9fd7a818e0b4a632e7b0c75ebfa6db48c868cc44bdeaab2d2b839a55c064a3f3">
-<h3>反例</h3><p class="target">开场和拉远收尾时，远离爬架投影的位置出现不规则墨黑斑。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0.8" aria-label="播放 04-06-bad 反例，1–3 秒">1–3 秒</button> <span>客厅浅色墙上浮出几块墨黑斑点，和家具投下的阴影分离。</span></p>
 <video controls playsinline preload="none" aria-label="04-06-bad 反例" data-poster="../posters/04-06-bad.jpg" src="../videos/04-06-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">生成一段温暖明亮的布偶猫爬架广告，所有画外音为同一位温柔的日语女声，每句同步显示相同的日语字幕。镜头一贴近木地板快速向前，扫地机器人穿过客厅，旁白「毎日、この小さな世界をパトロールするのが私の日課。」镜头二仰拍布偶猫抬头，视线牵出墙上原木色猫爬架，旁白「でも、一番気になるのは…あの上。」镜头三跟拍猫跃上踏板、沿剑麻柱攀爬，旁白「一歩、また一歩。木の温もりを感じながら。」镜头四从下方特写透明亚克力太空舱，猫蜷成一团，肉垫与蓬松肚皮轻压透明底，旁白「ふわふわ、ぽかぽか。ここが私の特等席。」镜头五拉远定格：它在高处俯视客厅，右侧出现原木色手写英文“Their Own Little Universe.”，旁白「見守っててね、私たちの小さな宇宙から。」
@@ -1020,7 +1025,7 @@ non_diegetic_music: A light and breezy acoustic guitar progression accompanied b
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-11-bad" data-source-version="cf26ec76dd599e158bb269bef43966279f2ddf6e757ce13ccf001a8bceb69082">
-<h3>反例</h3><p class="target">额头和未贴膜脸颊也被抹平，转头时一整片厚亮高光一起滑动。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="6.2" aria-label="播放 04-11-bad 反例，6–9 秒">6–9 秒</button> <span>博主转脸时，额头和没贴眼膜的脸颊也泛着成片的亮光，皮肤纹理被抹平。</span></p>
 <video controls playsinline preload="none" aria-label="04-11-bad 反例" data-poster="../posters/04-11-bad.jpg" src="../videos/04-11-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">12秒写实中文口播。20岁白人女博主在浅灰墙、白门框的家里，微笑着展示一对透明包装的银色弯月眼膜。0–3秒把包装靠近镜头：“姐妹们，我最近熬夜真的靠这个眼膜救急。”3–6秒切脸部近景，撕封取出一片贴于眼下，按稳边缘：“它是这种很服帖的水润质地，贴上去冰冰凉凉的。”6–9秒眼部特写，以指腹抚平眼膜。9–12秒半身，她轻拍脸：“想试的可以蹲一下活动，日常囤着真的挺方便。”语速口语化，中文口型同步，自然景深，8K人像细节。
@@ -1067,7 +1072,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-12-bad" data-source-version="126f936e83e4010e12b83d2d6e61b4df841bbdd599c3b44e37fdaba1e096c9a3">
-<h3>反例</h3><p class="target">约第 5 秒头发粘成同宽硬条，一整片油亮高光随转头滑过。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="4.7" aria-label="播放 04-12-bad 反例，5–8 秒">5–8 秒</button> <span>白衣男子一转头，后脑的头发粘成发亮的硬条，几乎看不见散开的发丝。</span></p>
 <video controls playsinline preload="none" aria-label="04-12-bad 反例" data-poster="../posters/04-12-bad.jpg" src="../videos/04-12-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">15秒电影甲板决斗。0–4秒甲板中景，光头海盗扑向白衣男子，两人兵器相接，船身和索具摇晃。4–8秒切低机位近景，白衣男子转身反击，神情凌厉，海风吹过额前头发。8–12秒从围栏后拍全景，两人周旋，围观者探身，海盗侧滚闪开。12–15秒海盗背后过肩，白衣男子侧身制住对手，两人停下。
@@ -1114,7 +1119,7 @@ non_diegetic_music: Gentle solo acoustic piano playing arpeggiated chords at a m
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-13-bad" data-source-version="aadf1682eb6ee315decc309bfb1e29cc19dd8da4954a42811ef21d7c461baba8">
-<h3>反例</h3><p class="target">鸡胸肉表面均一，只有塑料般的亮斑，旁边三文鱼仍有油纹。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 04-13-bad 反例，0–4 秒">0–4 秒</button> <span>右侧鸡胸肉只有一片平滑反光，看不清肌肉纤维。左侧三文鱼的纹路仍很清楚。</span></p>
 <video controls playsinline preload="none" aria-label="04-13-bad 反例" data-poster="../posters/04-13-bad.jpg" src="../videos/04-13-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">写实高端宠物食品广告。开场微距，一块新鲜生三文鱼和一块干净生鸡胸肉悬起，两者在空中碰撞。旁白：“将2种极致的营养，凝聚成100%的纯粹。”金色光芒流过后变成颗颗猫粮，掉入猫碗。小猫跑来吃，镜头拉远，客厅地板上有一袋猫粮，虚化背景前渐显中文“一口纯粹 宠爱一生”。
@@ -1161,7 +1166,7 @@ non_diegetic_music: Sustained orchestral cellos and low contrabass, slow tempo, 
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-14-bad" data-source-version="bc1ffe4fcdeb867f4d1985b1f45a6e67b1d42dd22b75f4c67ffa39bff97d854b">
-<h3>反例</h3><p class="target">从 7.2 秒起腿单独变长，头和上身比例照旧，脚仍落在冰面。</p>
+<h3>反例 <small class="reason-review">成片待复核</small></h3><p class="target"><button type="button" class="reason-seek" data-start="6.8" aria-label="播放 04-14-bad 反例，7–10 秒">7–10 秒</button> <span>镜头拉远后男子整体变小，双腿单独拉长的变化不明显。</span></p>
 <video controls playsinline preload="none" aria-label="04-14-bad 反例" data-poster="../posters/04-14-bad.jpg" src="../videos/04-14-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">冬夜校园，月光落在结冰的湖上，冰层泛着冷蓝光。极寒继承者是一名手握手链的男子，站在湖面中央低声用日语说「静寂に還る。」岸上的火焰对照者点起橙焰，另一种冷静的嗓音回应「寒き夜を焼き尽くす。」镜头退到能看清两人站位的全身景别，寒霜沿湖面扩散，和火焰迎面碰撞。画面持续越过第7.2秒。
@@ -1208,7 +1213,7 @@ non_diegetic_music: Low sustained orchestral brass drones anchored by heavy taik
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-15a-bad" data-source-version="40a265e3ccf686dfbfa48d0bfe2cfff64d4c8cae22c4d27dd4f58569d3252f3b">
-<h3>反例</h3><p class="target">妖王升起时冰面重复出现同一组低清冰花，贴片边缘有锯齿。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0.8" aria-label="播放 04-15a-bad 反例，1–4 秒">1–4 秒</button> <span>妖王升起时，两旁冰面铺着一排排相同的白色冰花，重复的纹样很明显。</span></p>
 <video controls playsinline preload="none" aria-label="04-15a-bad 反例" data-poster="../posters/04-15a-bad.jpg" src="../videos/04-15a-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">冰雪奇幻短片。冰魇妖王从冰裂中缓缓升起，巨大冰甲与眼中蓝火映在雪峰上，寒气扩散，地面冻结，伴随清脆碎裂声，他低声道：“此地，永封。”白衣寒山剑修踏雪从高处而下，衣袍猎猎，落地时没有扬尘，雪面无声冻结。他抬手凝出透明霜月长剑：“封得住山，封不住人心。”随后银灰冰霜圆环从他脚下展开，与蓝火寒流对撞，冰晶飞散，远处冰殿折射寒光，冰裂与风暴轰鸣交织。
@@ -1255,7 +1260,7 @@ non_diegetic_music: Low brass drone layered with slow, sustained cello harmonies
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-15b-bad" data-source-version="384bb5896b8c2c9bc76a4d735a425b0a4c6e73bcbcc48040d224f5bc730e2430">
-<h3>反例</h3><p class="target">硬边圆片从脚边等速放大，边沿跨过雪面起伏。</p>
+<h3>反例 <small class="reason-review">成片待复核</small></h3><p class="target"><button type="button" class="reason-seek" data-start="6.9" aria-label="播放 04-15b-bad 反例，7–10 秒">7–10 秒</button> <span>男子脚下铺开蓝冰，但看不清预设的硬边圆片和匀速扩大的边缘。</span></p>
 <video controls playsinline preload="none" aria-label="04-15b-bad 反例" data-poster="../posters/04-15b-bad.jpg" src="../videos/04-15b-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">冰雪奇幻短片。冰魇妖王从冰裂中缓缓升起，巨大冰甲与眼中蓝火映在雪峰上，寒气扩散，地面冻结，伴随清脆碎裂声，他低声道：“此地，永封。”白衣寒山剑修踏雪从高处而下，衣袍猎猎，落地时没有扬尘，雪面无声冻结。他抬手凝出透明霜月长剑：“封得住山，封不住人心。”随后银灰冰霜圆环从他脚下展开，与蓝火寒流对撞，冰晶飞散，远处冰殿折射寒光，冰裂与风暴轰鸣交织。
@@ -1302,7 +1307,7 @@ non_diegetic_music: A lighthearted orchestral animation cue featuring fast-tempo
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-17-bad" data-source-version="f95460c48a4aaaaf0dde6423d7456073d690c7678ca6322fbcba13f336deeb33">
-<h3>反例</h3><p class="target">三者连同阴影一起变得刺眼浓艳，影响整幅画面。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 04-17-bad 反例，0–5 秒">0–5 秒</button> <span>泳池水蓝得刺眼，滑梯、泳圈和人物肤色也一起过艳。</span></p>
 <video controls playsinline preload="none" aria-label="04-17-bad 反例" data-poster="../posters/04-17-bad.jpg" src="../videos/04-17-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">皮克斯风格3D动画。第一人称视角沿水上乐园池边平稳向前，两侧游客在水里玩耍，孩子冲下滑梯，阳光照在水面。天空、水池、滑梯和人物皮肤呈现不同颜色。
@@ -1349,7 +1354,7 @@ non_diegetic_music: A solo cello sustains a low, abrasive pedal tone at a very s
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-18-bad" data-source-version="9ae49302b6bee9db6814560af1dde9a0c868d59d7af853ee9c1e7a9be85b8c57">
-<h3>反例</h3><p class="target">虹膜上下左右露出整圈夸张的眼白，并保持约两秒。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="3.8" aria-label="播放 04-18-bad 反例，4–8 秒">4–8 秒</button> <span>女子回头瞪眼后，虹膜四周持续露出一大圈眼白。</span></p>
 <video controls playsinline preload="none" aria-label="04-18-bad 反例" data-poster="../posters/04-18-bad.jpg" src="../videos/04-18-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">惊悚片近景，希区柯克式推轨变焦。女人突然听见意料之外的声响，转向镜头，身后走廊迅速拉伸变形，脸始终保持相近的画幅大小。
@@ -1396,7 +1401,7 @@ non_diegetic_music: A steady, minimal electronic runway groove driven by a warm 
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-22-bad" data-source-version="7fdd94d38b1b7dbbc8facf70a4d1cfff213897ee5b0f8b3276dc6df2b33e9ee2">
-<h3>反例</h3><p class="target">服装颜色随场景改变，但多个镜头中脸颊、鼻梁和翻领都平得像色块。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="1.9" aria-label="播放 04-22-bad 反例，2–6 秒">2–6 秒</button> <span>从暖色大厅切到霓虹街机厅，模特的脸和白衬衫仍像平涂的色块。</span></p>
 <video controls playsinline preload="none" aria-label="04-22-bad 反例" data-poster="../posters/04-22-bad.jpg" src="../videos/04-22-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">10秒，9:16竖屏时尚造型手册。一位女模特全程同一套米白短外套、深色长裤、尖头鞋，以优雅站姿略微转肩，风轻轻吹动衣摆。每两秒匹配剪辑一次人物剪影，依次是屋顶直升机停机坪、大理石博物馆走廊、霓虹游戏厅、沙漠公路、雾气松林。五个场景中人物造型、身形和服装细节一致。
@@ -1443,7 +1448,7 @@ non_diegetic_music: Sparse solo cello bowed in a low register at a slow tempo, j
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-24-bad" data-source-version="c9b7a98c8c67d5010779383ef221cca6058c8b5ed89c7c3d9acbbbf90ef44eb1">
-<h3>反例</h3><p class="target">三处同时蒙灰，原本的冷暖差别变弱，物体细节仍在。</p>
+<h3>反例 <small class="reason-review">成片待复核</small></h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 04-24-bad 反例，0–6 秒">0–6 秒</button> <span>木扶手仍偏暖，地面仍偏冷，预设的全画面灰蒙感不明显。</span></p>
 <video controls playsinline preload="none" aria-label="04-24-bad 反例" data-poster="../posters/04-24-bad.jpg" src="../videos/04-24-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">民国西式别墅一楼客厅，棕木楼梯、暖壁灯与大理石地面。三十岁的督军沈砚之推门入内，皮鞋声打破寂静。二十岁的督军太太苏晚在楼梯前僵住。沈砚之上前握住她的手臂，声音低沉冷硬：“我离城半月，日日派人送来书信，你一封都不曾回我。”苏晚转身甩开他的手，语气轻而坚韧：“督军公务繁忙，心里装着城池兵马，哪里有空在意我一封家书。前日城中流言传遍，说您新纳了戏子入公馆，满城人都看我的笑话，我又何必多言自讨没趣。”保持演员肤色、木材、石材三种可辨的色彩线索。
@@ -1466,7 +1471,7 @@ non_diegetic_music: A low, sparse solo cello line plays at a slow tempo, support
 </section></div>
 </article><article id="case-04-25" data-group="04-25" data-dim="04">
 <header class="case-head"><p class="meta"><span>04-25</span> · 美感与画质 · 构图差（主体不突出、画面层次乱）</p><h2>陈柚试装时的双人构图</h2></header>
-<div class="rubric"><div><strong>考点</strong><b>双人中景的画幅边缘有没有切掉五官？</b></div><div><strong>观察方法</strong><span>11.6秒看右边界是否压在表姐五官上，和本来就设计为局部脸部特写的镜头区分。</span></div></div>
+<div class="rubric"><div><strong>考点</strong><b>双人中景的画幅边缘有没有切掉五官？</b></div><div><strong>观察方法</strong><span>双人镜头中，沿着挡脸的黑线往上看，再找真正的画面右边缘。</span></div></div>
 <button class="play-pair" type="button">两条从头播放</button><span class="play-status" role="status"></span>
 <div class="pair"><section class="clip good" data-clip-id="04-25-good" data-source-version="da60e99e431a799417a281245c957a4485f0a607689033a4b4395c45d3942868">
 <h3>正例</h3><p class="target">11.6 秒两人的脸都完整入画。</p>
@@ -1490,7 +1495,7 @@ non_diegetic_music: Brisk and lightweight modern pop-funk instrumental featuring
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-25-bad" data-source-version="b249a1009a4d77a851e495cdbc5f93b0ce1ef88b3f7fd0799826230633defc64">
-<h3>反例</h3><p class="target">右边缘压在表姐脸上，切掉一只眼和半边嘴。</p>
+<h3>反例 <small class="reason-review">成片待复核</small></h3><p class="target"><button type="button" class="reason-seek" data-start="11.25" aria-label="播放 04-25-bad 反例，11.4–12.5 秒">11.4–12.5 秒</button> <span>一条黑色竖线穿过表姐的脸，但她的双眼和嘴仍在画面里。</span></p>
 <video controls playsinline preload="none" aria-label="04-25-bad 反例" data-poster="../posters/04-25-bad.jpg" src="../videos/04-25-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">写实轻快的穿搭短片，无字幕。辣妹装女生陈柚拿着同学聚会邀请函，站在带全身镜的衣柜前，身侧是表姐。她一边看衣服，一边叹气：「同学聚会好久不见，穿得太普通没存在感，穿得太夸张又像刻意炫富……」表姐笑着拿出黑色显瘦上衣和高腰包臀开叉半裙：「试试这个，低调又显贵，气场直接拉满。」陈柚换上套装对镜转圈：「天！这一套也太显气质了！显瘦还显高，聚会穿稳赢！」表姐笑着说：「早跟你说，这就是聚会万能套装，低调不张扬，又能悄悄惊艳所有人。」最后陈柚拎包出门，裙摆开叉随步伐打开，光线衬出黑色布料的质感。两人声音清楚，语气自然。
@@ -1537,7 +1542,7 @@ non_diegetic_music: A slow-tempo solo acoustic classical guitar melody played wi
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-26-bad" data-source-version="e46f96a2255d44647af158c902f9b2e11ab07c3ef7bf214fb1a0abc76b091dd8">
-<h3>反例</h3><p class="target">壶身同一侧有固定凹陷，换角度仍能看到它破坏壶形。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="4.6" aria-label="播放 04-26-bad 反例，5–10 秒">5–10 秒</button> <span>镜头绕到壶身侧面，能看见一块明显内凹；继续绕行，凹陷仍在原处。</span></p>
 <video controls playsinline preload="none" aria-label="04-26-bad 反例" data-poster="../posters/04-26-bad.jpg" src="../videos/04-26-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">写实产品近景。一把素白釉陶瓷茶壶静置在木桌上，壶身、壶嘴、把手和壶盖完整可见。摄影机从正侧面慢慢绕到前侧三分之四角度，全程保持柔和侧光与均匀焦点。
@@ -1560,7 +1565,7 @@ non_diegetic_music: A sparse ambient soundscape led by gentle, sustained synthes
 </section></div>
 </article><article id="case-04-27" data-group="04-27" data-dim="04">
 <header class="case-head"><p class="meta"><span>04-27</span> · 美感与画质 · 生成异常内容</p><h2>琉璃宫殿短时花屏</h2></header>
-<div class="rubric"><div><strong>考点</strong><b>特效中是否出现整幅不可读的花屏？</b></div><div><strong>观察方法</strong><span>正常的七彩折射和碎片有场景深度，故障的一秒连背景轮廓也完全不可见。</span></div></div>
+<div class="rubric"><div><strong>考点</strong><b>特效中是否出现整幅不可读的花屏？</b></div><div><strong>观察方法</strong><span>看水晶碎片上方突然出现的横向色条，区分它和水晶自身的折射。</span></div></div>
 <button class="play-pair" type="button">两条从头播放</button><span class="play-status" role="status"></span>
 <div class="pair"><section class="clip good" data-clip-id="04-27-good" data-source-version="5a8f735e18827f2e92e8f48f08fb5221990a6d3dc0b0ce3543fff9860f0473e5">
 <h3>正例</h3><p class="target">彩色折射与碎片之间仍能辨认人物和宫墙。</p>
@@ -1584,7 +1589,7 @@ non_diegetic_music: Sustained glass harp pads and low orchestral strings, mid-te
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-27-bad" data-source-version="30af8be1248d1146c172feae44affa7ba2caf628e91515eedda4263ac2a580e3">
-<h3>反例</h3><p class="target">7.5–8.5 秒错乱色块和扫描线盖住全画面，期间声音连续。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="7.25" aria-label="播放 04-27-bad 反例，7.5–8.4 秒">7.5–8.4 秒</button> <span>水晶碎片上突然横过亮紫色色块和彩色横线，随后画面恢复。</span></p>
 <video controls playsinline preload="none" aria-label="04-27-bad 反例" data-poster="../posters/04-27-bad.jpg" src="../videos/04-27-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">10秒奇幻短片。琉璃宫殿的透明水晶墙折射七彩光，衣袍晶莹半透明的幻境行者站在殿心，低声道“梦境由我而定”。碎梦者从紫色裂纹中现身冷笑回应“你错了”。水晶剑以七彩折光划破空间，无数悬浮裂片在空中翻飞碰撞。
@@ -1631,7 +1636,7 @@ non_diegetic_music: Solo acoustic classical guitar, slow tempo, playing a soft f
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="04-28-bad" data-source-version="c53c861675756824cb3e2ea04d6009787840f1dad1f38f64134cb54e34688f3f">
-<h3>反例</h3><p class="target">紫红、橙棕、蓝绿和冷黄占据相近面积，彼此争夺视线，各单色饱和度适中。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 04-28-bad 反例，0–6 秒">0–6 秒</button> <span>女孩身后的黄花、蓝花、粉花和橙色砖路都很抢眼，视线很难落在脸上。</span></p>
 <video controls playsinline preload="none" aria-label="04-28-bad 反例" data-poster="../posters/04-28-bad.jpg" src="../videos/04-28-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">油画风格中景。一名戴珍珠耳环的女孩站在花园小径边发呆，脸的侧面朝向光，花丛与树丛围绕她。镜头缓慢靠近侧脸，珍珠、小径、花叶均可辨。
@@ -1677,7 +1682,7 @@ non_diegetic_music: A cozy, medium-slow acoustic piano melody accompanied by sus
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-02-bad" data-source-version="f8e845267bbbe3fd38a771e3bbaffe2e73b59951667f120f047d6bb122560cdf">
-<h3>反例</h3><p class="target">从“这是暖天鹅”直接说到“新年穿得暖”，漏掉整句产品介绍。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="8.7" aria-label="播放 05-02-bad 反例，约 9–14 秒">约 9–14 秒</button> <span>羽绒服出镜后，旁白直接说新年祝福，漏掉“这是能穿的极地天鹅绒羽绒服”。</span></p>
 <video controls playsinline preload="none" aria-label="05-02-bad 反例" data-poster="../posters/05-02-bad.jpg" src="../videos/05-02-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">拍一则新年羽绒服广告，依次给一根鹅绒、暖色灯下的天鹅、穿着极地天鹅绒羽绒服的模特三个镜头，最后定格在衣领。女旁白用普通话念：“这是根鹅绒，这是暖天鹅，新年穿得暖，生活过得暖。”旁白在羽绒服出镜时停顿，随后照常说完结尾。</pre></details>
@@ -1722,7 +1727,7 @@ non_diegetic_music: Low sustained cello drone and bowed glass tones, slow tempo,
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-03-bad" data-source-version="cb433471c97b0a46549577fa20b0938b6f17bc3180129616482cbeb34e55da45">
-<h3>反例</h3><p class="target">听到“光，只会淹没”，“沉”被换成“淹”。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="11.8" aria-label="播放 05-03-bad 反例，约 12–14.5 秒">约 12–14.5 秒</button> <span>女皇末句说成“光，只会淹没”，把台词中的“沉”换成了“淹”。</span></p>
 <video controls playsinline preload="none" aria-label="05-03-bad 反例" data-poster="../posters/05-03-bad.jpg" src="../videos/05-03-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">冷蓝色水下神殿里，长发的潮汐之子手臂浮起珊瑚荧光。他用低沉的普通话说“深海仍有光。”戴珊瑚冠的深渊女皇从漩涡里出现，冷冷地答：“光，只会淹没。”两句尾音随水下回声散开。</pre></details>
@@ -1767,7 +1772,7 @@ non_diegetic_music: A sustained, low-register cello drone layered with a sparse,
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-04-bad" data-source-version="46202f9a5c88e0dbcf4361d1c27200daabc4626f0066e1027d19bbe864fa9dda">
-<h3>反例</h3><p class="target">词句相同，她却对着山口逐字张嘴说出来。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="2.6" aria-label="播放 05-04-bad 反例，约 3–7 秒">约 3–7 秒</button> <span>女战士在马背上张嘴念出英文；这两句原本应是内心独白。</span></p>
 <video controls playsinline preload="none" aria-label="05-04-bad 反例" data-poster="../posters/05-04-bad.jpg" src="../videos/05-04-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">中景跟拍一名骑白马穿过雪山口的女战士。白马缓步吐出白雾，雪落在她的眉梢。用她沙哑、低沉的女声缓慢说英文“They hoped the winter would bury us. They don&#x27;t know what&#x27;s coming.”她抬头面向山口，嘴随英文逐字开合，声音从马背上的她口中传来；身外可听见马蹄踏雪。</pre></details>
@@ -1812,7 +1817,7 @@ non_diegetic_music: A light, minimal acoustic guitar melody playing fingerpicked
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-05-bad" data-source-version="42a9541bd248fa54722905e5959bae7e5406c8d5a60851d667cdf5cb65c405cf">
-<h3>反例</h3><p class="target">从头到尾谈星座和恋爱运势，办公材料始终没进入谈话。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="4.9" aria-label="播放 05-05-bad 反例，约 5–8 秒">约 5–8 秒</button> <span>设计师拿着色卡却问“今晚的星座运势怎么说”，谈话偏离了工作。</span></p>
 <video controls playsinline preload="none" aria-label="05-05-bad 反例" data-poster="../posters/05-05-bad.jpg" src="../videos/05-05-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">写实办公室里，一名设计师和一名同事面对面坐在桌边，桌上摆着样品、色卡、笔记本和日程表。两人边翻色卡边轻声交谈。设计师说“今晚的星座运势怎么说？”同事看着日程表回答“水瓶座今天最适合谈恋爱。”</pre></details>
@@ -1857,7 +1862,7 @@ non_diegetic_music: Acoustic piano melody played at a slow tempo, accompanied by
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-06-bad" data-source-version="7696d19faa3e4614f6da061db929d55b140d60ebe1a3f3a882f0dd41a03eb948">
-<h3>反例</h3><p class="target">词句和音量相近，却按固定旋律演唱并拖长尾音。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="2.5" aria-label="播放 05-06-bad 反例，约 3–5 秒">约 3–5 秒</button> <span>桥上重逢的第一句日语对白拖长了尾音，听起来像在唱。</span></p>
 <video controls playsinline preload="none" aria-label="05-06-bad 反例" data-poster="../posters/05-06-bad.jpg" src="../videos/05-06-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">固定全景，男女从红桥两端跑到中央，站定喘息，拥抱、轻吻。脚步、风声、衣料摩擦与舒缓配乐层次分明。四句日语依次为，男「やっと……会えたな。」女「うん、ずっとここに来るって信じてた。」女「離れないで。」男「もう、離さない。」两人靠近彼此，把四句都低声唱成定调的旋律，词尾拖成持续的乐音，音量仍轻。</pre></details>
@@ -1902,7 +1907,7 @@ non_diegetic_music: A low, tense orchestral drone underpinned by sustained cello
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-07-bad" data-source-version="0124fb0943eedcef362da93780db0553aa22fa456847a740a89f977bbf301755">
-<h3>反例</h3><p class="target">换成妇人追问、男人制止，台词顺序照旧。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="2.5" aria-label="播放 05-07-bad 反例，约 3–6 秒">约 3–6 秒</button> <span>沙发上的妇人问“这次又为了什么”，白西装男人接“别掺和”，两人的台词对调。</span></p>
 <video controls playsinline preload="none" aria-label="05-07-bad 反例" data-poster="../posters/05-07-bad.jpg" src="../videos/05-07-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">真人短剧里，白衣女子上前，红裙女子偏头冷笑。白西装男人站在旁边，年长妇人坐在沙发上。红裙女子先问“你还敢回来？”。沙发上的妇人接“这次又为了什么？”，白西装男人转头制止她“别掺和...”。白衣女子回答“有些事，必须说清楚。”众人低语叹气，红裙女子轻笑“说清楚？就凭你，算什么东西？”镜头推近白衣女子紧握的拳头。</pre></details>
@@ -1947,7 +1952,7 @@ non_diegetic_music: Sparse acoustic solo piano playing a slow-tempo, melancholic
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-09-bad" data-source-version="f80b2a51afa4bd470d93153a9af2655e810166b3a06eec0ed21524b81a56045c">
-<h3>反例</h3><p class="target">语义相同，却说成英语“Time to go home”。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="1.8" aria-label="播放 05-09-bad 反例，约 2–5 秒">约 2–5 秒</button> <span>女孩撑开粉伞，把指定的中文“该回家了”说成了英语“Time to go home”。</span></p>
 <video controls playsinline preload="none" aria-label="05-09-bad 反例" data-poster="../posters/05-09-bad.jpg" src="../videos/05-09-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">傍晚街边，女孩起身撑开粉色雨伞。车灯扫过她的脸，她看一眼手机，沿街走了几步又回头。撑伞的时候，她低声对自己说一句：英语“Time to go home...” 。</pre></details>
@@ -1992,7 +1997,7 @@ non_diegetic_music: A sparse acoustic guqin melody played at a very slow tempo, 
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-10-bad" data-source-version="a6c1a15c4b41a8067b33d81922190926169caa1ff1fcd19c9ea574d27a4e3a2d">
-<h3>反例</h3><p class="target">能看到张嘴再合上，期间只有场景声，听不到哈欠。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="6.7" aria-label="播放 05-10-bad 反例，约 7–10 秒">约 7–10 秒</button> <span>左侧八戒张大嘴又合上，声轨里缺了与动作对应的哈欠声。</span></p>
 <video controls playsinline preload="none" aria-label="05-10-bad 反例" data-poster="../posters/05-10-bad.jpg" src="../videos/05-10-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">水墨动画里，师徒四人在木棚下避雨。雨点打在棚顶，悟空晃了晃叶子伞，沙僧擦马背，白马甩尾。画面左侧的八戒张大嘴打了一个长哈欠。八戒慢慢张嘴又闭上，这个过程只听见棚顶的雨点，马尾甩动时仍有原来的窸窣声。</pre></details>
@@ -2037,7 +2042,7 @@ non_diegetic_music: A sparse, slow-tempo solo pizzicato violin plays delicate pl
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-12-bad" data-source-version="bc01e2ba11c3e7a6e2ad706264401a748126f808133ddf80aecc0ca340a09d90">
-<h3>反例</h3><p class="target">狗张嘴的同一刻传出猫叫。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="9.9" aria-label="播放 05-12-bad 反例，约 10–13 秒">约 10–13 秒</button> <span>狗被碰醒后抬头张嘴，传出的却是一声猫叫。</span></p>
 <video controls playsinline preload="none" aria-label="05-12-bad 反例" data-poster="../posters/05-12-bad.jpg" src="../videos/05-12-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">第一视角贴地穿过安静的客厅，两只猫爪走到地毯边。狗熟睡打鼾，猫爪垫落地发出轻响。爪尖碰鼻，狗猛然惊醒，鼾声停止。狗抬头的瞬间叫出一声高而细的“喵”，随后房间恢复安静；猫仍在镜头后，狗嘴在叫声中张开。</pre></details>
@@ -2082,7 +2087,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-13-bad" data-source-version="45503430c06f1e9d9c80cf22e74f35600af92da1cad9e00ce9ccecaac418b601">
-<h3>反例</h3><p class="target">从交锋到结束只能听见风等原有声音，刀鸣整段缺席。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="10.8" aria-label="播放 05-13-bad 反例，约 11–13 秒">约 11–13 秒</button> <span>两把刀碰在一起，声轨里缺了这一下应有的金属刀鸣。</span></p>
 <video controls playsinline preload="none" aria-label="05-13-bad 反例" data-poster="../posters/05-13-bad.jpg" src="../videos/05-13-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">水墨山林中，青石上的刀客缓慢抽出山纹弯刀，低声说“此山，不容匪行。”山匪首领从树影中走出，回答“山林自有强者居之。”下一瞬二人身影交错，两刀相碰，枝叶被震落。兵刃接触并弹开的瞬间只有风吹林叶的声音，此后也只有风声在山谷回荡。</pre></details>
@@ -2127,7 +2132,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-14-bad" data-source-version="758ce699ae4ac117f9e73d68c91c94a80585095a7e9d7866ca8a3ed8f14c0148">
-<h3>反例</h3><p class="target">听得到插头“咔哒”，到点赞收尾仍只有室内底声。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="9.5" aria-label="播放 05-14-bad 反例，约 10–15 秒">约 10–15 秒</button> <span>耳机插进手机后，直到男子竖起拇指，要求播放的音乐都没响。</span></p>
 <video controls playsinline preload="none" aria-label="05-14-bad 反例" data-poster="../posters/05-14-bad.jpg" src="../videos/05-14-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">男子坐在安静的桌前，举起缠成一团的耳机说“看好这招。”他晃动线头，一扯理顺，说“三十秒搞定，不用任何工具。”听见线缆轻擦。耳机塞入耳朵，插头“咔哒”接上手机，他朝镜头点赞。接头扣紧后只有安静的室内底声，点赞动作结束时依然没有音乐。</pre></details>
@@ -2172,7 +2177,7 @@ non_diegetic_music: Traditional Chinese bass drum (tanggu) and solo guzheng, slo
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-15-bad" data-source-version="c33a7ef6a37cbb234a8c8a236ca3d2b04ac908bc0c14dea14ef49ddb9540d028">
-<h3>反例</h3><p class="target">拨弦泛音被铜号吹出的长音取代，鼓和旁白仍在。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="2.9" aria-label="播放 05-15-bad 反例，约 3–8 秒">约 3–8 秒</button> <span>鼓点之间响起持续吹奏般的长音，原本要求的是古筝拨弦的泛音。</span></p>
 <video controls playsinline preload="none" aria-label="05-15-bad 反例" data-poster="../posters/05-15-bad.jpg" src="../videos/05-15-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">黑色画面上，金色沙砾自左向右汇成“历史”二字。低沉的中国大鼓逐拍响起，旁白说“历史的长河在此刻奔涌而出。”鼓的间隙有另一件乐器在宽阔空间里留下一声长长的余响。那是一支铜号的长音，明亮的吹奏声渐强后收住，再留出空间余响。</pre></details>
@@ -2217,7 +2222,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-18-bad" data-source-version="e1ce05629771f977eb09e48504cfcaa9f67522e915ec368781882f1c9be61ccd">
-<h3>反例</h3><p class="target">到最后一个车位时额外响起两声自行车铃。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="12.3" aria-label="播放 05-18-bad 反例，约 13 秒">约 13 秒</button> <span>男子跑向车库出口时，脚步声里多出清脆的车铃，画面里没有自行车。</span></p>
 <video controls playsinline preload="none" aria-label="05-18-bad 反例" data-poster="../posters/05-18-bad.jpg" src="../videos/05-18-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">冷光地下车库里，远处汽车警报回荡，白衬衫男子把帽衫男子按在车门上问“钥匙在哪？别逼我再问一遍。”对方回答“你找错人了。”两人拉扯，碰撞车身后跌倒，白衬衫男子说“你跑不掉的。”全段没有配乐。帽衫男子跑向出口。收尾听见他的急促脚步、喘息和灯管电流嗡鸣，跑过最后一个车位时凭空多出两声清脆自行车铃。</pre></details>
@@ -2262,7 +2267,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-19-bad" data-source-version="0c96a35a6fc5631bb1aeabcafd8e9361a49680c01dfa227a3d7934cbaeb40036">
-<h3>反例</h3><p class="target">从俯拍开始，现场声下方一直有能辨出旋律的弦乐。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 05-19-bad 反例，0–8 秒">0–8 秒</button> <span>镜头从车头移向红帽女子，现场声下持续有弦乐；这段要求无配乐。</span></p>
 <video controls playsinline preload="none" aria-label="05-19-bad 反例" data-poster="../posters/05-19-bad.jpg" src="../videos/05-19-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">高处俯拍向下移动至中景，汽车前端撞到发光图案，光团碎裂。红帽女子抬手挡开碎粒，转向左侧低声说“Something&#x27;s coming... I can feel it.”保留说话声和碎裂声。从俯拍到她说完整句，一条低沉的弦乐持续铺在现场声下，伴随下摇镜头逐步升高。</pre></details>
@@ -2307,7 +2312,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="05-20-bad" data-source-version="ffa29b1bf8668125b29e29350149a7990d32eb8405b5a386cce8fd5d4af8bc3a">
-<h3>反例</h3><p class="target">摊主清楚说出“先生，看看布料”。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="6.2" aria-label="播放 05-20-bad 反例，约 6.5–8.5 秒">约 6.5–8.5 秒</button> <span>男子走过布摊，摊主说了句“先生，看看布料”，打破了全程无台词的要求。</span></p>
 <video controls playsinline preload="none" aria-label="05-20-bad 反例" data-poster="../posters/05-20-bad.jpg" src="../videos/05-20-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">黑白电影风格的1950年代边境夜市。风衣男子警觉地正面走向镜头，镜头后退跟拍，两侧摊贩推车摆货，行人擦肩而过。一镜到底，听得到脚步和货物碰响，全程不用配乐。男子只侧头观察，走过布摊时摊主对着他清楚说了一声“先生，看看布料。”随后仍是夜市环境声。</pre></details>
@@ -2352,7 +2357,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="06-08-bad" data-source-version="260d0006fdc02fa045344f6ed2e6ec6afe5e1e17e07e311f42b486d80317d992">
-<h3>反例</h3><p class="target">全段有恒定的“嘶”声，壶没有烧水、冒气等对应动作。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 06-08-bad 反例，0–15 秒">0–15 秒</button> <span>白瓷壶静放在桌上，背景却一直有一层平稳的“嘶——”声。</span></p>
 <video controls playsinline preload="none" aria-label="06-08-bad 反例" data-poster="../posters/06-08-bad.jpg" src="../videos/06-08-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">明亮安静的室内，桌上放着一只静止的白瓷茶壶。壶周围没有人，镜头缓缓推进，从桌面全景移到壶嘴特写。从第一帧到壶嘴特写结束，一层清楚可辨的宽带“嘶——”持续盖在室内底声上；它没有起伏，桌面也没有冒气或烧水。</pre></details>
@@ -2397,7 +2402,7 @@ non_diegetic_music: A steady mid-tempo boom-bap hip-hop instrumental featuring a
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="07-08-bad" data-source-version="bfc8e3154826cb78eaa160e494a8a60bfa9b546ba1532d9c8d5f47bef618ebb0">
-<h3>反例</h3><p class="target">连续四次动作都落在相邻两个重拍正中，唱词和口型仍可合拍。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="7.8" aria-label="播放 07-08-bad 反例，约 8–14 秒">约 8–14 秒</button> <span>听连续几个重拍，主唱的挥手落在两拍之间，动作和鼓点错开。</span></p>
 <video controls playsinline preload="none" aria-label="07-08-bad 反例" data-poster="../posters/07-08-bad.jpg" src="../videos/07-08-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">路灯下，浅蓝衬衫的金发男生直视镜头慢步向前，用中文说唱“在黑夜中迷失方向，找不到回去的光。你问我想去向何方，只有你的目光能让我不彷徨。”左侧歌词依次出现，后面穿红卫衣和白外套的男生失焦跟随。镜头缓慢后退，唱词与口型同步，沉重的鼓点节拍稳定。主唱每一步和挥手都落在两个重拍的正中间，连续四次如此；唱词、口型与歌词字幕仍对齐。</pre></details>
@@ -2442,7 +2447,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="07-12-bad" data-source-version="29ac9c64f4bc9c2c7724db7e6d0ed91df583ef5b842a0701540426900c8f973b">
-<h3>反例</h3><p class="target">画面仍是云海，台词空隙却听到近处茶匙碰杯、咖啡机蒸汽和室内低语。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="5.4" aria-label="播放 07-12-bad 反例，约 5–7 秒">约 5–7 秒</button> <span>女侠在云海上方飞过，背景里却响起了近处的杯勺碰撞声。</span></p>
 <video controls playsinline preload="none" aria-label="07-12-bad 反例" data-poster="../posters/07-12-bad.jpg" src="../videos/07-12-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">全景拍一位束发女侠由山巅飘起，衣袖舒展如凤凰，下方云层翻涌。镜头旋转推进到脸部特写，她用沉静偏低的女声说“他们说，我该隐于黑暗？”嘴型和台词对齐。台词和口型都正常，留白里却传来近处茶匙碰杯、咖啡机蒸汽和室内人群低语，仿佛话筒一直放在封闭的咖啡馆。</pre></details>
@@ -2487,7 +2492,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="07-13-bad" data-source-version="f29e4c376f31bb0de025670b35077090a6444a92f84ee5232c0de1717729f7a2">
-<h3>反例</h3><p class="target">碎裂时间正确，声音却像空塑料杯弹地，碎片也发出塑料轻响。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="1.65" aria-label="播放 07-13-bad 反例，约 2–3 秒">约 2–3 秒</button> <span>玻璃杯碰地碎开，落地声却像空塑料杯弹了两下。</span></p>
 <video controls playsinline preload="none" aria-label="07-13-bad 反例" data-poster="../posters/07-13-bad.jpg" src="../videos/07-13-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">固定近景，桌边一只杯子滑落。镜头拍清透明薄玻璃杯落在石地上碎成数块，碎片散开，房间很安静。碰地的一刻响起空塑料杯弹地般的“扑、哒”，散开的碎片落地仍是短促的塑料轻响，时点全部落在对应动作上。</pre></details>
@@ -2532,7 +2537,7 @@ non_diegetic_music: Atmospheric dream-pop ballad arrangement featuring lush reve
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="08-07-bad" data-source-version="51567511be77ed72d83e3ed7111b600b4074ca0565b5a87bc414e6670a7ce0af">
-<h3>反例</h3><p class="target">两个长音持续跑调，歌词和节拍仍能跟上。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="3.5" aria-label="播放 08-07-bad 反例，约 4–6 秒">约 4–6 秒</button> <span>女生拖长“light”时，人声和伴奏的音高对不上。句末“night”又出现一次。</span></p>
 <video controls playsinline preload="none" aria-label="08-07-bad 反例" data-poster="../posters/08-07-bad.jpg" src="../videos/08-07-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">梦幻歌曲MV。玻璃温室里，女生握麦克风深情演唱：“In this garden of light, I find my way through the night.” 她蹙眉、睁眼，让话筒靠近唇边，随旋律轻晃。下方浮出轻盈英文歌词，镜头逆时针缓慢环绕，叶片与玻璃光影交错。唱词、拍点清楚，只有“light”和“night”两个长音持续游离于伴奏调性之外，拖出明显走调的音高，尾音与伴奏和弦冲撞。</pre></details>
@@ -2577,7 +2582,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="08-09-bad" data-source-version="23761872b3752f42f895724633471f10733b0254da741e1210cf097997f80074">
-<h3>反例</h3><p class="target">后方同一小段水声精确循环，前景孩子的泼水仍自然。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 08-09-bad 反例，0–5 秒">0–5 秒</button> <span>孩子的泼水声有变化，后排海浪声却以相同的起伏和间隔反复出现。</span></p>
 <video controls playsinline preload="none" aria-label="08-09-bad 反例" data-poster="../posters/08-09-bad.jpg" src="../videos/08-09-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">两个孩子在海边站起身。男孩用双手捧水泼向女孩，女孩开心笑着回击，飞溅的水花打湿衣服。近处每次泼水都有短促的水花声，两人的笑声自然。背后的“海浪”从头到尾像一段半秒长的水流录音被等间隔循环，每次起伏、尾音和音量完全一样，循环接点规律可闻。</pre></details>
@@ -2622,7 +2627,7 @@ non_diegetic_music: Low sustained contrabass and cello drone at a slow tempo, bu
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="08-10-bad" data-source-version="f6e6cc2dda8cefc19c0694ec1a080e0da1f10ad98eba23f163ce33015db11f63">
-<h3>反例</h3><p class="target">同一张熊嘴发出鸡鸣，开闭时点仍然合拍。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="10.6" aria-label="播放 08-10-bad 反例，约 11 秒">约 11 秒</button> <span>熊抬头张嘴，传出的却是一声高亢的鸡鸣。</span></p>
 <video controls playsinline preload="none" aria-label="08-10-bad 反例" data-poster="../posters/08-10-bad.jpg" src="../videos/08-10-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">镜头绕着一名低头的人物旋转并推近。人物突然抬头，张嘴大声咆哮，表情激动、带一点喜剧色彩，随后在画面中变成体型壮硕的熊。变身完毕、熊第一次张嘴时，是一声清脆高亢的鸡鸣，起止精确对应熊的嘴部动作，和变身前的人类喊声清楚分开。</pre></details>
@@ -2667,7 +2672,7 @@ non_diegetic_music: Sparse acoustic celesta and glass harmonica chords played at
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="08-12-bad" data-source-version="9712136c4b86a33a126114fec0829a129bc88a362f9ddddd2c04614fd1a2e3a8">
-<h3>反例</h3><p class="target">每句停顿都传回很长的硬反射，像在封闭大厅，画面却是开阔花地。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="5.6" aria-label="播放 08-12-bad 反例，约 6–9 秒">约 6–9 秒</button> <span>女孩说完“真实的你”，尾音在空旷花地里反复回响，像在封闭大厅。</span></p>
 <video controls playsinline preload="none" aria-label="08-12-bad 反例" data-poster="../posters/08-12-bad.jpg" src="../videos/08-12-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">固定近景，焦点在女孩的面部和伸向镜头的手上。左侧黑白蝴蝶扇动素描线翅，右侧彩色帝王蝶穿过星芒。女孩握紧拳头，左右两半脸同时说：“就算打破次元的界限，我也想触碰真实的你。”话音落下，墨迹和光芒在指尖交融，两侧蝴蝶越过中线。背景是一片开阔、柔软的花地；声线空灵坚定。每一小句都拖出两秒以上空水泥大厅般的硬质混响，下一句起声时上一句仍在清晰反弹，尤其在“真实的你”后能听出多次回音。</pre></details>
@@ -2712,7 +2717,7 @@ non_diegetic_music: Sustained low sub-bass drone, very slow tempo, paired with a
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="08-13-bad" data-source-version="c27cadc35083a739820293bc7c04609569133d7e9c3c0bccc438c53310c0b3c3">
-<h3>反例</h3><p class="target">四字等长、等高、等响，每个音像单独拼接。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="4.4" aria-label="播放 08-13-bad 反例，约 4.6–7.4 秒">约 4.6–7.4 秒</button> <span>“就是现在”四个字一个个等间隔蹦出来，缺少自然的轻重连读。</span></p>
 <video controls playsinline preload="none" aria-label="08-13-bad 反例" data-poster="../posters/08-13-bad.jpg" src="../videos/08-13-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">中近景表现虚构片场的古装男子拉开道具弓。绷紧声轻响，呼吸慢而沉，他停顿一下，压低声音说：“就是现在。”随后一声“嗖”掠过，远处传来闷响；男子放下弓，呼出一口气。这四个字每个字长度、音量、音高完全一致，每个字之间停同样长的短间隔，像四个语音片段逐字拼接；发音清楚，呼吸仍自然。</pre></details>
@@ -2758,7 +2763,7 @@ non_diegetic_music: Sustained low-register double bass drones accompanied by a s
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="09-03a-bad" data-source-version="cfc692c5d4d614d00258f9b294a8bf34a3a5228a276bfb239165b9b76bd22b0a">
-<h3>反例</h3><p class="target">镜头仍在加深恐惧，乐句却轻快摇曳，听感像轻松游园。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 09-03a-bad 反例，0–8 秒">0–8 秒</button> <span>镜头推近男子紧绷的脸，背景却配了轻快摇曳的游园小调。</span></p>
 <video controls playsinline preload="none" aria-label="09-03a-bad 反例" data-poster="../posters/09-03a-bad.jpg" src="../videos/09-03a-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">欧美写实悬疑片。一名穿西装的男子静立在赌场内与游戏厅相连的餐厅，透过门能看到旋转的老虎机。摄影机做一次希区柯克式推轨变焦，男子在画面中大小稳定，身后的餐桌和街机空间被逐渐拉长。保留老虎机的机械旋转声、远桌人群的低语和持续的低频环境音，气氛紧张压抑。
@@ -2805,7 +2810,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="09-04-bad" data-source-version="4f7774828fa018367360a31f668116b2440b078420e03560e82b7306d44117ac">
-<h3>反例</h3><p class="target">时点仍对，声音却像硬金属刮过水泥。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="7" aria-label="播放 09-04-bad 反例，约 7–10 秒">约 7–10 秒</button> <span>雪板贴雪穿过旗门，声音却尖锐得像金属在刮水泥。</span></p>
 <video controls playsinline preload="none" aria-label="09-04-bad 反例" data-poster="../posters/09-04-bad.jpg" src="../videos/09-04-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">第一人称从雪山顶俯冲，雪粉飞溅，切航拍，一个小黑点在白雪上划出S形。跟着滑雪者穿旗门、飞跃跳台，落地加速冲过终点。风在耳旁呼啸，腾空短暂安静，落地有撞击，终点响起欢呼。
@@ -2852,7 +2857,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="09-08b-bad" data-source-version="e65a023ac42ce41bb078f08aa7cc7f542051f500f907c9199c5ca49e04ccef75">
-<h3>反例</h3><p class="target">直到近景微笑结束，只有站台和车厢声，整段听不到人声。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="9.7" aria-label="播放 09-08b-bad 反例，约 10–15 秒">约 10–15 秒</button> <span>男子上车后闭嘴微笑，只听到车站环境声，缺了指定的中文内心独白。</span></p>
 <video controls playsinline preload="none" aria-label="09-08b-bad 反例" data-poster="../posters/09-08b-bad.jpg" src="../videos/09-08b-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">日式写实短剧。傍晚繁华的东京车站，成年男子佐佐木先生匆匆赶晚班车。先从站台跟拍他穿过人群，再拍列车驶入、开门，他侧身挤上车；车门边切面部近景，他嘴唇始终闭合，露出一点疲倦的微笑。站台有列车、脚步和人群声，全程没有背景音乐。脚本中的内心独白是中文「今天又累了一整天啊，晚上去超市买点东西放松一下吧……」。独白时段从他挤进车厢开始，直到近景微笑结束。
@@ -2899,7 +2904,7 @@ non_diegetic_music: N/A</pre></details>
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="09-11-bad" data-source-version="27defa265a759a6014775981131c746f071c018e282c7e79fdc6a7f2051130ec">
-<h3>反例</h3><p class="target">一按键就有钢琴式击弦音头，仍按住时声音已经逐渐衰减。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 09-11-bad 反例，0–5 秒">0–5 秒</button> <span>男子按住教堂管风琴的琴键，响起的却是敲击后迅速变弱的钢琴声。</span></p>
 <video controls playsinline preload="none" aria-label="09-11-bad 反例" data-poster="../posters/09-11-bad.jpg" src="../videos/09-11-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">教堂演奏短片。一名穿正装的男士端坐管风琴前，镜头近拍手指起落弹琴，保持一个长按的和音，再硬切至男士脸部，他仰头深情开唱：“The old church glow echoes my song，Night wind carries my longing along.” 键盘乐器旋律在演唱下延续，演奏与手部动作同步。
@@ -2945,7 +2950,7 @@ non_diegetic_music: Light commercial electronic pop track featuring bright synth
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="11-12-bad" data-source-version="c8ccc4169b40f4b89fb8d957cc0e32eb5edbc53171d98e85f90f6d12ff1ff67c">
-<h3>反例</h3><p class="target">第一镜出现厨房水槽和吊柜，直到下一镜才进入直播间。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 11-12-bad 反例，0–3.8 秒">0–3.8 秒</button> <span>女主播身后是厨房的水槽和吊柜，直到切镜才出现直播间。</span></p>
 <video controls playsinline preload="none" aria-label="11-12-bad 反例" data-poster="../posters/11-12-bad.jpg" src="../videos/11-12-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">年轻女主播妆容精致，手持一支正红色口红，微笑面对镜头。第一镜清楚显示她坐在家用厨房操作台前，身后是水槽和吊柜；切入第二镜时才出现直播间的白色产品桌、补光灯与陈列架。她热情地说：“想要一秒显白提气场，这支无可替代的经典正红，就是你的本命色！”随后将口红涂到嘴唇上，微笑展示。商业广告布光，肤质自然、口红鲜亮。</pre></details>
@@ -2990,7 +2995,7 @@ non_diegetic_music: Sparse acoustic piano playing slow, delicate high-register n
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="11-13-bad" data-source-version="a071856d27e777d107f06a3804ae7a6d3d665c25386d12a1ba900e012d27fd37">
-<h3>反例</h3><p class="target">同样绕圈，却是一条没有空隙的连续实心光带。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="6.7" aria-label="播放 11-13-bad 反例，约 7–11 秒">约 7–11 秒</button> <span>瓶身上绕着一条连成整圈的金色光带，要求的独立光点和间隙都消失了。</span></p>
 <video controls playsinline preload="none" aria-label="11-13-bad 反例" data-poster="../posters/11-13-bad.jpg" src="../videos/11-13-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">雨后傍晚，固定中近景。橱窗内一只玻璃瓶被轻轻揭开，一条连续的暖金实心光带沿同一圆环慢慢转动，整圈连成一片，绕过瓶颈后慢慢熄灭。玻璃与街景保持写实。</pre></details>
@@ -3035,7 +3040,7 @@ non_diegetic_music: Acoustic fingerstyle guitar accompanied by an airy, soft upr
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="11-14-bad" data-source-version="55580a2f6135b8010f80af2e1b1dd14ea40595efce448718f79e30fbb67279b7">
-<h3>反例</h3><p class="target">清楚读到“清禾咖啡”，第一个字多了三点水。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="1.7" aria-label="播放 11-14-bad 反例，约 2 秒">约 2 秒</button> <span>纸袋写的是“清禾咖啡”，品牌“青禾”的“青”多了三点水。</span></p>
 <video controls playsinline preload="none" aria-label="11-14-bad 反例" data-poster="../posters/11-14-bad.jpg" src="../videos/11-14-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">固定近景，早晨的咖啡店柜台。店员将米色纸袋递向镜头，袋身正面的深绿色无衬线字样始终清晰地印成“清禾咖啡”，第一字是三点水的“清”。镜头停留两秒，字迹清晰，纸袋和背景在柔和自然光下。</pre></details>
@@ -3080,7 +3085,7 @@ non_diegetic_music: Sparse acoustic piano playing isolated, slow-tempo chords in
 <div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
 </div></div>
 </section><section class="clip bad" data-clip-id="11-15-bad" data-source-version="386e75db149e36aa3d08018a16b15696358513f60b718793f1352fb059a50bdc">
-<h3>反例</h3><p class="target">人和物件仍对应，但蓝外套在右、红围巾在左。</p>
+<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 11-15-bad 反例，0–3 秒">0–3 秒</button> <span>要求蓝外套在左、红围巾在右，开场两人站反了。</span></p>
 <video controls playsinline preload="none" aria-label="11-15-bad 反例" data-poster="../posters/11-15-bad.jpg" src="../videos/11-15-bad.mp4"></video>
 <div class="prompt-suite" aria-label="反例提示词">
 <details class="prompt-detail"><summary>原始 prompt</summary><pre class="original-prompt" data-field="original">固定双人中景，两位成年人在空旷站台面对面，衣服和手中的物件清楚可见。穿蓝外套拿车票的人站画面右侧，戴红围巾拿书的人站左侧。广播响起，两人互相点头，始终处于同一镜头。</pre></details>
@@ -3115,6 +3120,23 @@ const cards = [...document.querySelectorAll('article')].map(card => ({
   card,
   text: [...card.querySelectorAll('.case-head,.rubric,.target')].map(node => node.textContent).join(' ').toLowerCase()
 }));
+
+for (const button of document.querySelectorAll('.reason-seek')) {
+  button.addEventListener('click', () => {
+    const panel = button.closest('.clip');
+    const video = panel.querySelector('video');
+    const card = panel.closest('article');
+    const status = card.querySelector('.play-status');
+    card.querySelector('.good video')?.pause();
+    status.textContent = '';
+    function seek() {
+      video.currentTime = Math.min(Number(button.dataset.start), Math.max(0, video.duration - 0.05));
+    }
+    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) seek();
+    else video.addEventListener('loadedmetadata', seek, {once: true});
+    video.play().catch(() => { status.textContent = '请点反例视频的播放键继续。'; });
+  });
+}
 
 function filter() {
   const query = search.value.trim().toLowerCase();
