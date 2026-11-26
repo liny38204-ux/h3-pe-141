@@ -39,7 +39,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 .filters #edited-only{width:16px;height:16px;margin:0;accent-color:var(--green)}
 @media(max-width:700px){.filters .edited-filter{grid-column:1/-1}.filters output{grid-column:1/-1;text-align:left}}
 </style></head><body><main>
-<header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>51 组</strong><i> / </i>102 条对照视频</p></div>
+<header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>50 组</strong><i> / </i>100 条对照视频</p></div>
 <p class="intro">按标注结果收录正反例对照；07-13 的反例已更新为后期配音校准样片。正例展示目标效果，反例展示对应的故障；任何人都可以编辑正例的原始 prompt，保存后公开。</p>
 <p class="stamp">标注快照 <time>2026-11-25 12:13（UTC+8）</time></p></header>
 <p id="publish-status" class="publish-status" role="status">正在读取已发布的提示词版本…</p>
@@ -47,7 +47,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <div class="filters"><label for="query">查找案例</label><input id="query" type="search" placeholder="输入编号、名称或归因">
 <label for="dimension">维度</label><select id="dimension"><option value="">全部维度</option><option value="01">视频指令遵循</option><option value="02">运动质量</option><option value="03">时序一致性</option><option value="04">美感与画质</option><option value="05">音频指令遵循</option><option value="06">基础音质</option><option value="07">音画同步</option><option value="08">音频表现力</option><option value="09">音质与表现力补充、音频参考生</option></select>
 <label class="edited-filter"><input id="edited-only" type="checkbox">只看已修改的组</label>
-<output id="matches" aria-live="polite">显示 51 组</output></div>
+<output id="matches" aria-live="polite">显示 50 组</output></div>
 <div id="cards"><article id="case-01-02" data-group="01-02" data-dim="01">
 <header class="case-head"><p class="meta"><span class="case-number">01-02</span> · <span class="attribution">视频指令遵循</span> · <span class="attribution">时间戳偏差—P1</span></p><h2>寿司广告的三次切点</h2></header>
 <div class="prompt-suite" data-prompt-for="01-02-good" data-source-version="046f3f018ed6fd82a7563a4d13939e70a3cc48fbf0f4d69b5d1be5bd180ece0c" aria-label="正例原始提示词">
@@ -495,25 +495,6 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 </section><section class="clip bad" data-clip-id="04-22-bad" data-source-version="7fdd94d38b1b7dbbc8facf70a4d1cfff213897ee5b0f8b3276dc6df2b33e9ee2">
 <h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="1.9" aria-label="播放 04-22-bad 反例，2–6 秒">2–6 秒</button> <span>从暖色大厅切到霓虹街机厅，模特的脸和白衬衫仍像平涂的色块。</span></p>
 <video controls playsinline preload="none" aria-label="04-22-bad 反例" data-poster="../posters/04-22-bad.jpg" src="../videos/04-22-bad.mp4"></video>
-</section></div>
-</article><article id="case-04-24" data-group="04-24" data-dim="04">
-<header class="case-head"><p class="meta"><span class="case-number">04-24</span> · <span class="attribution">美感与画质</span> · <span class="attribution">整体偏色（发灰、发绿、发黄等）</span></p><h2>督军别墅里的家书 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
-<div class="prompt-suite" data-prompt-for="04-24-good" data-source-version="b734a4e820e971751545e06158df0c765437323eede0a5deb8dfc2ec0a4fd2e7" aria-label="正例原始提示词">
-<details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">民国西式别墅一楼，暖壁灯亮着。镜头里同时看见苏晚的面颊、她手边的棕木扶手和脚下带白纹的大理石地面。整段戏保留各自的颜色，苏晚面颊有血色，扶手是暖棕，石面泛冷白，黑皮靴的暗部也有层次。反打苏晚时沿用同样的色调。三十岁的督军沈砚之推门入内，皮鞋声打破寂静。二十岁的苏晚僵在楼梯前。他上前握住她的手臂，低声说：“我离城半月，日日派人送来书信，你一封都不曾回我。”她转身甩开他的手，轻而坚定地说：“督军公务繁忙，心里装着城池兵马，哪里有空在意我一封家书。前日城中流言传遍，说您新纳了戏子入公馆，满城人都看我的笑话，我又何必多言自讨没趣。”</pre></details>
-<div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
-<div class="prompt-editor" hidden>
-<p class="editor-note">保存后，所有访客都能看到更新后的正例原始 prompt。</p>
-<label>原始 prompt<textarea data-editor-field="original" rows="7"></textarea></label>
-<div class="editor-actions"><button class="save-prompt" type="button">保存并公开</button><button class="cancel-prompt" type="button">取消</button></div>
-<div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
-</div></div>
-<button class="play-pair" type="button">两条从头播放</button><span class="play-status" role="status"></span>
-<div class="pair"><section class="clip good" data-clip-id="04-24-good" data-source-version="b734a4e820e971751545e06158df0c765437323eede0a5deb8dfc2ec0a4fd2e7">
-<h3>正例<span class="clip-edit-marker" hidden></span></h3><p class="target">面颊保留血色，木饰暖棕，大理石偏冷白，反打延续同样色调。</p>
-<video controls playsinline preload="none" aria-label="04-24-good 正例" data-poster="media/04-24-good-a64e572afb.jpg" src="media/04-24-good-a64e572afb.mp4"></video>
-</section><section class="clip bad" data-clip-id="04-24-bad" data-source-version="c9b7a98c8c67d5010779383ef221cca6058c8b5ed89c7c3d9acbbbf90ef44eb1">
-<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0" aria-label="播放 04-24-bad 反例，全片">全片</button> <span>从开场到反打，肤色、木饰和石面一起褪成粉灰、灰褐和浅灰。</span></p>
-<video controls playsinline preload="none" aria-label="04-24-bad 反例" data-poster="media/04-24-bad-d501c4579d.jpg" src="media/04-24-bad-d501c4579d.mp4"></video>
 </section></div>
 </article><article id="case-04-25" data-group="04-25" data-dim="04">
 <header class="case-head"><p class="meta"><span class="case-number">04-25</span> · <span class="attribution">美感与画质</span> · <span class="attribution">构图差（主体不突出、画面层次乱）</span></p><h2>陈柚试装时的双人构图</h2></header>
