@@ -3,7 +3,7 @@
 <title>教学文档</title><link rel="icon" href="data:,"><style>:root{color-scheme:light;--ink:#173b32;--muted:#51675d;--line:#d3ded5;--paper:#f4f6f2;--green:#195d45}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
-main{max-width:1520px;margin:0 auto;padding:38px clamp(14px,3vw,34px) 72px}
+main{max-width:1520px;margin:0 auto;padding:38px clamp(14px,3vw,34px) 72px;container: gallery / inline-size}
 .page-head{border-top:4px solid var(--green);padding:21px 0 19px}
 .page-head>div{display:flex;align-items:baseline;gap:14px 25px;flex-wrap:wrap}
 h1,h2,h3,h4,p{margin:0}
@@ -87,9 +87,9 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 }
 .toc-group a:hover { background: var(--paper); }
 .toc-group a[aria-current="location"] { background: #e7f1eb; color: var(--green); font-weight: 650; }
-@media (max-width: 1000px) {
+@container gallery (max-width: 940px) {
   .gallery-layout { display: block; }
-  #case-toc { z-index: 2; top: 8px; width: fit-content; margin: 0 0 8px auto; }
+  #case-toc { --compact-toc: 1; z-index: 2; top: 8px; width: fit-content; margin: 0 0 8px auto; }
   #case-toc > details { position: relative; box-shadow: 0 2px 9px #173b3212; }
   #case-toc-title { padding: 7px 12px; font-size: 15px; }
   .toc-list {
@@ -127,20 +127,26 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
   margin: 0;
 }
 .taxonomy-drawer {
-  position: fixed;
-  inset: 0 auto 0 0;
-  width: min(344px, 86vw);
-  height: 100%;
-  height: 100dvh;
-  max-height: none;
   overflow: auto;
   overscroll-behavior: contain;
-  border-width: 0 1px 0 0;
 }
-.taxonomy-drawer::backdrop { background: rgb(18 43 35 / .10); pointer-events: none; }
+@media (min-width: 900px) {
+  body.has-taxonomy { --drawer-width: clamp(238px, 21vw, 310px); padding-inline-start: var(--drawer-width); }
+  .taxonomy-drawer {
+    position: fixed; inset: 0 auto 0 0; width: var(--drawer-width); z-index: 3;
+    border-width: 0 1px 0 0; box-shadow: none;
+  }
+}
+@media (max-width: 899.98px) {
+  .taxonomy-drawer {
+    margin: 12px 0; border-radius: 7px; box-shadow: none;
+    max-height: 50vh; max-height: min(50dvh, 24rem);
+  }
+}
 .taxonomy-drawer header {
   position: sticky;
   top: 0;
+  z-index: 1;
   padding: 22px 20px 15px;
   background: #f3f7f3;
   border-top: 4px solid var(--green);
@@ -172,9 +178,14 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 .term-definition h2 { font-size: 16px; line-height: 1.5; }
 .term-definition .taxonomy-close { width: 28px; height: 28px; margin: -3px -5px 0 0; }
 .term-definition p { margin-top: 5px; font-size: 15px; line-height: 1.65; }
+.taxonomy-item + .term-definition {
+  position: static; width: auto; max-height: none; margin: 0 0 8px; padding: 10px 12px;
+  border: 0; border-left: 3px solid #71907b; border-radius: 0;
+  background: #f3f7f3; box-shadow: none;
+}
 </style></head><body><main>
 <header class="page-head"><div><h1>教学文档</h1><p class="stats"><strong>45 组</strong><i> / </i>90 条对照视频</p></div>
-<p class="stamp">标注快照 <time>2026-11-25 12:13（UTC+8）</time></p></header>
+<p class="stamp">标注快照 <time>2026-11-26 14:19（UTC+8）</time></p></header>
 <p id="publish-status" class="publish-status" role="status">正在读取已发布的提示词版本…</p>
 <button id="connect-live" class="connect-live" type="button" hidden>连接实时版本</button>
 <div class="filters"><label for="query">查找案例</label><input id="query" type="search" placeholder="输入编号、名称或归因">
@@ -185,7 +196,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <nav id="case-toc" aria-labelledby="case-toc-title"><details open><summary id="case-toc-title">典型case</summary>
 <div class="toc-list"><section class="toc-group"><h3>视频指令遵循</h3><details class="toc-topic" name="case-toc-topics"><summary>时间戳偏差</summary><ul><li><a href="#case-01-02">寿司广告的三次切点</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>核心动作缺失</summary><ul><li><a href="#case-01-03">谁进了我的客厅</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>景别错误</summary><ul><li><a href="#case-01-04">冰淇淋广告开场景别</a></li></ul></details></section><section class="toc-group"><h3>运动质量</h3><details class="toc-topic" name="case-toc-topics"><summary>背景人／物持续结构错误</summary><ul><li><a href="#case-02-03">桃林左上角的仙鹤</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>道具崩坏</summary><ul><li><a href="#case-02-05">主播摘下耳机做展示</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>不合理转场／切镜／跳帧</summary><ul><li><a href="#case-02-08">女生拿起桌上的筋膜枪</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>物理不合理／凭空消失出现</summary><ul><li><a href="#case-02-09">手到嘴之间的薄脆饼干</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>动作不自然／僵硬</summary><ul><li><a href="#case-02-12">桌边戏剧动作的停顿</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>表演表情不自然</summary><ul><li><a href="#case-02-13">讲故事时男人的脸</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>运动幅度／节奏小</summary><ul><li><a href="#case-02-14">小林停步回头</a></li></ul></details></section><section class="toc-group"><h3>时序一致性</h3><details class="toc-topic" name="case-toc-topics"><summary>主体属性不一致(含主体互换)</summary><ul><li><a href="#case-03-02">沙发三人对话里的发型</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>主体数量不一致(含主体复制)</summary><ul><li><a href="#case-03-03">梳妆台前多出的女主</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>色彩／光影不一致</summary><ul><li><a href="#case-03-05">咖啡馆里照在脸上的窗光</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>场景不一致</summary><ul><li><a href="#case-03-10">滑冰选手转圈时的场地</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>尾帧突变</summary><ul><li><a href="#case-03-11">最后一帧的塔楼</a></li></ul></details></section><section class="toc-group"><h3>美感与画质</h3><details class="toc-topic" name="case-toc-topics"><summary>颗粒感／噪点／杂质／闪烁</summary><ul><li><a href="#case-04-05">白毛衣女孩练琴</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>油腻感／蜡像感</summary><ul><li><a href="#case-04-11">拆银色眼膜的博主</a></li><li><a href="#case-04-12">甲板对手的头发</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>比例失调／透视异常</summary><ul><li><a href="#case-04-14">冰湖上的极寒继承者</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>特效／后期包装粗糙</summary><ul><li><a href="#case-04-15b">剑修落地后雪面冻结</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>色彩饱和度异常</summary><ul><li><a href="#case-04-17">第一人称游览水上乐园</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>表情AI感</summary><ul><li><a href="#case-04-18">走廊里女子受惊的近景</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>光影扁无立体感</summary><ul><li><a href="#case-04-22">五场景时尚造型手册</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>构图差</summary><ul><li><a href="#case-04-25">陈柚试装时的双人构图</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>实体结构美感差</summary><ul><li><a href="#case-04-26">桌上的陶瓷茶壶</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>生成异常内容</summary><ul><li><a href="#case-04-27">琉璃宫殿短时花屏</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>色彩不协调</summary><ul><li><a href="#case-04-28">珍珠耳环与油画花园</a></li></ul></details></section><section class="toc-group"><h3>音频指令遵循</h3><details class="toc-topic" name="case-toc-topics"><summary>台词严重错误</summary><ul><li><a href="#case-05-02">羽绒服广告的四句文案</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>台词轻微错误</summary><ul><li><a href="#case-05-03">深海神殿的一字之差</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>旁白／画外音／内心独白错误</summary><ul><li><a href="#case-05-04">雪山口的内心独白</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>开放式台词不合理发挥</summary><ul><li><a href="#case-05-05">同事在桌边核对工作</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>台词归属错误</summary><ul><li><a href="#case-05-07">客厅里谁说了哪句话</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>语种／口音／方言错误</summary><ul><li><a href="#case-05-09">雨街女孩的台词语种</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>非语言人声音效错误／缺失</summary><ul><li><a href="#case-05-10">雨棚下八戒的哈欠</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>动物叫声错误／缺失</summary><ul><li><a href="#case-05-12">狗被碰醒时的叫声</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>BGM类型／氛围错误缺失</summary><ul><li><a href="#case-05-14">理顺耳机后的音乐片段</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>禁音效失败</summary><ul><li><a href="#case-05-18">地下车库逃离的结尾声轨</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>禁人声失败</summary><ul><li><a href="#case-05-20">黑白夜市的禁台词长镜头</a></li></ul></details></section><section class="toc-group"><h3>基础音质</h3><details class="toc-topic" name="case-toc-topics"><summary>持续底噪</summary><ul><li><a href="#case-06-08">静置茶壶的贯穿底噪</a></li></ul></details></section><section class="toc-group"><h3>音画同步</h3><details class="toc-topic" name="case-toc-topics"><summary>画面与BGM节拍／音调不同步</summary><ul><li><a href="#case-07-08">街头说唱动作与鼓点</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>碎裂音效缺失</summary><ul><li><a href="#case-07-13">玻璃杯落地的材质声</a></li></ul></details></section><section class="toc-group"><h3>音频表现力</h3><details class="toc-topic" name="case-toc-topics"><summary>环境音不真实</summary><ul><li><a href="#case-08-09">两个孩子在岸边泼水</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>动物叫声不真实</summary><ul><li><a href="#case-08-10">人物变熊后的第一声</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>声场混响不匹配</summary><ul><li><a href="#case-08-12">跨次元少女的回声</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>台词机械感</summary><ul><li><a href="#case-08-13">短句“就是现在”的机械感</a></li></ul></details></section></div></details></nav>
 <div class="case-content"><div id="cards"><article id="case-01-02" data-group="01-02" data-dim="01" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-01">视频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-01-1">时间戳偏差—P1</button></p><h2>寿司广告的三次切点</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-01" aria-expanded="false" data-drawer-id="taxonomy-01">视频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-01-1">时间戳偏差—P1</button></p><h2>寿司广告的三次切点</h2></header>
 <div class="prompt-suite" data-prompt-for="01-02-good" data-source-version="046f3f018ed6fd82a7563a4d13939e70a3cc48fbf0f4d69b5d1be5bd180ece0c" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">15秒电影感日料广告。深色木质料理台，左上方暖光，浅景深，舒缓纯音乐。0–3秒俯拍整条带冰三文鱼，白衣厨师扶住鱼头尾；3–7秒切极近微距，厨刀切入橙红鱼柳；7–12秒切近景，厨师给饭团覆鱼片、按压，用银镊点上绿叶；12–15秒切成品展示。 最后一镜中，成品在哑光黑盘正中，日文书法「一期一会、極上の味」从左到右写出，墨色渐浓，末笔落定微光定格。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -204,7 +215,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《寿司广告的三次切点》反例" poster="../posters/01-02-bad.jpg" src="../videos/01-02-bad.mp4"></video>
 </section></div>
 </article><article id="case-01-03" data-group="01-03" data-dim="01" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-01">视频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-01-2">核心动作缺失—P0</button></p><h2>谁进了我的客厅</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-01" aria-expanded="false" data-drawer-id="taxonomy-01">视频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-01-2">核心动作缺失—P0</button></p><h2>谁进了我的客厅</h2></header>
 <div class="prompt-suite" data-prompt-for="01-03-good" data-source-version="9b315f556ef9706ddac5e2fe2e6edb54cd5cebc790d2bedd0115ae2fb7584355" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">现实都市剧。开场屋主站在关着的门外，伸手推开门，从门外跨入客厅，镜头跟过门槛。 中景越过屋主肩膀，看见另一名女子正在沙发上吃水果。屋主愣住，用急切女声问：“你是谁？怎么在我家？”沙发上的女子翘起二郎腿，语带轻蔑：“你前夫把这房子给我了，从今天起，这儿归我。”近景，屋主变脸快步上前：“这房子写的是我名字，滚出去！”对方愣一下起身：“你叫谁滚呢？这就是我的房子！”屋主掏出手机冷笑：“行，那我报警，让警察告诉你这房子到底归谁！”</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -223,7 +234,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《谁进了我的客厅》反例" data-poster="../posters/01-03-bad.jpg" src="../videos/01-03-bad.mp4"></video>
 </section></div>
 </article><article id="case-01-04" data-group="01-04" data-dim="01" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-01">视频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-01-13">景别错误</button></p><h2>冰淇淋广告开场景别</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-01" aria-expanded="false" data-drawer-id="taxonomy-01">视频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-01-13">景别错误</button></p><h2>冰淇淋广告开场景别</h2></header>
 <div class="prompt-suite" data-prompt-for="01-04-good" data-source-version="3a7dcf50c7255acd9605fc339e7283ac8be275bf4bca5340559ac48ffe546093" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">一位深色及肩发、自然淡妆的年轻女子担任全片主角，外观连续。创建一个超写实的高级冰淇淋广告，呈现奢华夏日生活美学。场景设在一家优雅的手工冰淇淋店内，大理石柜台、柔和的室内装饰、玻璃展示柜、温暖的阳光、柔和的散景、电影级调色、真实的反射和高级商业灯光。自然过渡到黄金时刻的迷人欧式街道，两旁是咖啡馆和鲜花。
 广告以电影级特写开场，脸部与手中蛋筒占满画面，她对着镜头温暖微笑，手持一个装满草莓和香草冰淇淋的华夫筒。她慢慢旋转蛋筒，展示其奶油质地和多彩配料。
@@ -247,7 +258,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《冰淇淋广告开场景别》反例" data-poster="../posters/01-04-bad.jpg" src="../videos/01-04-bad.mp4"></video>
 </section></div>
 </article><article id="case-02-03" data-group="02-03" data-dim="02" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-2">背景人／物持续结构错误</button></p><h2>桃林左上角的仙鹤</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-02" aria-expanded="false" data-drawer-id="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-2">背景人／物持续结构错误</button></p><h2>桃林左上角的仙鹤</h2></header>
 <div class="prompt-suite" data-prompt-for="02-03-good" data-source-version="5e53efc4c648db228c88f9f6f05b2869f097f0d1382431fe24736f530a78278b" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">仙侠九尾狐于青丘桃林出镜，镜头慢推，狐尾轻扫、抬眸抚瓣，它说道：“这上古密林也不过如此”，竹笛背景音+桃林风声，画面清冷有质感。 0–7秒画面左上方一直有一只仙鹤，能辨出一根颈、一只头和两翼，随慢推自然扇翅。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -266,7 +277,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《桃林左上角的仙鹤》反例" data-poster="../posters/02-03-bad.jpg" src="../videos/02-03-bad.mp4"></video>
 </section></div>
 </article><article id="case-02-05" data-group="02-05" data-dim="02" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-6">道具崩坏</button></p><h2>主播摘下耳机做展示 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-02" aria-expanded="false" data-drawer-id="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-6">道具崩坏</button></p><h2>主播摘下耳机做展示 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="02-05-good" data-source-version="851294319e34050e6c3d652f5d366671c5186c20225b671100dc84f9a05d5ac1" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">女主播戴着深灰色头戴式耳机演示降噪。她按下配对键，听见提示音，轻触右耳罩。3.1 秒切到正面近景，她双手托着耳罩底部，摘下耳机举到镜头前，整条头梁都衬在浅色墙面上。耳机刚离开头发时，头梁右端仍连着右耳罩。她举稳一秒，两者之间的接缝始终完整。她指向充电口，轻快地说：“戴上就降噪，续航四十小时不断连。”</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -285,7 +296,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《主播摘下耳机做展示》反例" data-poster="media/02-05-bad-cc65a37df3.jpg" src="media/02-05-bad-cc65a37df3.mp4"></video>
 </section></div>
 </article><article id="case-02-08" data-group="02-08" data-dim="02" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-9">不合理转场／切镜／跳帧</button></p><h2>女生拿起桌上的筋膜枪 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-02" aria-expanded="false" data-drawer-id="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-9">不合理转场／切镜／跳帧</button></p><h2>女生拿起桌上的筋膜枪 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="02-08-good" data-source-version="033de78e67bae62447e8be09df4fc46f821644b2156d8fb79b2fd840c5f8083d" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">拍一条 9:16 写实竖屏广告。办公室午休，女生用右手揉肩，桌上的粉色筋膜枪放在咖啡杯旁。固定中景同时拍到她的肩、右手和筋膜枪。她的手离开肩头，伸向桌面，第 3 秒握住把手，接着把枪从桌上举到脸旁。镜头把这次拿取从头拍到尾。她对镜头说：“你们久坐肩颈酸的时候，真的别硬扛。我以前一到下午，脖子就像被水泥糊住一样。”她开低档轻按肩颈，切到按摩头近景：“这个我喜欢的是它不重，女生单手拿也不累。下班前按个三五分钟，肩膀会松很多。”她靠回椅背调档，把枪放进抽屉，又拿出来晃一下：“经常久坐、低头、肩颈紧的，真的可以备一个。现在直播间有券，到手价很香。”</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -304,7 +315,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《女生拿起桌上的筋膜枪》反例" data-poster="media/02-08-bad-7e5a41ff71.jpg" src="media/02-08-bad-7e5a41ff71.mp4"></video>
 </section></div>
 </article><article id="case-02-09" data-group="02-09" data-dim="02" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-10">物理不合理/凭空消失出现</button></p><h2>手到嘴之间的薄脆饼干</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-02" aria-expanded="false" data-drawer-id="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-10">物理不合理/凭空消失出现</button></p><h2>手到嘴之间的薄脆饼干</h2></header>
 <div class="prompt-suite" data-prompt-for="02-09-good" data-source-version="2c08af9f3b63988cb1b70ae339e567111772edb3f864d36679b4e7706d620fa8" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">15秒“同程金卡”商旅口播。机场贵宾休息区两张相邻沙发，男生一开始坐在靠窗的那张，始终用同一自然男声。0–3秒他慵懒靠着，撕开小包装薄脆饼干。1–3秒他用指尖捏住饼干送入口内，饼干沿手的路径移动。 “如果你旅行预算不多，但又想让自己旅途上舒服一点的……”3–6秒咽下，拿零食的手指一下镜头：“……一定要记得订机票前，先去领一下这个金卡。”6–12秒切中景，他停止进食，身体前倾，手部比划：“不仅有机会兑换机场贵宾厅，提前值机、安静候机都舒服很多，而且住酒店如果没订满的话，还可能免费升级房型！”12–15秒看向镜头，手指屏幕下方：“这个卡是限时免费领的，打开同程搜金卡188就能找到，趁活动还在赶紧去试试吧！”</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -323,7 +334,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《手到嘴之间的薄脆饼干》反例" data-poster="../posters/02-09-bad.jpg" src="../videos/02-09-bad.mp4"></video>
 </section></div>
 </article><article id="case-02-12" data-group="02-12" data-dim="02" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-13">动作肢体僵硬／不协调</button></p><h2>桌边戏剧动作的停顿</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-02" aria-expanded="false" data-drawer-id="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-13">动作肢体僵硬／不协调</button></p><h2>桌边戏剧动作的停顿</h2></header>
 <div class="prompt-suite" data-prompt-for="02-12-good" data-source-version="e08c0f35c82b39ebf034489c9e5cb528c3cee322d822675c398fff811c060330" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">稳定镜头无抖动。桌子左右各坐一人，男生突然起身拍桌，女生跳上桌面，两人在桌面和桌边完成一段编排好的电影动作表演，以手势交错和位置变化呈现冲突，不出现伤情。从拍桌、上桌到桌边交锋动作依次衔接，身体转身、伸手和收势保留动势。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -342,7 +353,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《桌边戏剧动作的停顿》反例" data-poster="../posters/02-12-bad.jpg" src="../videos/02-12-bad.mp4"></video>
 </section></div>
 </article><article id="case-02-13" data-group="02-13" data-dim="02" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-14">表演表情不自然</button></p><h2>讲故事时男人的脸 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-02" aria-expanded="false" data-drawer-id="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-14">表演表情不自然</button></p><h2>讲故事时男人的脸 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="02-13-good" data-source-version="13b6a0ad9efc2f3b1a798de6be5e398bfdc37c950c1aa7a1b833c62c7a50d90a" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">固定近景拍一位成年男子正对镜头微笑，用温和的普通话说：“大家好，我今天想和大家分享一个有趣的故事。”他说完“大家好”闭上嘴换一口气，再接着往下说。闭嘴换气时，他脸颊上的笑肌松下来，下眼睑也舒展开。说到“有趣”时，两颊才跟着嘴角轻轻提起。切到第二位成年人，他用较低沉的普通话说：“今天的天气很好，适合出去散步。”</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -361,7 +372,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《讲故事时男人的脸》反例" data-poster="media/02-13-bad-298f1f5510.jpg" src="media/02-13-bad-298f1f5510.mp4"></video>
 </section></div>
 </article><article id="case-02-14" data-group="02-14" data-dim="02" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-15">运动幅度／节奏小</button></p><h2>小林停步回头 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-02" aria-expanded="false" data-drawer-id="taxonomy-02">运动质量</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-02-15">运动幅度／节奏小</button></p><h2>小林停步回头 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="02-14-good" data-source-version="92f79c2b98524680ba3d38755fe6c15af77d6502781a5d00c416c7d78623c0a7" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">傍晚街上，暖色柔光。同伴从小林左后方手持跟拍，小林在前面走。听见同伴叫“小林”，她停下脚步，镜头也停住。双脚刚站稳，她便利落地向左回头，约半秒就望向身后的同伴，眼神明亮。整个回头过程用一个连续中景拍完，背后的路人按原来的步速经过。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -380,7 +391,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《小林停步回头》反例" data-poster="media/02-14-bad-dd6215deeb.jpg" src="media/02-14-bad-dd6215deeb.mp4"></video>
 </section></div>
 </article><article id="case-03-02" data-group="03-02" data-dim="03" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-1">主体属性不一致(含主体互换)—P0</button></p><h2>沙发三人对话里的发型 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-03" aria-expanded="false" data-drawer-id="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-1">主体属性不一致(含主体互换)—P0</button></p><h2>沙发三人对话里的发型 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="03-02-good" data-source-version="79d7c18f432d1b549813a5dc38385b0a34148189d0bbfdc24fcb9c6348a9eb60" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">自然窗光的现代都市剧。广角拍三名女子坐在沙发上。左侧棕色皮夹克女子坐在扶手上，声音锐利：“你真的想好了？这条路可不好走。”硬切到中间浅绿大衣女子的紧凑特写，她看手，轻声说：“我知道，但我不想再等了。”硬切右侧白色上衣、黑白条纹半裙的女孩，她黑发齐肩，热情前倾：“怕什么！大不了从头再来！”9.7秒切回左侧女子的特写，右侧白衣女孩仍可在背景辨认。切点前后，白衣女孩都留着同一头齐肩黑发。 左侧女子挑眉、赞许地冷笑：“这还像句人话。我挺你。”</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -399,7 +410,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《沙发三人对话里的发型》反例" data-poster="media/03-02-bad-bfb2987b7c.jpg" src="media/03-02-bad-bfb2987b7c.mp4"></video>
 </section></div>
 </article><article id="case-03-03" data-group="03-03" data-dim="03" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-2">主体数量不一致(含主体复制)-P0</button></p><h2>梳妆台前多出的女主</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-03" aria-expanded="false" data-drawer-id="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-2">主体数量不一致(含主体复制)-P0</button></p><h2>梳妆台前多出的女主</h2></header>
 <div class="prompt-suite" data-prompt-for="03-03-good" data-source-version="202fd91c867efda65b1276ae1d79443383f38e08f92b71137d87d98e2e709b53" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">镜头切到一只绘有牡丹的青花瓷瓶，缓缓移动，聚焦穿淡雅古装的女子梳妆。她羞涩地照镜涂口红，木窗和纸扇构成背景。3–5秒梳妆台前只有她一个真人，镜中有且仅有她同步涂口红的倒影。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -418,7 +429,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《梳妆台前多出的女主》反例" data-poster="../posters/03-03-bad.jpg" src="../videos/03-03-bad.mp4"></video>
 </section></div>
 </article><article id="case-03-05" data-group="03-05" data-dim="03" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-5">色彩／光影不一致-P0</button></p><h2>咖啡馆里照在脸上的窗光 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-03" aria-expanded="false" data-drawer-id="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-5">色彩／光影不一致-P0</button></p><h2>咖啡馆里照在脸上的窗光 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="03-05-good" data-source-version="9aef649832a338505cdc62b5f291f52979266ade86286c79c891536499e064ec" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">15 秒都市剧。正面中景拍咖啡馆靠窗的女士，落地窗就在她身后，窗光勾亮两侧发缘，正脸在柔影里。戴眼镜的西装男子来到桌边，整理领口。切过肩镜头，他问：“太太……您怎么约在这儿？”约第 5 秒切回女士正面近景。她坐在原位，鼻尖仍朝向镜头，看着他浅笑：“坐。”这两秒里窗光始终从身后照亮发缘，两颊仍在柔影中。她把黑色手包旁的牛皮纸信封推到桌中央：“我要你做我的眼线。”他推眼镜：“这不合适……被总裁发现我就完了。”她起身靠近：“你忘了是谁把你留到现在的？”他低下头，信封留在两人之间。配舒缓纯音乐。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -437,7 +448,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《咖啡馆里照在脸上的窗光》反例" data-poster="media/03-05-bad-853bd0f31d.jpg" src="media/03-05-bad-853bd0f31d.mp4"></video>
 </section></div>
 </article><article id="case-03-10" data-group="03-10" data-dim="03" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-9">场景不一致</button></p><h2>滑冰选手转圈时的场地 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-03" aria-expanded="false" data-drawer-id="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-9">场景不一致</button></p><h2>滑冰选手转圈时的场地 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="03-10-good" data-source-version="b1e453a4f01349e0214bf77cda09c9e332c53efbcd8279fdd8032cd78edd7d8a" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">室内冰场，后面是红色看台和黄色护栏。短发女选手穿深蓝滑冰裙和白冰鞋，说了句“滑冰真好玩”，收起双臂向左转圈。第 6 秒插入半秒脸部特写，她的脸正好转过镜头，再切侧面中全景，接住还没转完的这一圈。切出特写的第一帧就能看见原来的红色看台和沿冰面延伸的黄护栏。这个中全景停留两秒。她仍穿同一身衣服、朝原方向转完，再张臂滑出，冰刀声和轻快的音乐连贯。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -456,7 +467,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《滑冰选手转圈时的场地》反例" data-poster="media/03-10-bad-cc1e996e5b.jpg" src="media/03-10-bad-cc1e996e5b.mp4"></video>
 </section></div>
 </article><article id="case-03-11" data-group="03-11" data-dim="03" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-11">尾帧突变-P0</button></p><h2>最后一帧的塔楼</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-03" aria-expanded="false" data-drawer-id="taxonomy-03">时序一致性</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-03-11">尾帧突变-P0</button></p><h2>最后一帧的塔楼</h2></header>
 <div class="prompt-suite" data-prompt-for="03-11-good" data-source-version="e874e9c67caa47324194b707a896f768f84db400e5ae07577812706461f4ebf9" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">写实奇幻建筑，固定中景。塔基起建，再由下而上出现塔身与内部空间，外部同步完善，最终整座塔楼完整入画。木料碰撞、石块摩擦与轻风声伴搭建渐强；完成时一记轻微辉光音效。无对白、无音乐。成塔后定格，最后一帧仍是完整塔楼及原来的光影。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -475,7 +486,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《最后一帧的塔楼》反例" data-poster="../posters/03-11-bad.jpg" src="../videos/03-11-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-05" data-group="04-05" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-3">颗粒感／噪点／杂质／闪烁</button></p><h2>白毛衣女孩练琴</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-3">颗粒感／噪点／杂质／闪烁</button></p><h2>白毛衣女孩练琴</h2></header>
 <div class="prompt-suite" data-prompt-for="04-05-good" data-source-version="ea15c2ce54490c2c17d78a98c9ae6743434003aff9f50ccf3008381163580eed" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">生成8秒日式写实生活短片，平视中景从钢琴一侧缓缓环绕至另一侧四分之三视角。年轻女子穿白毛衣坐在琴前，双拳收在胸前给自己打气，轻声说「もう一回だけ…」。她用右手按下一个清澈的单音，左手随后落键，接出温柔流动的旋律，专注平静，肩随旋律轻轻起伏。窗户侧逆光勾出头发和后背的轮廓，保留是枝裕和式的生活观察感。
 从她开口到结尾，背景墙、毛衣阴影和琴身的暗部都干净稳定，窗边轮廓光柔和连续。</pre></details>
@@ -495,7 +506,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《白毛衣女孩练琴》反例" data-poster="../posters/04-05-bad.jpg" src="../videos/04-05-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-11" data-group="04-11" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-10">油腻感／蜡像感</button></p><h2>拆银色眼膜的博主</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-10">油腻感／蜡像感</button></p><h2>拆银色眼膜的博主</h2></header>
 <div class="prompt-suite" data-prompt-for="04-11-good" data-source-version="34bc88dad1828230336542292c69f348882b471b15b7c477a3beadf693325cf5" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">12秒写实中文口播。20岁白人女博主在浅灰墙、白门框的家里，微笑着展示一对透明包装的银色弯月眼膜。0–3秒把包装靠近镜头：“姐妹们，我最近熬夜真的靠这个眼膜救急。”3–6秒切脸部近景，撕封取出一片贴于眼下，按稳边缘：“它是这种很服帖的水润质地，贴上去冰冰凉凉的。”6–9秒眼部特写，以指腹抚平眼膜。9–12秒半身，她轻拍脸：“想试的可以蹲一下活动，日常囤着真的挺方便。”语速口语化，中文口型同步，自然景深，8K人像细节。
 每次切近都能看见鼻翼和面颊细微毛孔。眼膜薄薄一层水光与周围自然皮肤的光泽有清楚区别。</pre></details>
@@ -515,7 +526,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《拆银色眼膜的博主》反例" data-poster="../posters/04-11-bad.jpg" src="../videos/04-11-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-12" data-group="04-12" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-10">油腻感／蜡像感</button></p><h2>甲板对手的头发</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-10">油腻感／蜡像感</button></p><h2>甲板对手的头发</h2></header>
 <div class="prompt-suite" data-prompt-for="04-12-good" data-source-version="9e91f927dcef729b9bf5beca6191f1aebf05b93e831778e05b59d95d88c7e0c7" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">15秒电影甲板决斗。0–4秒甲板中景，光头海盗扑向白衣男子，两人兵器相接，船身和索具摇晃。4–8秒切低机位近景，白衣男子转身反击，神情凌厉，海风吹过额前头发。8–12秒从围栏后拍全景，两人周旋，围观者探身，海盗侧滚闪开。12–15秒海盗背后过肩，白衣男子侧身制住对手，两人停下。
 第5秒白衣男子旋身时，额前发束有粗细变化，几根散发跟着风动，高光沿发丝自然变化。</pre></details>
@@ -535,7 +546,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《甲板对手的头发》反例" data-poster="../posters/04-12-bad.jpg" src="../videos/04-12-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-14" data-group="04-14" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-12">比例失调／透视异常</button></p><h2>冰湖上的极寒继承者</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-12">比例失调／透视异常</button></p><h2>冰湖上的极寒继承者</h2></header>
 <div class="prompt-suite" data-prompt-for="04-14-good" data-source-version="495d82d10b566f5dc06f4d185cbc7ebbe38d5dd1916c14106e6a44d8be4227a8" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">冬夜校园，月光落在结冰的湖上，冰层泛着冷蓝光。极寒继承者是一名手握手链的男子，站在湖面中央低声用日语说「静寂に還る。」岸上的火焰对照者点起橙焰，另一种冷静的嗓音回应「寒き夜を焼き尽くす。」镜头退到能看清两人站位的全身景别，寒霜沿湖面扩散，和火焰迎面碰撞。画面持续越过第7.2秒。
 从第7.2秒到冲撞结束，湖中男子头身与四肢比例自然，双脚贴着冰面，镜头后退时整体等比变小。</pre></details>
@@ -555,7 +566,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《冰湖上的极寒继承者》反例" data-poster="../posters/04-14-bad.jpg" src="../videos/04-14-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-15b" data-group="04-15b" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-13">特效／后期包装粗糙</button></p><h2>剑修落地后雪面冻结</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-13">特效／后期包装粗糙</button></p><h2>剑修落地后雪面冻结</h2></header>
 <div class="prompt-suite" data-prompt-for="04-15b-good" data-source-version="6a07cb7d3da5330cdf79a3bd42d77f86079c962bb6998028ba3400bd96b8ccae" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">冰雪奇幻短片。冰魇妖王从冰裂中缓缓升起，巨大冰甲与眼中蓝火映在雪峰上，寒气扩散，地面冻结，伴随清脆碎裂声，他低声道：“此地，永封。”白衣寒山剑修踏雪从高处而下，衣袍猎猎，落地时没有扬尘，雪面无声冻结。他抬手凝出透明霜月长剑：“封得住山，封不住人心。”随后银灰冰霜圆环从他脚下展开，与蓝火寒流对撞，冰晶飞散，远处冰殿折射寒光，冰裂与风暴轰鸣交织。
 妖王出场时冰层自然龟裂。接着剑修落地，靴边先现细霜，冰纹依据雪面高低向外生长，同现实积雪连在一起。</pre></details>
@@ -575,7 +586,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《剑修落地后雪面冻结》反例" data-poster="../posters/04-15b-bad.jpg" src="../videos/04-15b-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-17" data-group="04-17" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-15">色彩饱和度异常</button></p><h2>第一人称游览水上乐园 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-15">色彩饱和度异常</button></p><h2>第一人称游览水上乐园 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="04-17-good" data-source-version="9b598d8d266c92d1da44519d8832ef7455242dab23eaa525175bb91fb812f1b1" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">皮克斯风格的三维动画。第一人称沿水上乐园池边匀速向前，近处游客的脸、清水池、绿色泳圈和红滑梯同时入画。一个孩子滑进池里，溅起白色水花。阳光下颜色鲜亮，浅水是淡青，深处偏蓝，游客脸颊温暖，背光一侧颜色柔和，红滑梯和绿泳圈各有深浅。水花保持白色，池底的纹路和脸上的明暗起伏清楚可见，能听到水声和游客的笑声。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -594,7 +605,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《第一人称游览水上乐园》反例" data-poster="media/04-17-bad-e81630c5a7.jpg" src="media/04-17-bad-e81630c5a7.mp4"></video>
 </section></div>
 </article><article id="case-04-18" data-group="04-18" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-16">表情ai感</button></p><h2>走廊里女子受惊的近景 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-16">表情ai感</button></p><h2>走廊里女子受惊的近景 <span class="case-edit-marker" title="正反例视频已更新">已修改</span></h2></header>
 <div class="prompt-suite" data-prompt-for="04-18-good" data-source-version="849c2888f45f93d0425e11640d941428dfa45c22f3dff0a6c04010eee50d9c1e" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">拍惊悚片里的推轨变焦。走廊尽头突然传来金属撞击声，女子肩膀一缩，猛地转脸盯住镜头，嘴唇张开急吸一口气，声音卡在喉咙里。镜头推进的同时拉短焦距，背景迅速拉长，她的脸在画面里保持原来的大小。她吓得双眼睁大，眉心绷紧，下眼睑仍贴住深色虹膜的下缘，眼角微微颤动。这股惊恐持续两秒，她才缓缓吐气。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -613,7 +624,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《走廊里女子受惊的近景》反例" data-poster="media/04-18-bad-0c41372514.jpg" src="media/04-18-bad-0c41372514.mp4"></video>
 </section></div>
 </article><article id="case-04-22" data-group="04-22" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-18">光影扁无立体感</button></p><h2>五场景时尚造型手册</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-18">光影扁无立体感</button></p><h2>五场景时尚造型手册</h2></header>
 <div class="prompt-suite" data-prompt-for="04-22-good" data-source-version="6d08529bfdaead6cae309285f73a1dd941686b51abf1eb788310de0f6340a258" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">10秒，9:16竖屏时尚造型手册。一位女模特全程同一套米白短外套、深色长裤、尖头鞋，以优雅站姿略微转肩，风轻轻吹动衣摆。每两秒匹配剪辑一次人物剪影，依次是屋顶直升机停机坪、大理石博物馆走廊、霓虹游戏厅、沙漠公路、雾气松林。五个场景中人物造型、身形和服装细节一致。
 各场景照明在模特身上形成清楚的体积：鼻梁与脸颊有连贯的明暗转折，翻领和袖褶有阴影；不同环境的光色准确映在她身上。</pre></details>
@@ -633,7 +644,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《五场景时尚造型手册》反例" data-poster="../posters/04-22-bad.jpg" src="../videos/04-22-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-25" data-group="04-25" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-22">构图差（主体不突出、画面层次乱）</button></p><h2>陈柚试装时的双人构图</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-22">构图差（主体不突出、画面层次乱）</button></p><h2>陈柚试装时的双人构图</h2></header>
 <div class="prompt-suite" data-prompt-for="04-25-good" data-source-version="da60e99e431a799417a281245c957a4485f0a607689033a4b4395c45d3942868" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">写实轻快的穿搭短片，无字幕。辣妹装女生陈柚拿着同学聚会邀请函，站在带全身镜的衣柜前，身侧是表姐。她一边看衣服，一边叹气：「同学聚会好久不见，穿得太普通没存在感，穿得太夸张又像刻意炫富……」表姐笑着拿出黑色显瘦上衣和高腰包臀开叉半裙：「试试这个，低调又显贵，气场直接拉满。」陈柚换上套装对镜转圈：「天！这一套也太显气质了！显瘦还显高，聚会穿稳赢！」表姐笑着说：「早跟你说，这就是聚会万能套装，低调不张扬，又能悄悄惊艳所有人。」最后陈柚拎包出门，裙摆开叉随步伐打开，光线衬出黑色布料的质感。两人声音清楚，语气自然。
 第11.6秒转到两人同框的中景：陈柚在左，表姐在右，都留出脸侧的空间；继续拍到表姐手里的黑色套装，两张脸都在画幅内。</pre></details>
@@ -653,7 +664,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《陈柚试装时的双人构图》反例" data-poster="../posters/04-25-bad.jpg" src="../videos/04-25-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-26" data-group="04-26" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-23">实体结构美感差</button></p><h2>桌上的陶瓷茶壶</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-23">实体结构美感差</button></p><h2>桌上的陶瓷茶壶</h2></header>
 <div class="prompt-suite" data-prompt-for="04-26-good" data-source-version="737d901f7e68dff72fc42770502ce68e006309de7c5172746e4eccc1180121df" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">写实产品近景。一把素白釉陶瓷茶壶静置在木桌上，壶身、壶嘴、把手和壶盖完整可见。摄影机从正侧面慢慢绕到前侧三分之四角度，全程保持柔和侧光与均匀焦点。
 壶身为对称圆弧，圆盖与壶肩贴合，壶嘴和把手连接自然。从侧面转到斜前方仍能读出同一套完整结构。</pre></details>
@@ -673,7 +684,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《桌上的陶瓷茶壶》反例" data-poster="../posters/04-26-bad.jpg" src="../videos/04-26-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-27" data-group="04-27" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-24">生成异常内容</button></p><h2>琉璃宫殿短时花屏</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-24">生成异常内容</button></p><h2>琉璃宫殿短时花屏</h2></header>
 <div class="prompt-suite" data-prompt-for="04-27-good" data-source-version="5a8f735e18827f2e92e8f48f08fb5221990a6d3dc0b0ce3543fff9860f0473e5" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">10秒奇幻短片。琉璃宫殿的透明水晶墙折射七彩光，衣袍晶莹半透明的幻境行者站在殿心，低声道“梦境由我而定”。碎梦者从紫色裂纹中现身冷笑回应“你错了”。水晶剑以七彩折光划破空间，无数悬浮裂片在空中翻飞碰撞。
 7.5–8.5秒继续呈现从剑势中心飞出的水晶碎片，透过碎片还能定位宫墙、行者和对手，画面在高速动作中连续可辨。</pre></details>
@@ -693,7 +704,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《琉璃宫殿短时花屏》反例" data-poster="../posters/04-27-bad.jpg" src="../videos/04-27-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-28" data-group="04-28" data-dim="04" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-21">色彩不协调-P1</button></p><h2>珍珠耳环与油画花园</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-04" aria-expanded="false" data-drawer-id="taxonomy-04">美感与画质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-04-21">色彩不协调-P1</button></p><h2>珍珠耳环与油画花园</h2></header>
 <div class="prompt-suite" data-prompt-for="04-28-good" data-source-version="ac7d80e99202f6de68c144e23a67a38798634be618f9600d128f6117852231b0" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">油画风格中景。一名戴珍珠耳环的女孩站在花园小径边发呆，脸的侧面朝向光，花丛与树丛围绕她。镜头缓慢靠近侧脸，珍珠、小径、花叶均可辨。
 花园以灰绿、浅粉和暖米色为主，花丛的色相有呼应，女孩肤色清楚，珍珠亮点自然吸引视线。</pre></details>
@@ -713,7 +724,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《珍珠耳环与油画花园》反例" data-poster="../posters/04-28-bad.jpg" src="../videos/04-28-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-02" data-group="05-02" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-1">台词严重错误(重复／乱序／缺失／多余／含糊)</button></p><h2>羽绒服广告的四句文案</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-1">台词严重错误(重复／乱序／缺失／多余／含糊)</button></p><h2>羽绒服广告的四句文案</h2></header>
 <div class="prompt-suite" data-prompt-for="05-02-good" data-source-version="e21ef1ec7be97a4587020d6f14e4f676b168022b278f7edd416f51c6e5f79d04" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">拍一则新年羽绒服广告，依次给一根鹅绒、暖色灯下的天鹅、穿着极地天鹅绒羽绒服的模特三个镜头，最后定格在衣领。女旁白用普通话念：“这是根鹅绒，这是暖天鹅，这是能穿的极地天鹅绒羽绒服，新年穿得暖，生活过得暖。”</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -732,7 +743,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《羽绒服广告的四句文案》反例" data-poster="../posters/05-02-bad.jpg" src="../videos/05-02-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-03" data-group="05-03" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-2">台词轻微错误(读音／漏字／错字／多个字)</button></p><h2>深海神殿的一字之差</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-2">台词轻微错误(读音／漏字／错字／多个字)</button></p><h2>深海神殿的一字之差</h2></header>
 <div class="prompt-suite" data-prompt-for="05-03-good" data-source-version="b7cee5c349549728dbac930e06726a0a54b80788c23f48fb4de6efa7fab24b0d" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">冷蓝色水下神殿里，长发的潮汐之子手臂浮起珊瑚荧光。他用低沉的普通话说“深海仍有光。”戴珊瑚冠的深渊女皇从漩涡里出现，冷冷地答：“光，只会沉没。”两句尾音随水下回声散开。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -751,7 +762,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《深海神殿的一字之差》反例" data-poster="../posters/05-03-bad.jpg" src="../videos/05-03-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-04" data-group="05-04" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-3">旁白／画外音／内心独白错误-P0</button></p><h2>雪山口的内心独白</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-3">旁白／画外音／内心独白错误-P0</button></p><h2>雪山口的内心独白</h2></header>
 <div class="prompt-suite" data-prompt-for="05-04-good" data-source-version="ac0f0c936379845b1f8cc713c6ecdc65f270c0d02ff93a91062cd30a6d706a2b" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">中景跟拍一名骑白马穿过雪山口的女战士。白马缓步吐出白雾，雪落在她的眉梢。用她沙哑、低沉的女声缓慢说英文“They hoped the winter would bury us. They don&#x27;t know what&#x27;s coming.”镜头拍到她始终抿紧嘴，英文是贴耳的内心独白，身外可听见马蹄踏雪。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -770,7 +781,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《雪山口的内心独白》反例" data-poster="../posters/05-04-bad.jpg" src="../videos/05-04-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-05" data-group="05-05" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-4">开放式台词不合理发挥—P0</button></p><h2>同事在桌边核对工作</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-4">开放式台词不合理发挥—P0</button></p><h2>同事在桌边核对工作</h2></header>
 <div class="prompt-suite" data-prompt-for="05-05-good" data-source-version="140d7cd7fb441018973e96f7c3e8e79fb9ff79e91817d1afec4d11d5792b5caf" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">写实办公室里，一名设计师和一名同事面对面坐在桌边，桌上摆着样品、色卡、笔记本和日程表。两人边翻色卡边轻声交谈。设计师说“蓝色样品明天能送到吗？”同事看着日程表回答“能，我下午把确认单发给你。”</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -789,7 +800,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《同事在桌边核对工作》反例" data-poster="../posters/05-05-bad.jpg" src="../videos/05-05-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-07" data-group="05-07" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-6">台词归属错误</button></p><h2>客厅里谁说了哪句话</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-6">台词归属错误</button></p><h2>客厅里谁说了哪句话</h2></header>
 <div class="prompt-suite" data-prompt-for="05-07-good" data-source-version="3f401285bd335377c57f67a60dacab5ab21fc7f8e4ae682ffb2e4e6a80ac8b66" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">真人短剧里，白衣女子上前，红裙女子偏头冷笑。白西装男人站在旁边，年长妇人坐在沙发上。红裙女子先问“你还敢回来？”。男人接“这次又为了什么？”，沙发上的妇人制止他“别掺和...”。白衣女子回答“有些事，必须说清楚。”众人低语叹气，红裙女子轻笑“说清楚？就凭你，算什么东西？”镜头推近白衣女子紧握的拳头。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -808,7 +819,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《客厅里谁说了哪句话》反例" data-poster="../posters/05-07-bad.jpg" src="../videos/05-07-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-09" data-group="05-09" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-8">语种／口音／方言错误-P0</button></p><h2>雨街女孩的台词语种</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-8">语种／口音／方言错误-P0</button></p><h2>雨街女孩的台词语种</h2></header>
 <div class="prompt-suite" data-prompt-for="05-09-good" data-source-version="e6b9d1acdc4d5d3b624cdea4d7bdcee792306895a0edd0d0d5ed0541310c9297" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">傍晚街边，女孩起身撑开粉色雨伞。车灯扫过她的脸，她看一眼手机，沿街走了几步又回头。撑伞的时候，她低声对自己说一句：普通话“该回家了...”。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -827,7 +838,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《雨街女孩的台词语种》反例" data-poster="media/05-09-head-home.jpg" src="media/05-09-head-home.mp4"></video>
 </section></div>
 </article><article id="case-05-10" data-group="05-10" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-9">非语言人声音效错误／缺失-P1</button></p><h2>雨棚下八戒的哈欠</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-9">非语言人声音效错误／缺失-P1</button></p><h2>雨棚下八戒的哈欠</h2></header>
 <div class="prompt-suite" data-prompt-for="05-10-good" data-source-version="c88527df11b98363fe2a99cd04b16433494df91ba5d52a682a8f12f7ca7fcb07" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">水墨动画里，师徒四人在木棚下避雨。雨点打在棚顶，悟空晃了晃叶子伞，沙僧擦马背，白马甩尾。画面左侧的八戒张大嘴打了一个长哈欠。张嘴时响起低低的吸气声，接着是一声拖长的“哈——”，最后闭嘴；棚顶雨声持续。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -846,7 +857,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《雨棚下八戒的哈欠》反例" data-poster="../posters/05-10-bad.jpg" src="../videos/05-10-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-12" data-group="05-12" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-11">动物叫声错误／缺失-P0</button></p><h2>狗被碰醒时的叫声</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-11">动物叫声错误／缺失-P0</button></p><h2>狗被碰醒时的叫声</h2></header>
 <div class="prompt-suite" data-prompt-for="05-12-good" data-source-version="364245256197e9b9ed2e8e979abc75f6af41d54ee7c1bb2a83ec6a5503ee7dc1" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">第一视角贴地穿过安静的客厅，两只猫爪走到地毯边。狗熟睡打鼾，猫爪垫落地发出轻响。爪尖碰鼻，狗猛然惊醒，鼾声停止。狗抬头的瞬间发出一声短促的受惊吠叫，随后房间恢复安静。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -865,7 +876,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《狗被碰醒时的叫声》反例" data-poster="../posters/05-12-bad.jpg" src="../videos/05-12-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-14" data-group="05-14" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-13">BGM类型／氛围错误缺失-P1</button></p><h2>理顺耳机后的音乐片段</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-13">BGM类型／氛围错误缺失-P1</button></p><h2>理顺耳机后的音乐片段</h2></header>
 <div class="prompt-suite" data-prompt-for="05-14-good" data-source-version="145faac8fb88418e343a0451df57ce534091669705d0d81277fff9e9edbcf876" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">男子坐在安静的桌前，举起缠成一团的耳机说“看好这招。”他晃动线头，一扯理顺，说“三十秒搞定，不用任何工具。”听见线缆轻擦。耳机塞入耳朵，插头“咔哒”接上手机，他朝镜头点赞。接头扣紧后响起一小段轻快音乐，随点赞收尾。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -884,7 +895,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《理顺耳机后的音乐片段》反例" data-poster="../posters/05-14-bad.jpg" src="../videos/05-14-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-18" data-group="05-18" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-17">禁音效失败-P0</button></p><h2>地下车库逃离的结尾声轨</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-17">禁音效失败-P0</button></p><h2>地下车库逃离的结尾声轨</h2></header>
 <div class="prompt-suite" data-prompt-for="05-18-good" data-source-version="edc5e748ac6516c8979829b451349e27bc987195095c33721ba73f721c2f2ec6" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">冷光地下车库里，远处汽车警报回荡，白衬衫男子把帽衫男子按在车门上问“钥匙在哪？别逼我再问一遍。”对方回答“你找错人了。”两人拉扯，碰撞车身后跌倒，白衬衫男子说“你跑不掉的。”全段没有配乐。帽衫男子跑向出口。收尾切成只有他的急促脚步、喘息和灯管电流嗡鸣，空车位里再没有其他声音。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -903,7 +914,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《地下车库逃离的结尾声轨》反例" data-poster="../posters/05-18-bad.jpg" src="../videos/05-18-bad.mp4"></video>
 </section></div>
 </article><article id="case-05-20" data-group="05-20" data-dim="05" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-19">禁人声失败-P0</button></p><h2>黑白夜市的禁台词长镜头</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-05" aria-expanded="false" data-drawer-id="taxonomy-05">音频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-05-19">禁人声失败-P0</button></p><h2>黑白夜市的禁台词长镜头</h2></header>
 <div class="prompt-suite" data-prompt-for="05-20-good" data-source-version="6ddb7274bb86725bb2a2094b4dbcd5309c9d3e5eb06a79f12c35ee19ae7dc3c0" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">黑白电影风格的1950年代边境夜市。风衣男子警觉地正面走向镜头，镜头后退跟拍，两侧摊贩推车摆货，行人擦肩而过。一镜到底，听得到脚步和货物碰响，全程不用配乐。男子只侧头观察，走过布摊时摊主也只抬眼，两人都未开口说话。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -922,7 +933,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《黑白夜市的禁台词长镜头》反例" data-poster="../posters/05-20-bad.jpg" src="../videos/05-20-bad.mp4"></video>
 </section></div>
 </article><article id="case-06-08" data-group="06-08" data-dim="06" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-06">基础音质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-06-7">持续底噪-P0</button></p><h2>静置茶壶的贯穿底噪</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-06" aria-expanded="false" data-drawer-id="taxonomy-06">基础音质</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-06-7">持续底噪-P0</button></p><h2>静置茶壶的贯穿底噪</h2></header>
 <div class="prompt-suite" data-prompt-for="06-08-good" data-source-version="a084db8a55e1d42e7d2c362fb11ba314b1eeca1ae8ef59d04c16108e895ff8bd" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">明亮安静的室内，桌上放着一只静止的白瓷茶壶。壶周围没有人，镜头缓缓推进，从桌面全景移到壶嘴特写。只保留极轻的室内底声，开头、中段和结尾都安静，推进本身不产生显著声响。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -941,7 +952,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《静置茶壶的贯穿底噪》反例" data-poster="../posters/06-08-bad.jpg" src="../videos/06-08-bad.mp4"></video>
 </section></div>
 </article><article id="case-07-08" data-group="07-08" data-dim="07" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-07">音画同步</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-07-8">画面与BGM节拍／音调不同步—P2</button></p><h2>街头说唱动作与鼓点</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-07" aria-expanded="false" data-drawer-id="taxonomy-07">音画同步</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-07-8">画面与BGM节拍／音调不同步—P2</button></p><h2>街头说唱动作与鼓点</h2></header>
 <div class="prompt-suite" data-prompt-for="07-08-good" data-source-version="2c0aabce5698b27cdf5a3c973f6a3d49d836897f9d93e0d75bd13ff6143e9a90" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">路灯下，浅蓝衬衫的金发男生直视镜头慢步向前，用中文说唱“在黑夜中迷失方向，找不到回去的光。你问我想去向何方，只有你的目光能让我不彷徨。”左侧歌词依次出现，后面穿红卫衣和白外套的男生失焦跟随。镜头缓慢后退，唱词与口型同步，沉重的鼓点节拍稳定。主唱每到重拍就向下挥手并踏出一步，手掌落到最低点和脚踩地面都踩在鼓上。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -960,7 +971,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《街头说唱动作与鼓点》反例" data-poster="../posters/07-08-bad.jpg" src="../videos/07-08-bad.mp4"></video>
 </section></div>
 </article><article id="case-07-13" data-group="07-13" data-dim="07" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-07">音画同步</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-07-7">碎裂音效缺失</button></p><h2>玻璃杯落地的材质声</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-07" aria-expanded="false" data-drawer-id="taxonomy-07">音画同步</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-07-7">碎裂音效缺失</button></p><h2>玻璃杯落地的材质声</h2></header>
 <div class="prompt-suite" data-prompt-for="07-13-good" data-source-version="a55318a1c0119a24f1d266bb66b0387160d7f4069f5c696a3b53bea8db32664f" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">固定近景，桌边一只杯子滑落。镜头拍清透明薄玻璃杯落在石地上碎成数块，碎片散开，房间很安静。碰地的一刻有清脆高亮的碎裂声，几颗碎片随后在石地上轻跳，落点和声响相合。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -979,7 +990,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《玻璃杯落地的材质声》反例" data-poster="calibration/07-13-room-tone.jpg" src="calibration/07-13-room-tone.mp4"></video>
 </section></div>
 </article><article id="case-08-09" data-group="08-09" data-dim="08" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-08">音频表现力</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-08-8">环境音不真实-P1</button></p><h2>两个孩子在岸边泼水</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-08" aria-expanded="false" data-drawer-id="taxonomy-08">音频表现力</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-08-8">环境音不真实-P1</button></p><h2>两个孩子在岸边泼水</h2></header>
 <div class="prompt-suite" data-prompt-for="08-09-good" data-source-version="b24e9a836579efb7485448c7888e28ffb43c0e250f1b4a2afd1edbbdaaa0eb09" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">两个孩子在海边站起身。男孩用双手捧水泼向女孩，女孩开心笑着回击，飞溅的水花打湿衣服。近处每次泼水都有短促的水花声，两人的笑声自然。背后的海浪有推上沙岸、泡沫散开、向后退潮的宽阔声音，起落间距略有变化。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -998,7 +1009,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《两个孩子在岸边泼水》反例" data-poster="../posters/08-09-bad.jpg" src="../videos/08-09-bad.mp4"></video>
 </section></div>
 </article><article id="case-08-10" data-group="08-10" data-dim="08" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-08">音频表现力</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-08-9">动物叫声不真实-P1</button></p><h2>人物变熊后的第一声</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-08" aria-expanded="false" data-drawer-id="taxonomy-08">音频表现力</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-08-9">动物叫声不真实-P1</button></p><h2>人物变熊后的第一声</h2></header>
 <div class="prompt-suite" data-prompt-for="08-10-good" data-source-version="1f7b4d1fc4ea23bbbff12319c0d13e3a698b9f9a0070c08d6766a74ee3bc5d74" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">镜头绕着一名低头的人物旋转并推近。人物突然抬头，张嘴大声咆哮，表情激动、带一点喜剧色彩，随后在画面中变成体型壮硕的熊。变身完毕、熊第一次张嘴时，是低沉有胸腔共鸣的熊吼，开始和结束都与这次张嘴吻合。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -1017,7 +1028,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《人物变熊后的第一声》反例" data-poster="../posters/08-10-bad.jpg" src="../videos/08-10-bad.mp4"></video>
 </section></div>
 </article><article id="case-08-12" data-group="08-12" data-dim="08" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-08">音频表现力</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-08-11">声场混响不匹配-P1</button></p><h2>跨次元少女的回声</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-08" aria-expanded="false" data-drawer-id="taxonomy-08">音频表现力</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-08-11">声场混响不匹配-P1</button></p><h2>跨次元少女的回声</h2></header>
 <div class="prompt-suite" data-prompt-for="08-12-good" data-source-version="5e49c299475f3826f005d9242356e49c6f097a439068668dd57d86ce974924d1" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">固定近景，焦点在女孩的面部和伸向镜头的手上。左侧黑白蝴蝶扇动素描线翅，右侧彩色帝王蝶穿过星芒。女孩握紧拳头，左右两半脸同时说：“就算打破次元的界限，我也想触碰真实的你。”话音落下，墨迹和光芒在指尖交融，两侧蝴蝶越过中线。背景是一片开阔、柔软的花地；声线空灵坚定。对白仿佛从眼前近处传来，每个停顿自然收住，尾韵轻短。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -1036,7 +1047,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <video controls playsinline preload="none" aria-label="《跨次元少女的回声》反例" data-poster="../posters/08-12-bad.jpg" src="../videos/08-12-bad.mp4"></video>
 </section></div>
 </article><article id="case-08-13" data-group="08-13" data-dim="08" tabindex="-1">
-<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-08">音频表现力</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-08-12">台词机械感-P0</button></p><h2>短句“就是现在”的机械感</h2></header>
+<header class="case-head"><p class="meta"><button type="button" class="attribution" aria-haspopup="dialog" aria-controls="taxonomy-08" aria-expanded="false" data-drawer-id="taxonomy-08">音频表现力</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-08-12">台词机械感-P0</button></p><h2>短句“就是现在”的机械感</h2></header>
 <div class="prompt-suite" data-prompt-for="08-13-good" data-source-version="7be9af976e33d4f02ce7a4bed287513beef0d1ce64d94004513b64cb8795ae77" aria-label="正例原始提示词">
 <details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">中近景表现虚构片场的古装男子拉开道具弓。绷紧声轻响，呼吸慢而沉，他停顿一下，压低声音说：“就是现在。”随后一声“嗖”掠过，远处传来闷响；男子放下弓，呼出一口气。这四个字带自然连读和轻重，“现在”略加重，尾字随呼气收住。</pre></details>
 <div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
@@ -1056,47 +1067,47 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 </section></div>
 </article></div><p id="empty" hidden>没有匹配的案例。<button type="button" id="clear">清除筛选</button></p></div>
 </div>
-</main><aside id="taxonomy-01" class="taxonomy-drawer" popover="auto" role="dialog" aria-labelledby="taxonomy-title-01">
+</main><aside id="taxonomy-01" class="taxonomy-drawer" hidden role="dialog" aria-labelledby="taxonomy-title-01">
 <header><div class="taxonomy-heading"><h2 id="taxonomy-title-01">视频指令遵循</h2>
-<button type="button" class="taxonomy-close" popovertarget="taxonomy-01" popovertargetaction="hide" aria-label="关闭侧窗" autofocus>×</button></div>
+<button type="button" class="taxonomy-close" aria-label="关闭侧窗">×</button></div>
 <p>二级归因 · 28 项</p></header>
 <ul><li><button type="button" class="taxonomy-item" id="tax-term-01-1" data-term-id="tax-term-01-1" data-definition="提示词指定了切镜时刻或镜头时长，成片却提早或延后。例如要求第 3 秒切到刀切鱼柳，切鱼的画面在第 1.4 秒就出现了。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">时间戳偏差</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-2" data-term-id="tax-term-01-2" data-definition="提示词里推动情节的关键一步被省略或做成了别的动作。例如要求屋主推门进屋，成片直接从门外切到屋内，始终没拍到推门。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">核心动作缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-3" data-term-id="tax-term-01-3" data-definition="角色的表演、表情或面部动作偏离文字要求，或缺少指定的变化。例如要求听完消息后由惊讶转为微笑，画中人始终皱着眉。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">情绪表达错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-4" data-term-id="tax-term-01-4" data-definition="主事件拍出来了，但提示词指定的附带动作被省略或做错。例如人物按要求递出了信，却少了递信前抚平信封的一下。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">非核心动作缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-5" data-term-id="tax-term-01-5" data-definition="动作做了，但力度、快慢、次数、先后或完成程度偏离要求。例如要求轻敲两下，人物只用力砸了一下。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">动作程度／副词／完成度偏差</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-6" data-term-id="tax-term-01-6" data-definition="以提示词指定的参照物为准，主体所在的一侧、与别人的相对位置或移动方向有误。例如要求向门口走，人物却越走离门越远。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">空间位置／运动方向错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-7" data-term-id="tax-term-01-7" data-definition="提示词用身份、年龄等特征指定了主角，成片生成了另一类主体。例如要求一位老年男子，画面主角却是个孩子。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">主体属性不对</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-8" data-term-id="tax-term-01-8" data-definition="提示词明确点出几个人、几只动物或几个主要物体，成片实际出现的数量与之不符。例如要求两名舞者同台，全段只有一人。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">主体数量不对</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-9" data-term-id="tax-term-01-9" data-definition="可辨认的环境特征把故事放到了另一个地点。例如要求在室内冰场比赛，画面却是被树林环绕的露天冰湖。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">场景错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-10" data-term-id="tax-term-01-10" data-definition="提示词指定的穿着、发型或妆容在角色身上缺失，或被换成了别的样式。例如要求盘发，出场时却一直披着长发。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">服饰、妆发错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-11" data-term-id="tax-term-01-11" data-definition="道具出现了，但材质、颜色或形状等特征与文字要求不符。例如要求透明玻璃杯，人物手里却是不透光的金属杯。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">道具属性不对</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-12" data-term-id="tax-term-01-12" data-definition="按提示词指定的位置或持有人数一遍道具，实物件数偏多或偏少。例如要求桌上摆三只杯子，完整桌面上只能数到两只。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">道具数量不对</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-13" data-term-id="tax-term-01-13" data-definition="用主体在画面中的大小和可见范围核对景别。例如要求脸部特写，画面却从头拍到脚，五官只占很小一块。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">景别错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-14" data-term-id="tax-term-01-14" data-definition="镜头移动的方式或观察主体的角度与要求不符。例如要求摄影机从正上方俯拍，成片却一直在桌边平视。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">基础运镜／视角错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-15" data-term-id="tax-term-01-15" data-definition="提示词分列了几个镜头，其中某个该独立呈现的画面从头到尾没有出现。例如要求全景后单独拍手部特写，成片始终只有全景。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">镜头缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-16" data-term-id="tax-term-01-16" data-definition="提示词点名的拍摄手法没有成立。例如要求一镜到底，成片中间出现切镜。要求绕主体一周，镜头却始终从正面推进。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">特殊运镜／拍摄手法错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-17" data-term-id="tax-term-01-17" data-definition="运镜类型符合要求，但移动得过快、过慢、过远或过近。例如要求缓慢推近一点，镜头却猛冲到只剩半张脸。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">镜头速度／幅度错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-18" data-term-id="tax-term-01-18" data-definition="各个镜头或运镜动作都出现了，但排列顺序或衔接节奏与要求不同。例如要求先推近、再横移、最后拉远，后两步却颠倒了。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">镜头时序／节奏偏差</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-19" data-term-id="tax-term-01-19" data-definition="提示词点名的视觉特效缺失，或它作用的对象、呈现的效果有误。例如要求手心燃起火焰，火焰却出现在人物身后。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">特效错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-20" data-term-id="tax-term-01-20" data-definition="画面没有呈现指定的天气、光照或渲染效果。例如要求一束阳光从窗外穿过体积雾，成片只有均匀照亮的房间，看不到雾中的光束。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">光照效果／渲染意图缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-21" data-term-id="tax-term-01-21" data-definition="整体绘制或成像方式偏离提示词指定的风格，或成片擅自加入强烈的风格化处理。例如要求写实街拍，人物和建筑却都带有漫画描边。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">风格错误／偏差</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-22" data-term-id="tax-term-01-22" data-definition="逐字核对提示词指定的字幕、招牌或品牌名，成片漏掉整段文字、缺字或写错字。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">文字错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-23" data-term-id="tax-term-01-23" data-definition="画面里有指定的文字，但出现的时刻、顺序、位置或排版有误。例如要求片尾在右下角出现的小字，一开场就占据画面中央。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">文字时序／样式／位置偏差</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-24" data-term-id="tax-term-01-24" data-definition="同一个字、词或整行文字在本应只出现一次的位置重复生成。例如要求招牌写「春日」，成片却写成「春春日」。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">文字复制</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-25" data-term-id="tax-term-01-25" data-definition="提示词明说不加字幕，画面仍把台词或旁白打成了字幕。场景里原有的路牌、店招要与字幕分开辨认。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">字幕禁止失败</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-26" data-term-id="tax-term-01-26" data-definition="提示词明确要求角色避免某个动作，成片却拍到了它。例如要求全程直视前方、不要回头，角色中途转头向后看。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">动作禁止失败</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-27" data-term-id="tax-term-01-27" data-definition="提示词明确排除了某类人、动物或物体，成片仍让它入镜。例如要求街上空无一人，路口却站着行人。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">主体禁止失败</button></li><li><button type="button" class="taxonomy-item" id="tax-term-01-28" data-term-id="tax-term-01-28" data-definition="有具体的指令偏差，但上述标签都概括不了。例如提示词未提字幕，成片擅自加上整段字幕，可在理由中写明新增了什么。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">其他</button></li></ul></aside>
-<aside id="taxonomy-02" class="taxonomy-drawer" popover="auto" role="dialog" aria-labelledby="taxonomy-title-02">
+<aside id="taxonomy-02" class="taxonomy-drawer" hidden role="dialog" aria-labelledby="taxonomy-title-02">
 <header><div class="taxonomy-heading"><h2 id="taxonomy-title-02">运动质量</h2>
-<button type="button" class="taxonomy-close" popovertarget="taxonomy-02" popovertargetaction="hide" aria-label="关闭侧窗" autofocus>×</button></div>
+<button type="button" class="taxonomy-close" aria-label="关闭侧窗">×</button></div>
 <p>二级归因 · 22 项</p></header>
 <ul><li><button type="button" class="taxonomy-item" id="tax-term-02-1" data-term-id="tax-term-02-1" data-definition="主角或主要物体的身体、部件数量或连接方式连续异常 3 秒以上。例如主角一直多出一条手臂，转身后仍然可见。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">主体人／物持续结构错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-2" data-term-id="tax-term-02-2" data-definition="跟住主角之外的同一个人、动物或物体，它的身体或部件连续异常 3 秒以上。例如后排路人的手臂始终和栏杆长在一起。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">背景人／物持续结构错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-3" data-term-id="tax-term-02-3" data-definition="一片背景在运动中失去原有形状或布局。例如镜头横移时，整排建筑歪折、黏成一片，原本清楚的门窗跟着融化。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">场景／背景崩坏</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-4" data-term-id="tax-term-02-4" data-definition="人物或动物的面部结构在画面里破损、错位或粘连。例如头转向侧面时，一只眼睛滑到了鼻梁上。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">五官崩坏</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-5" data-term-id="tax-term-02-5" data-definition="人物或动物的肢体数量、形状或连接位置出现异常。例如手掌张开时多出一根手指，两条腿在迈步时连成一条。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">肢体崩坏</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-6" data-term-id="tax-term-02-6" data-definition="角色拿取或操作物品时，道具本身的形状或部件连接发生破坏。例如刚摘下耳机，两只耳罩就和头梁融成了一团。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">道具崩坏</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-7" data-term-id="tax-term-02-7" data-definition="原本能辨认的字形或标志在运动中变形，笔画断开、粘连，或图形边缘被拉扯到无法辨认。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">文字／logo崩坏</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-8" data-term-id="tax-term-02-8" data-definition="没有特殊情节可以解释，人物做事、使用物品的方式却违背日常经验。例如打电话时把听筒放在脚边，对着鞋讲话。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">生活常识不合理</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-9" data-term-id="tax-term-02-9" data-definition="相邻画面接不上，观众会看到动作或镜头突然跳过一截。例如手刚伸向杯子，下一帧杯子已经贴到嘴边，中间没有拿起的过程。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">不合理转场／切镜／跳帧</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-10" data-term-id="tax-term-02-10" data-definition="重力、碰撞或接触没有产生应有的结果，或物体在同一镜头里凭空出现、消失。例如支撑撤走后杯子仍悬着，手指按到琴键上它却纹丝不动。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">物理不合理／凭空消失出现</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-11" data-term-id="tax-term-02-11" data-definition="人物一出场的身体或脸部朝向就与正在做的事对不上。例如两人隔桌交谈，听者却始终背对说话的人，看向身后空处。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">人物朝向不合理</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-12" data-term-id="tax-term-02-12" data-definition="本应互相阻挡的实体占据了同一块空间，边界清楚可见。例如手掌从完整桌板的一面穿入，从另一面露出来。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">穿模</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-13" data-term-id="tax-term-02-13" data-definition="动作有位移，但关节、重心和身体各部位没有随之配合。例如走路时双脚轮流向前滑，膝盖始终不弯，身体也不换重心。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">动作不自然／僵硬</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-14" data-term-id="tax-term-02-14" data-definition="看眉眼、嘴角和脸颊能否随说话、停顿和情绪一起变化。例如人物已闭嘴换气，双颊仍僵硬地保持上一刻咧嘴大笑的形状。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">表演表情不自然</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-15" data-term-id="tax-term-02-15" data-definition="主体确实动了，但动作幅度很小或推进过慢，应有的动作迟迟没有展开。例如要大步奔跑，双腿却一直小幅挪动。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">运动幅度／节奏小</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-16" data-term-id="tax-term-02-16" data-definition="局部或整个主体突然加速、反复抖动或急转，前后的动作没有相应的发力过程。例如人物平静地吃饭，下巴却连续快速弹动。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">运动过快／抽搐</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-17" data-term-id="tax-term-02-17" data-definition="看整个画面的视点怎样移动。没有情节或拍摄手法上的缘由，镜头忽快忽慢、抖一下或突然停住，破坏了原有的跟拍或推移。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">运镜不自然</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-18" data-term-id="tax-term-02-18" data-definition="跟住本应活动的主角，从开头到结尾，姿态和正在做的动作始终没有可辨变化。背景在动或摄影机推近，也可能出现这个问题。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">主体全程静止</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-19" data-term-id="tax-term-02-19" data-definition="整幅画面像一张平面照片被平移或放大。人物姿势和物体之间的位置关系都固定，画面里的动作只来自这张图整体挪动。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">PPT</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-20" data-term-id="tax-term-02-20" data-definition="主体或整幅画面先有动作，中间一段突然定住，随后又动起来。例如走路的人停在抬脚的半步上，过了一会儿才接着迈步。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">部分时间静止</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-21" data-term-id="tax-term-02-21" data-definition="主体正常活动，背景里本应有独立动作的人或动物却一直定在同一姿势。例如主角在游泳，身后正在振翅的鸟群悬在原处。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">背景活物静止</button></li><li><button type="button" class="taxonomy-item" id="tax-term-02-22" data-term-id="tax-term-02-22" data-definition="能指出动作、运镜或运动过程中的异常，但上面各项都不适用。记录具体是哪一处怎样动，以及异常发生的时段。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">其他</button></li></ul></aside>
-<aside id="taxonomy-03" class="taxonomy-drawer" popover="auto" role="dialog" aria-labelledby="taxonomy-title-03">
+<aside id="taxonomy-03" class="taxonomy-drawer" hidden role="dialog" aria-labelledby="taxonomy-title-03">
 <header><div class="taxonomy-heading"><h2 id="taxonomy-title-03">时序一致性</h2>
-<button type="button" class="taxonomy-close" popovertarget="taxonomy-03" popovertargetaction="hide" aria-label="关闭侧窗" autofocus>×</button></div>
+<button type="button" class="taxonomy-close" aria-label="关闭侧窗">×</button></div>
 <p>二级归因 · 11 项</p></header>
 <ul><li><button type="button" class="taxonomy-item" id="tax-term-03-1" data-term-id="tax-term-03-1" data-definition="沿前后镜头跟住同一主体。没有换装、变身等情节，脸、发型、颜色或材质却改变了，或者两个角色的外貌互换。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">主体属性不一致(含主体互换)</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-2" data-term-id="tax-term-03-2" data-definition="同一场景里，排除进出画、遮挡和取景变化后，主体数量仍然前后对不上。例如镜中的女子是倒影，镜框外凭空多出的另一个她才算复制。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">主体数量不一致(含主体复制)</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-3" data-term-id="tax-term-03-3" data-definition="同一动作接到下一镜，人物的行进方向、对视方向或摄影机路线突然对不上。例如两人一直面对面，切镜后却像朝同一方向说话。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">叙事场景／动线／方向不一致(含越轴)</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-4" data-term-id="tax-term-03-4" data-definition="同一段内容前后采用了明显不同的画风或成像方式，故事中没有相应的风格转换。例如写实面孔在切镜后突然变成赛璐璐动画。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">风格不一致</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-5" data-term-id="tax-term-03-5" data-definition="跟住同一场景里的物体或脸，灯光、时间和位置都能接上，画面的色调、受光面或阴影方向却突然改变。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">色彩／光影不一致</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-6" data-term-id="tax-term-03-6" data-definition="对照桌沿、门口等固定参照物。人物或物体没有移动的过程，切镜后却换了位置，例如杯子从盘子左边跳到右边。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">空间位置不一致</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-7" data-term-id="tax-term-03-7" data-definition="同一地点再次入镜，背景里可单独辨认的东西无故增减或变了外观。例如同一排候车人中，原本站着的红衣乘客突然变成了蓝衣。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">背景元素数量／属性不一致</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-8" data-term-id="tax-term-03-8" data-definition="跟住角色正在使用的同一件道具。没有更换或取放的过程，切镜后它的颜色、材质、款式或件数却变了，例如手里的白杯突然变成黑杯。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">道具不一致</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-9" data-term-id="tax-term-03-9" data-definition="情节仍在同一地点继续，前后镜头的固定布局或整个环境却接不上。例如选手还在转同一圈，室内冰场突然变成了露天冰湖。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">场景不一致</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-10" data-term-id="tax-term-03-10" data-definition="对照同一块招牌、包装或屏幕上的同一处标识。前后画面都能看清，它的字体、配色或标志样式却自行换了。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">文字／logo不一致</button></li><li><button type="button" class="taxonomy-item" id="tax-term-03-11" data-term-id="tax-term-03-11" data-definition="比较最后一帧和紧邻的前几帧。原本连续稳定的主体或场景只在结束的那一帧突然换样、消失或跳成另一幅图。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">尾帧突变</button></li></ul></aside>
-<aside id="taxonomy-04" class="taxonomy-drawer" popover="auto" role="dialog" aria-labelledby="taxonomy-title-04">
+<aside id="taxonomy-04" class="taxonomy-drawer" hidden role="dialog" aria-labelledby="taxonomy-title-04">
 <header><div class="taxonomy-heading"><h2 id="taxonomy-title-04">美感与画质</h2>
-<button type="button" class="taxonomy-close" popovertarget="taxonomy-04" popovertargetaction="hide" aria-label="关闭侧窗" autofocus>×</button></div>
+<button type="button" class="taxonomy-close" aria-label="关闭侧窗">×</button></div>
 <p>二级归因 · 26 项</p></header>
 <ul><li><button type="button" class="taxonomy-item" id="tax-term-04-1" data-term-id="tax-term-04-1" data-definition="从开头到结尾，整体或大面积画面持续模糊，连主体的脸或关键轮廓也难以辨认。浅景深拍摄中，清楚的主体配上虚化的背景属于正常效果。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">画面模糊</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-2" data-term-id="tax-term-04-2" data-definition="连续运动看起来一顿一跳，像重复或跳过了几帧，或移动边缘留下分离的残影。例如人已走开，前一位置还叠着一层轮廓。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">卡顿／掉帧／拖影</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-3" data-term-id="tax-term-04-3" data-definition="本应平整或稳定的区域冒出杂点、网纹、扭曲纹理，或在相邻帧忽明忽暗。例如静止白墙上不断换位置的黑点。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">颗粒感／噪点／杂质／闪烁</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-4" data-term-id="tax-term-04-4" data-definition="本应平滑变化的颜色或亮度被分成一道道边界清楚的色带。例如看天空渐变时，能数出几圈深浅不同的色阶。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">色域断层</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-5" data-term-id="tax-term-04-5" data-definition="逐帧看一小段本应稳定的边缘或纹理，它的落点来回错开几像素。例如树枝走势平顺，只有一段叶缘在天空背景上跳来跳去。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">像素抖动</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-6" data-term-id="tax-term-04-6" data-definition="连续播放时，人物或整幅画面无故被横向拉宽、纵向压扁，或大小来回跳变。例如镜头不动，原本的圆盘一会儿圆、一会儿椭圆。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">画面拉伸缩放</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-7" data-term-id="tax-term-04-7" data-definition="高反差边缘出现额外的亮边、暗线、锯齿或毛刺，细节显得生硬。例如深色头发贴着亮墙的一侧多出一圈白线。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">过度锐化</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-8" data-term-id="tax-term-04-8" data-definition="杂色混在一起，让画面整体显得灰浊，或本应干净的表面出现无来由的黑斑、污迹。例如均匀光线下，脸颊和白衬衫上都蒙着斑驳的灰块。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">脏感／黑斑</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-9" data-term-id="tax-term-04-9" data-definition="近看皮肤时，毛孔、细纹和细小明暗变化被抹成一整片。眼睫毛等同距离的细节仍清楚，模糊主要集中在皮肤上。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">人物纹理过少／磨皮感</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-10" data-term-id="tax-term-04-10" data-definition="皮肤或毛发泛着成片、均匀的油亮反光，原有的细小纹理和层次被盖住。例如转头时几缕头发像一整条上蜡的硬壳。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">油腻感／蜡像感</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-11" data-term-id="tax-term-04-11" data-definition="画面能对上焦，但应当区分材质或环境的细节没有呈现出来。例如近景里鸡肉切面平滑一片，看不到肌纤维和薄膜。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">材质／场景细节不足</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-12" data-term-id="tax-term-04-12" data-definition="对照人体各部分或同一空间中的物体，尺寸和远近关系无法同时成立。例如同一排等大的椅子，越往远处反而越大。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">比例失调／透视异常</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-13" data-term-id="tax-term-04-13" data-definition="特效、抠像或转场的制作痕迹直接露出来。例如光晕带着矩形底板，粒子走到边界被整齐切断，合成轮廓还有一圈毛边。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">特效／后期包装粗糙</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-14" data-term-id="tax-term-04-14" data-definition="成片自行生成的一群人，逐个看仍有小差别，但脸型、五官、发型等组合高度相似，一眼望去像用了同一张脸。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">群像雷同</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-15" data-term-id="tax-term-04-15" data-definition="颜色的鲜艳程度明显失衡，局部或整幅画面刺眼得像荧光色，或原本应有颜色的物体都褪成了灰。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">色彩饱和度异常</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-16" data-term-id="tax-term-04-16" data-definition="单看面部造型，表情被推到失真的程度。例如瞪眼时眼球夸张地鼓大，轻微脸红却变成两团高饱和红块。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">表情AI感</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-17" data-term-id="tax-term-04-17" data-definition="主体和周围环境像受着不同的光，或轮廓带着生硬的色边。例如房间从左边进光，人物右侧却最亮，脚下也没有接触阴影。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">光影融合差／贴图</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-18" data-term-id="tax-term-04-18" data-definition="立体物体上看不出从受光面到背光面的明暗层次。例如鼻梁和两侧脸颊几乎同样亮，脸部起伏看起来被压平。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">光影扁无立体感</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-19" data-term-id="tax-term-04-19" data-definition="主体或大片画面的高光白成一片，或暗部黑成一片，原有细节已经看不见。例如白衣的褶皱整片消失，只剩白色轮廓。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">画面过曝／欠曝</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-20" data-term-id="tax-term-04-20" data-definition="画面各处都染上同一种难以由场景光源解释的颜色。例如白墙、灰衣和肤色同时发绿，连中性色也失去原有的颜色。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">整体偏色</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-21" data-term-id="tax-term-04-21" data-definition="几处颜色彼此争抢注意力，让画面的色彩关系混乱。例如背景里同样醒目的红、绿、紫色块一起抢眼，主体反而难以辨认。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">色彩不协调</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-22" data-term-id="tax-term-04-22" data-definition="取景或元素安排让主体难以看清，或画面重心明显失衡。例如人物面部卡在画框边缘，前景的杂物又挡住了主要动作。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">构图差</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-23" data-term-id="tax-term-04-23" data-definition="模型生成的人、物或建筑本身有局部凹凸、歪斜或轮廓畸形，换角度仍可见。例如镜头绕过茶壶，壶身侧面始终瘪着一块。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">实体结构美感差</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-24" data-term-id="tax-term-04-24" data-definition="正常画面被报错文字、大面积马赛克或无缘由的整屏黑幕等异常输出取代，使本应出现的内容无法观看。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">生成异常内容</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-25" data-term-id="tax-term-04-25" data-definition="画面里出现可辨认的公众人物肖像，或带有特定动漫、影视角色标志性造型的形象。记录让人认出该人物或角色的具体特征。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">明星脸／IP人物</button></li><li><button type="button" class="taxonomy-item" id="tax-term-04-26" data-term-id="tax-term-04-26" data-definition="能指出一处具体的画质或视觉造型缺陷，但上面各项都概括不了。注明画面中的位置和看得见的异常。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">其他</button></li></ul></aside>
-<aside id="taxonomy-05" class="taxonomy-drawer" popover="auto" role="dialog" aria-labelledby="taxonomy-title-05">
+<aside id="taxonomy-05" class="taxonomy-drawer" hidden role="dialog" aria-labelledby="taxonomy-title-05">
 <header><div class="taxonomy-heading"><h2 id="taxonomy-title-05">音频指令遵循</h2>
-<button type="button" class="taxonomy-close" popovertarget="taxonomy-05" popovertargetaction="hide" aria-label="关闭侧窗" autofocus>×</button></div>
+<button type="button" class="taxonomy-close" aria-label="关闭侧窗">×</button></div>
 <p>二级归因 · 19 项</p></header>
 <ul><li><button type="button" class="taxonomy-item" id="tax-term-05-1" data-term-id="tax-term-05-1" data-definition="逐字核对指定的台词。漏、错或多出超过 2 个字或单词，整段重复、打乱语序，或含混到辨不出原句，都属于严重错误。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">台词严重错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-2" data-term-id="tax-term-05-2" data-definition="原句仍能听明白，只漏、错或多了 1～2 个字或单词，或把声调、多音字、数字、专名读错。符合语境的方言读音可以接受。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">台词轻微错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-3" data-term-id="tax-term-05-3" data-definition="指定给旁白或内心独白的词被画中人物张嘴说出，或本应由人物开口的词成了画外音。未指定声源时可用任一方式，但同一段话的声源应前后一致。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">旁白／画外音／内心独白错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-4" data-term-id="tax-term-05-4" data-definition="提示词要求说话、把措辞留给模型时，生成的台词偏离人物、场景或说话目的。例如要求向家人拜年，角色却开始推销商品。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">开放式台词不合理发挥</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-5" data-term-id="tax-term-05-5" data-definition="对照要求听人物怎样发声。例如要求清唱却在朗读，要求耳语却在高喊，或要求合唱却从头到尾只能听出一个人的声线。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">唱歌／播报／ASMR等呈现形式错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-6" data-term-id="tax-term-05-6" data-definition="对照角色和台词，听到一句话时看是谁开口、用的是谁的声音。例如女儿问、父亲答的两句话，全由父亲一个人说了。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">台词归属错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-7" data-term-id="tax-term-05-7" data-definition="台词说出来了，但声音呈现的年龄、音色或情绪与指定角色对不上。例如要求老人哽咽着说，听到的却是轻快平直的童声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">人声属性—音色／情绪不匹配</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-8" data-term-id="tax-term-05-8" data-definition="说话的语言、口音或方言偏离明确要求。未指定语种时，按给出的台词核对，中英混合的句子也应保留两种语言。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">语种／口音／方言错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-9" data-term-id="tax-term-05-9" data-definition="提示词要求角色用笑、哭、喘息等发出声音，成片里听不到，或听成了另一种声音。例如画面里的人张嘴大笑，声轨上却只有说话声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">非语言人声音效错误／缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-10" data-term-id="tax-term-05-10" data-definition="提示词指定了交代环境的背景声，成片漏掉或换了它。例如要求窗外持续下雨，台词停下后只能听到车流声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">环境音错误／缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-11" data-term-id="tax-term-05-11" data-definition="作为主体的动物在该情境下应当发声，却没有叫声或发出了另一种动物的声音。例如画中狗在吠，听到的却是猫叫。提示词另有设定时按设定判断。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">动物叫声错误／缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-12" data-term-id="tax-term-05-12" data-definition="提示词点名的动作声、物件声或特效声没有出现，或出现了另一种声音。例如要求两把刀碰撞时有金属鸣响，碰撞那一刻却只剩风声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音效错误／缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-13" data-term-id="tax-term-05-13" data-definition="听配乐或演唱是否呈现指定的音乐类型和气氛。例如要求悬疑配乐却响起欢快舞曲，或整段都没有要求的音乐。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">BGM类型／氛围错误缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-14" data-term-id="tax-term-05-14" data-definition="指定的乐器应当在声轨中听得出来。例如要求鼓点间有古筝拨弦，鼓声之外却只听到笛子吹奏的长音。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">乐器错误缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-15" data-term-id="tax-term-05-15" data-definition="提示词写明哪些声音先后响起或互相重叠，成片却颠倒或拆开了它们。例如要求先敲门再说话，门还没敲，台词已经说完。只并列列举声音时，顺序可自由安排。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">人声／音效顺序错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-16" data-term-id="tax-term-05-16" data-definition="要求的声音出现了，但它的轻重、音高、快慢、材质感或远近不对。例如要求从远处传来两声闷响，却像是在耳边连续敲了两下金属。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音效属性不匹配</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-17" data-term-id="tax-term-05-17" data-definition="提示词明说要去掉某类音效，声轨里仍能辨认出来。例如要求脚步全程无声，每次落脚却都能听到鞋跟响。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">禁音效失败</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-18" data-term-id="tax-term-05-18" data-definition="提示词明确要求全程无配乐，台词或环境声背后却仍有可辨认的音乐，哪怕只响了一小段。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">禁BGM失败</button></li><li><button type="button" class="taxonomy-item" id="tax-term-05-19" data-term-id="tax-term-05-19" data-definition="提示词禁止说话，声轨里仍出现可辨认的台词。呼吸、笑声和叹息属于非语言人声，单独出现不计入此项。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">禁人声失败</button></li></ul></aside>
-<aside id="taxonomy-06" class="taxonomy-drawer" popover="auto" role="dialog" aria-labelledby="taxonomy-title-06">
+<aside id="taxonomy-06" class="taxonomy-drawer" hidden role="dialog" aria-labelledby="taxonomy-title-06">
 <header><div class="taxonomy-heading"><h2 id="taxonomy-title-06">基础音质</h2>
-<button type="button" class="taxonomy-close" popovertarget="taxonomy-06" popovertargetaction="hide" aria-label="关闭侧窗" autofocus>×</button></div>
+<button type="button" class="taxonomy-close" aria-label="关闭侧窗">×</button></div>
 <p>二级归因 · 9 项</p></header>
 <ul><li><button type="button" class="taxonomy-item" id="tax-term-06-1" data-term-id="tax-term-06-1" data-definition="说话声本身变得粗糙或含混。例如每次开口都夹着砂砾般的杂声，齿音尖得发刺，或声音被压扁，连正常发出的字也难听清。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">人声失真</button></li><li><button type="button" class="taxonomy-item" id="tax-term-06-2" data-term-id="tax-term-06-2" data-definition="一个本该连续发出的字或音节被突然掐断、跳过或重复了一截。留意断点是否发生在发声中途，以区分自然换气、犹豫和口吃。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">人声卡顿／截断</button></li><li><button type="button" class="taxonomy-item" id="tax-term-06-3" data-term-id="tax-term-06-3" data-definition="音乐或物件声的音质受损，例如本应清楚的钢琴音一响就破，和弦糊成一团，或每个鼓点都带着同样的爆裂声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音效／音乐失真</button></li><li><button type="button" class="taxonomy-item" id="tax-term-06-4" data-term-id="tax-term-06-4" data-definition="整个声轨某段频率明显过强或缺失。高频缺失会闷，过强会刺耳。低频缺失会单薄，过强则轰鸣、浑浊。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">频响异常</button></li><li><button type="button" class="taxonomy-item" id="tax-term-06-5" data-term-id="tax-term-06-5" data-definition="本应连贯的音乐、环境声或动作声被硬生生切断或跳过一截。例如水还在流，水声中途断了一拍，又从半截接上。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音效卡顿／截断</button></li><li><button type="button" class="taxonomy-item" id="tax-term-06-6" data-term-id="tax-term-06-6" data-definition="声轨中突然冒出一下或几下孤立的异响，画面和声源都解释不了。例如安静的两句话之间插进一声尖锐的电流爆响。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">短暂杂音／刺耳音</button></li><li><button type="button" class="taxonomy-item" id="tax-term-06-7" data-term-id="tax-term-06-7" data-definition="一层与场景无关或明显过响的噪声持续垫在其他声音下面，台词停下后仍能听见，例如一直不断的嘶声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">持续底噪</button></li><li><button type="button" class="taxonomy-item" id="tax-term-06-8" data-term-id="tax-term-06-8" data-definition="固定播放音量，与同批其他视频比较，整段声音都明显过响，听台词和配乐都需要调低音量。单次碰撞本来就响，不代表全片过响。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">响度过大</button></li><li><button type="button" class="taxonomy-item" id="tax-term-06-9" data-term-id="tax-term-06-9" data-definition="固定播放音量，与同批其他视频比较，全片的台词、配乐或关键声响都难以听清，甚至全片无声或近乎无声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">响度过小</button></li></ul></aside>
-<aside id="taxonomy-07" class="taxonomy-drawer" popover="auto" role="dialog" aria-labelledby="taxonomy-title-07">
+<aside id="taxonomy-07" class="taxonomy-drawer" hidden role="dialog" aria-labelledby="taxonomy-title-07">
 <header><div class="taxonomy-heading"><h2 id="taxonomy-title-07">音画同步</h2>
-<button type="button" class="taxonomy-close" popovertarget="taxonomy-07" popovertargetaction="hide" aria-label="关闭侧窗" autofocus>×</button></div>
+<button type="button" class="taxonomy-close" aria-label="关闭侧窗">×</button></div>
 <p>二级归因 · 14 项</p></header>
 <ul><li><button type="button" class="taxonomy-item" id="tax-term-07-1" data-term-id="tax-term-07-1" data-definition="听整段话的起音、停顿和句尾，嘴部动作在连续一长段里反复抢先、落后或对不上发音。远景中嘴部太小、看不清的部分应从宽判断。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">严重口型不匹配</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-2" data-term-id="tax-term-07-2" data-definition="大部分话音能对上嘴，只有个别字词张嘴晚了、提前闭嘴，或口型与发音短暂错开。拟人动物重点看明显的张口、闭口和长停顿。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">轻微口型不匹配</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-3" data-term-id="tax-term-07-3" data-definition="画中角色连续做出说话口型，对应段落却听不到人声。若同段还有可听的人声与口型错拍，按错拍范围归入严重或轻微口型不匹配。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">无声但嘴在动</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-4" data-term-id="tax-term-07-4" data-definition="能听见角色的一部分台词，对应的说话者却一直闭嘴。若全段都找不到对应的人，核对台词归属。同段还出现口型错拍时，按错拍范围归类。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">有声音却无口型</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-5" data-term-id="tax-term-07-5" data-definition="提示词没有指定人物声线，但成片自行搭配的人物和声音明显冲突。例如画中是老年人在独自说话，听到的却是稚嫩童声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">人声-画面内容不匹配</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-6" data-term-id="tax-term-07-6" data-definition="该有的声音完整出现了，但它和看得见的事件不在同一时刻。例如玻璃杯早已撞上地面，隔了明显一拍才传来碰撞声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音效时机错位</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-7" data-term-id="tax-term-07-7" data-definition="画中物体已经碎裂，从撞击到碎片落定都听不到破碎声。风声、台词等其他声音可以照常存在。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">碎裂音效缺失</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-8" data-term-id="tax-term-07-8" data-definition="找出清楚的鼓点或旋律重音，比较与它对应的重复动作。例如连续几个重拍都过去了，舞者的落脚却次次落在两拍之间。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">画面与BGM节拍／音调不同步</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-9" data-term-id="tax-term-07-9" data-definition="听声音的方位、远近，再看声源的位置和收音距离。例如画左的人说话，声音一直从右侧传来，或麦克风明显移远，声音仍贴在耳边。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音画空间错位</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-10" data-term-id="tax-term-07-10" data-definition="画面冻结或连续卡顿时声音仍向前走，造成正在说的音节、正在做的动作与声音脱节。例如嘴停在半张的姿势，后半句却已经说完。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">静止问题导致音画不同步</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-11" data-term-id="tax-term-07-11" data-definition="提示词没点名音效，但成片拍到了本应能听见的动作，声轨里找不到对应声响。例如角色对着蜡烛用力吹气，火焰灭了，却没有吹气声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">动作-画面音效未同步</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-12" data-term-id="tax-term-07-12" data-definition="提示词没指定环境声，成片中听见的地点却和看见的地点冲突。例如镜头里是车流密集的街口，台词间隙却传来密闭餐厅里近处的杯盘声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">环境-画面音效未同步</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-13" data-term-id="tax-term-07-13" data-definition="能听到声音在正确的时刻响起，但音色让人听成了另一种物体或材质。例如玻璃杯落地那一刻，响的是塑料杯的闷声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音效音色错误</button></li><li><button type="button" class="taxonomy-item" id="tax-term-07-14" data-term-id="tax-term-07-14" data-definition="画面和声音之间有可定位的矛盾，上面各项都无法概括。记录是哪一刻、画面发生了什么、同时听到了什么。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">其他</button></li></ul></aside>
-<aside id="taxonomy-08" class="taxonomy-drawer" popover="auto" role="dialog" aria-labelledby="taxonomy-title-08">
+<aside id="taxonomy-08" class="taxonomy-drawer" hidden role="dialog" aria-labelledby="taxonomy-title-08">
 <header><div class="taxonomy-heading"><h2 id="taxonomy-title-08">音频表现力</h2>
-<button type="button" class="taxonomy-close" popovertarget="taxonomy-08" popovertargetaction="hide" aria-label="关闭侧窗" autofocus>×</button></div>
+<button type="button" class="taxonomy-close" aria-label="关闭侧窗">×</button></div>
 <p>二级归因 · 14 项</p></header>
 <ul><li><button type="button" class="taxonomy-item" id="tax-term-08-1" data-term-id="tax-term-08-1" data-definition="整句话的速度与人物状态或场景节奏不合。例如平静交谈却一口气挤完每个字，或紧急呼救时每个字都拖得很长。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">语速过快／过慢</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-2" data-term-id="tax-term-08-2" data-definition="停顿把词或意思紧密相连的短语拆散，或到了清楚的句界仍不停。例如「我们回家」被念成「我……们回家」。长台词读得快，本身不足以判定断句异常。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">断句节奏不自然</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-3" data-term-id="tax-term-08-3" data-definition="跟住不同角色轮流发言的几句，听到的音高、音质和说话习惯始终像同一个人，以至于只听声音很难区分谁在讲话。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">多人音色共用</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-4" data-term-id="tax-term-08-4" data-definition="跟住同一个角色比较前后两句，声线在没有换人、变声等情节时突然改变，例如一句是低沉沙哑的声音，下一句忽然变得尖细清亮。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音色前后不一致</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-5" data-term-id="tax-term-08-5" data-definition="笑、哭、喘息等声音已经出现，但强弱、气息和间隔听不出人物当下的状态。例如刚冲上楼的人，每次喘气都一样长、一样轻。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">非语音人声表现力弱</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-6" data-term-id="tax-term-08-6" data-definition="听旋律、歌声或演奏本身，音与音的衔接、音准或乐句收尾让人明显觉得别扭。例如一句原本平稳的歌，在长音处反复跑调。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">BGM／唱歌／乐器不好听</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-7" data-term-id="tax-term-08-7" data-definition="物体或动作发出的声音缺少应有的力度、接触感或材质感。例如穿着硬底皮鞋踩水泥地，轻重不同的几步都像在敲同一块软垫。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音效不真实</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-8" data-term-id="tax-term-08-8" data-definition="背景声的种类与地点相符，但声源的层次和变化缺少现场感。例如镜头掠过几个水花，水边始终循环着完全相同的一段泼水声。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">环境音不真实</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-9" data-term-id="tax-term-08-9" data-definition="能听出是画中那种动物，叫声的气息、音高起伏或间隔却不自然。例如狗兴奋地奔跑吠叫，每一声都像同一个音节的精确复制。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">动物叫声不真实</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-10" data-term-id="tax-term-08-10" data-definition="在几路声音同时出现时比较它们的音量。例如对白本该清楚可闻，却被背景音乐盖住，一等配乐停下，台词立刻清楚了。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">人声与配乐／音效响度配比失衡</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-11" data-term-id="tax-term-08-11" data-definition="听一句话或一次拍手结束后，余音拖多长、从哪里反回来。露天街道里出现像空楼梯间那样长而清楚的回声，就与可见空间不符。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">声场混响不匹配</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-12" data-term-id="tax-term-08-12" data-definition="字句能听清，但换气、重音、音调和情绪几乎不随意思变化。例如一句急切的追问被逐字等长、等重地念过去，听起来像在读字表。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">台词机械感</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-13" data-term-id="tax-term-08-13" data-definition="一群人本应各有快慢和力度，欢呼、鼓掌或笑声却像同一小段录音被反复粘贴，连起落和间隔都完全相同。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">音效合成感强</button></li><li><button type="button" class="taxonomy-item" id="tax-term-08-14" data-term-id="tax-term-08-14" data-definition="能指出一种削弱声音表现力的现象，上面各项都无法概括。写出具体是哪种声音，以及哪处听感与人物或场景不合。" aria-haspopup="dialog" aria-expanded="false" aria-controls="term-definition">其他</button></li></ul></aside>
-<aside class="term-definition" id="term-definition" popover="manual" role="dialog" tabindex="-1" aria-labelledby="term-title" aria-describedby="term-description">
+<aside class="term-definition" id="term-definition" popover="manual" hidden role="dialog" tabindex="-1" aria-labelledby="term-title" aria-describedby="term-description">
 <div class="taxonomy-heading"><h2 id="term-title"></h2><button type="button" class="taxonomy-close" aria-label="关闭定义">×</button></div>
 <p id="term-description"></p></aside><script>const PUBLISHED_URL = 'https://h3-pe-141-review-inbox.dv7bm4cnv4.chatgpt.site/published-prompts?view=positive-original';
 const LOCAL_PUBLISHED_URL = 'http://127.0.0.1:45861/public/approved-originals';
@@ -1112,7 +1123,7 @@ const state = new Map();
 const toc = document.getElementById('case-toc');
 const tocDetails = toc.querySelector('details');
 const tocList = toc.querySelector('.toc-list');
-const compactToc = window.matchMedia('(max-width: 1000px)');
+let compactToc;
 const tocLinks = new Map([...tocList.querySelectorAll('a')].map(link => [link.hash.slice(1), link]));
 
 const cards = [...document.querySelectorAll('article')].map(card => {
@@ -1138,7 +1149,7 @@ function revealCurrentLink() {
 function updateReadingPosition() {
   readingFrame = 0;
   let active = visibleCards[0];
-  const readingLine = compactToc.matches ? 66 : 24;
+  const readingLine = compactToc ? 66 : 24;
   for (const entry of visibleCards) {
     if (entry.card.getBoundingClientRect().top > readingLine) break;
     active = entry;
@@ -1160,23 +1171,26 @@ function queueReadingPosition() {
 }
 
 function adaptToc() {
-  tocDetails.open = !compactToc.matches;
+  const compact = getComputedStyle(toc).getPropertyValue('--compact-toc').trim() === '1';
+  if (compact === compactToc) return;
+  compactToc = compact;
+  tocDetails.open = !compact;
   queueReadingPosition();
 }
 adaptToc();
-compactToc.addEventListener('change', adaptToc);
+new ResizeObserver(adaptToc).observe(document.querySelector('main'));
 window.addEventListener('scroll', queueReadingPosition, {passive: true});
 window.addEventListener('resize', queueReadingPosition);
 window.addEventListener('hashchange', queueReadingPosition);
 new ResizeObserver(queueReadingPosition).observe(document.getElementById('cards'));
 tocDetails.addEventListener('toggle', revealCurrentLink);
 tocList.addEventListener('click', event => {
-  if (compactToc.matches && event.target.closest('a') && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+  if (compactToc && event.target.closest('a') && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
     tocDetails.open = false;
   }
 });
 document.addEventListener('pointerdown', event => {
-  if (compactToc.matches && tocDetails.open && !toc.contains(event.target)) tocDetails.open = false;
+  if (compactToc && tocDetails.open && !toc.contains(event.target)) tocDetails.open = false;
 });
 toc.addEventListener('keydown', event => {
   if (event.key === 'Escape' && tocDetails.open) {
@@ -1495,32 +1509,72 @@ refreshCloud();
   const definition = document.getElementById('term-definition');
   const title = document.getElementById('term-title');
   const description = document.getElementById('term-description');
+  const docked = window.matchMedia('(min-width: 900px)');
+  let drawer = null;
+  let opener = null;
   let anchor = null;
+
+  function placeDrawer() {
+    if (!drawer) return;
+    if (docked.matches) document.body.append(drawer);
+    else opener.closest('.case-head').after(drawer);
+  }
+
+  function closeDrawer(restoreFocus = false) {
+    if (!drawer) return;
+    if (drawer.contains(anchor)) closeDefinition();
+    const previous = opener;
+    const top = previous.getBoundingClientRect().top;
+    previous.setAttribute('aria-expanded', 'false');
+    drawer.hidden = true;
+    document.body.append(drawer);
+    document.body.classList.remove('has-taxonomy');
+    drawer = opener = null;
+    if (docked.matches && top >= 0 && top < innerHeight && previous.offsetWidth) {
+      window.scrollBy(0, previous.getBoundingClientRect().top - top);
+    }
+    if (restoreFocus) previous.focus({preventScroll: true});
+  }
+
+  function toggleDrawer(button) {
+    const closing = button === opener;
+    closeDefinition();
+    closeDrawer();
+    if (closing) return;
+    const top = button.getBoundingClientRect().top;
+    opener = button;
+    drawer = document.getElementById(button.dataset.drawerId);
+    placeDrawer();
+    document.body.classList.add('has-taxonomy');
+    drawer.hidden = false;
+    drawer.scrollTop = 0;
+    opener.setAttribute('aria-expanded', 'true');
+    if (docked.matches) window.scrollBy(0, button.getBoundingClientRect().top - top);
+    drawer.querySelector('.taxonomy-close').focus({preventScroll: true});
+  }
 
   function closeDefinition(restoreFocus = false) {
     if (!anchor) return;
     const previous = anchor;
     anchor = null;
     previous.setAttribute('aria-expanded', 'false');
-    definition.hidePopover();
+    if (definition.matches(':popover-open')) definition.hidePopover();
+    definition.hidden = true;
     if (restoreFocus) previous.focus({preventScroll: true});
   }
 
   function placeDefinition() {
-    if (!anchor) return;
+    if (!anchor || !definition.matches(':popover-open')) return;
     const rect = anchor.getBoundingClientRect();
     const width = document.documentElement.clientWidth;
     const height = document.documentElement.clientHeight;
-    const drawer = anchor.closest('.taxonomy-drawer');
-    const visibleTop = drawer ? drawer.querySelector('header').getBoundingClientRect().bottom : 0;
-    if (rect.bottom <= visibleTop || rect.top >= height) {
+    if (rect.bottom <= 0 || rect.top >= height) {
       closeDefinition();
       return;
     }
     const {width: w, height: h} = definition.getBoundingClientRect();
     const margin = 10;
-    const right = drawer ? drawer.getBoundingClientRect().right : rect.right;
-    let x = right + margin;
+    let x = rect.right + margin;
     let y = rect.top;
     if (x + w > width - margin) {
       if (rect.left >= w + 2 * margin) {
@@ -1536,6 +1590,15 @@ refreshCloud();
   }
 
   document.addEventListener('click', event => {
+    const primary = event.target.closest('[data-drawer-id]');
+    if (primary) {
+      toggleDrawer(primary);
+      return;
+    }
+    if (event.target.closest('.taxonomy-drawer header .taxonomy-close')) {
+      closeDrawer(true);
+      return;
+    }
     const button = event.target.closest('[data-term-id]');
     if (!button) return;
     if (button === anchor) {
@@ -1546,11 +1609,22 @@ refreshCloud();
     const term = document.getElementById(button.dataset.termId);
     title.textContent = term.textContent;
     description.textContent = term.dataset.definition;
-    (button.closest('.taxonomy-drawer') || document.body).append(definition);
     anchor = button;
     button.setAttribute('aria-expanded', 'true');
-    definition.showPopover();
-    placeDefinition();
+    if (button.closest('.taxonomy-drawer')) {
+      definition.removeAttribute('popover');
+      button.after(definition);
+      definition.hidden = false;
+      const bottom = definition.getBoundingClientRect().bottom;
+      const overflow = bottom - drawer.getBoundingClientRect().bottom;
+      if (overflow > 0) drawer.scrollBy(0, overflow);
+    } else {
+      definition.setAttribute('popover', 'manual');
+      document.body.append(definition);
+      definition.hidden = false;
+      definition.showPopover();
+      placeDefinition();
+    }
     definition.focus({preventScroll: true});
   });
   definition.querySelector('button').addEventListener('click', () => closeDefinition(true));
@@ -1558,17 +1632,19 @@ refreshCloud();
     if (anchor && !definition.contains(event.target) && !anchor.contains(event.target)) closeDefinition();
   }, true);
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && anchor) {
+    if (event.key === 'Escape' && (anchor || drawer)) {
       event.preventDefault();
       event.stopPropagation();
-      closeDefinition(true);
+      if (anchor) closeDefinition(true);
+      else closeDrawer(true);
     }
   }, true);
-  for (const drawer of document.querySelectorAll('.taxonomy-drawer')) {
-    drawer.addEventListener('beforetoggle', event => {
-      if (event.newState === 'closed' && drawer.contains(anchor)) closeDefinition();
-    });
+  docked.addEventListener('change', placeDrawer);
+  function closeFilteredDrawer() {
+    if (opener?.closest('article').hidden) closeDrawer();
   }
+  document.querySelector('.filters').addEventListener('input', closeFilteredDrawer);
+  document.querySelector('.filters').addEventListener('change', closeFilteredDrawer);
   window.addEventListener('scroll', placeDefinition, {capture: true, passive: true});
   window.addEventListener('resize', placeDefinition);
 })();
