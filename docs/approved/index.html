@@ -39,7 +39,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 .filters #edited-only{width:16px;height:16px;margin:0;accent-color:var(--green)}
 @media(max-width:700px){.filters .edited-filter{grid-column:1/-1}.filters output{grid-column:1/-1;text-align:left}}
 </style></head><body><main>
-<header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>56 组</strong><i> / </i>112 条对照视频</p></div>
+<header class="page-head"><div><h1>H3 正反例对照</h1><p class="stats"><strong>55 组</strong><i> / </i>110 条对照视频</p></div>
 <p class="intro">按标注结果收录正反例对照；07-13 的反例已更新为后期配音校准样片。正例展示目标效果，反例展示对应的故障；任何人都可以编辑正例的原始 prompt，保存后公开。</p>
 <p class="stamp">标注快照 <time>2026-11-25 12:13（UTC+8）</time></p></header>
 <p id="publish-status" class="publish-status" role="status">正在读取已发布的提示词版本…</p>
@@ -47,7 +47,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <div class="filters"><label for="query">查找案例</label><input id="query" type="search" placeholder="输入编号、名称或归因">
 <label for="dimension">维度</label><select id="dimension"><option value="">全部维度</option><option value="01">视频指令遵循</option><option value="02">运动质量</option><option value="03">时序一致性</option><option value="04">美感与画质</option><option value="05">音频指令遵循</option><option value="06">基础音质</option><option value="07">音画同步</option><option value="08">音频表现力</option><option value="09">音质与表现力补充、音频参考生</option></select>
 <label class="edited-filter"><input id="edited-only" type="checkbox">只看已修改的组</label>
-<output id="matches" aria-live="polite">显示 56 组</output></div>
+<output id="matches" aria-live="polite">显示 55 组</output></div>
 <div id="cards"><article id="case-01-02" data-group="01-02" data-dim="01">
 <header class="case-head"><p class="meta"><span class="case-number">01-02</span> · <span class="attribution">视频指令遵循</span> · <span class="attribution">时间戳偏差—P1</span></p><h2>寿司广告的三次切点</h2></header>
 <div class="prompt-suite" data-prompt-for="01-02-good" data-source-version="046f3f018ed6fd82a7563a4d13939e70a3cc48fbf0f4d69b5d1be5bd180ece0c" aria-label="正例原始提示词">
@@ -357,26 +357,6 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 </section><section class="clip bad" data-clip-id="04-05-bad" data-source-version="190d05ef2af9ac38136a4a9770f485e6dfd0caf079771e059d3324d751740097">
 <h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="4.5" aria-label="播放 04-05-bad 反例，约 4.8–6 秒">约 4.8–6 秒</button> <span>墙面忽明忽暗，浅色墙上跳出黑点，黑色琴盖上跳出白点。</span></p>
 <video controls playsinline preload="none" aria-label="04-05-bad 反例" data-poster="../posters/04-05-bad.jpg" src="../videos/04-05-bad.mp4"></video>
-</section></div>
-</article><article id="case-04-06" data-group="04-06" data-dim="04">
-<header class="case-head"><p class="meta"><span class="case-number">04-06</span> · <span class="attribution">美感与画质</span> · <span class="attribution">颗粒感／噪点／杂质／闪烁</span></p><h2>布偶猫巡逻的客厅</h2></header>
-<div class="prompt-suite" data-prompt-for="04-06-good" data-source-version="1c4786f7d2cf15bef641567d848408b603a204b15737231736afd82dad5f05a6" aria-label="正例原始提示词">
-<details class="prompt-detail" open><summary>正例原始 prompt<span class="field-edit-marker" hidden>已修改</span></summary><pre class="original-prompt" data-field="original">生成一段温暖明亮的布偶猫爬架广告，所有画外音为同一位温柔的日语女声，每句同步显示相同的日语字幕。镜头一贴近木地板快速向前，扫地机器人穿过客厅，旁白「毎日、この小さな世界をパトロールするのが私の日課。」镜头二仰拍布偶猫抬头，视线牵出墙上原木色猫爬架，旁白「でも、一番気になるのは…あの上。」镜头三跟拍猫跃上踏板、沿剑麻柱攀爬，旁白「一歩、また一歩。木の温もりを感じながら。」镜头四从下方特写透明亚克力太空舱，猫蜷成一团，肉垫与蓬松肚皮轻压透明底，旁白「ふわふわ、ぽかぽか。ここが私の特等席。」镜头五拉远定格：它在高处俯视客厅，右侧出现原木色手写英文“Their Own Little Universe.”，旁白「見守っててね、私たちの小さな宇宙から。」
-开头沿地板巡视时，以及结尾拉远时，米白墙面均匀洁净。原木踏板会在墙上投下与日光方向一致的柔影。</pre></details>
-<div class="prompt-actions"><button class="edit-prompt" type="button">编辑并公开</button><span class="prompt-status" role="status"></span></div>
-<div class="prompt-editor" hidden>
-<p class="editor-note">保存后，所有访客都能看到更新后的正例原始 prompt。</p>
-<label>原始 prompt<textarea data-editor-field="original" rows="7"></textarea></label>
-<div class="editor-actions"><button class="save-prompt" type="button">保存并公开</button><button class="cancel-prompt" type="button">取消</button></div>
-<div class="conflict" hidden><p>公开版本刚刚被其他编辑者更新。你的草稿仍保留在上方，可先查看新版本再决定。</p><details class="latest-preview"><summary>查看最新公开版本</summary><pre></pre></details><button class="adopt-latest" type="button">采用最新公开版本</button><button class="keep-draft" type="button">保留当前草稿</button></div>
-</div></div>
-<button class="play-pair" type="button">两条从头播放</button><span class="play-status" role="status"></span>
-<div class="pair"><section class="clip good" data-clip-id="04-06-good" data-source-version="1c4786f7d2cf15bef641567d848408b603a204b15737231736afd82dad5f05a6">
-<h3>正例<span class="clip-edit-marker" hidden></span></h3><p class="target">米白墙面干净，爬架旁只有与日光同向的柔影。</p>
-<video controls playsinline preload="none" aria-label="04-06-good 正例" data-poster="../posters/04-06-good.jpg" src="../videos/04-06-good.mp4"></video>
-</section><section class="clip bad" data-clip-id="04-06-bad" data-source-version="9fd7a818e0b4a632e7b0c75ebfa6db48c868cc44bdeaab2d2b839a55c064a3f3">
-<h3>反例</h3><p class="target"><button type="button" class="reason-seek" data-start="0.8" aria-label="播放 04-06-bad 反例，1–3 秒">1–3 秒</button> <span>客厅浅色墙上浮出几块墨黑斑点，和家具投下的阴影分离。</span></p>
-<video controls playsinline preload="none" aria-label="04-06-bad 反例" data-poster="../posters/04-06-bad.jpg" src="../videos/04-06-bad.mp4"></video>
 </section></div>
 </article><article id="case-04-11" data-group="04-11" data-dim="04">
 <header class="case-head"><p class="meta"><span class="case-number">04-11</span> · <span class="attribution">美感与画质</span> · <span class="attribution">油腻感／蜡像感</span></p><h2>拆银色眼膜的博主</h2></header>
