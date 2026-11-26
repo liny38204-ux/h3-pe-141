@@ -48,45 +48,56 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 }
 .case-content { grid-area: cases; min-width: 0; }
 #case-toc { grid-area: toc; min-width: 0; position: sticky; top: 14px; }
-#case-toc details { background: white; border: 1px solid var(--line); border-radius: 10px; }
-#case-toc summary {
+#case-toc > details { background: white; border: 1px solid var(--line); border-radius: 10px; }
+#case-toc-title {
   display: flex; align-items: center; justify-content: space-between; gap: 14px;
   padding: 12px 16px; cursor: pointer; font-size: 19px; font-weight: 700; list-style: none;
 }
 #case-toc summary::-webkit-details-marker { display: none; }
-#case-toc summary::after {
+#case-toc-title::after {
   content: ''; width: 7px; height: 7px; margin-right: 2px;
   border: solid #698676; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg);
 }
-#case-toc details[open] > summary::after { transform: rotate(225deg); }
+#case-toc > details[open] > summary::after { transform: rotate(225deg); }
 .toc-list {
   max-height: calc(100vh - 84px); max-height: calc(100dvh - 84px);
   overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin;
   padding: 0 9px 12px; border-top: 1px solid var(--line);
 }
 .toc-group { padding-top: 12px; }
-.toc-group:not(:has(li:not([hidden]))) { display: none; }
+.toc-group:not(:has(li:not([hidden]))), .toc-topic:not(:has(li:not([hidden]))) { display: none; }
 .toc-group h3 { margin: 0 6px 4px; color: var(--muted); font-size: 13px; font-weight: 650; }
-.toc-group ul { padding: 0; margin: 0; list-style: none; }
+.toc-topic > summary {
+  display: flex; align-items: baseline; gap: 9px; padding: 6px 7px;
+  list-style: none; border-radius: 4px; cursor: pointer; color: var(--ink);
+  font-size: 14px; line-height: 1.45; overflow-wrap: anywhere;
+}
+.toc-topic > summary::before {
+  content: ''; align-self: flex-start; flex: 0 0 6px; height: 6px; margin-top: .42em;
+  border: solid #628371; border-width: 1.5px 1.5px 0 0; transform: rotate(45deg);
+}
+.toc-topic[open] > summary::before { transform: rotate(135deg); }
+.toc-topic > summary:hover { background: var(--paper); }
+.toc-topic[open] > summary { font-weight: 650; }
+.toc-topic ul { padding: 0 0 0 7px; margin: 0 0 5px 10px; border-left: 1px solid var(--line); list-style: none; }
 .toc-group a {
-  display: grid; grid-template-columns: 5ch minmax(0, 1fr); align-items: baseline; gap: 7px;
+  display: block;
   padding: 6px 7px; border-radius: 4px; color: var(--ink);
   font-size: 14px; line-height: 1.45; text-decoration: none; overflow-wrap: anywhere;
 }
-.toc-number { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .toc-group a:hover { background: var(--paper); }
 .toc-group a[aria-current="location"] { background: #e7f1eb; color: var(--green); font-weight: 650; }
 @media (max-width: 1000px) {
   .gallery-layout { display: block; }
   #case-toc { z-index: 2; top: 8px; width: fit-content; margin: 0 0 8px auto; }
-  #case-toc details { position: relative; box-shadow: 0 2px 9px #173b3212; }
-  #case-toc summary { padding: 7px 12px; font-size: 15px; }
+  #case-toc > details { position: relative; box-shadow: 0 2px 9px #173b3212; }
+  #case-toc-title { padding: 7px 12px; font-size: 15px; }
   .toc-list {
     position: absolute; top: calc(100% + 5px); right: -1px; width: min(320px, calc(100vw - 32px));
     max-height: min(62vh, 480px); max-height: min(62dvh, 480px);
     background: white; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 20px #173b3224;
   }
-  .toc-group a { padding-block: 9px; }
+  .toc-group a, .toc-topic > summary { padding-block: 9px; }
   .gallery-layout article { scroll-margin-top: 58px; }
 }
 
@@ -172,7 +183,7 @@ button{background:#fff;color:var(--green);border:1px solid #92ac9d;border-radius
 <output id="matches" aria-live="polite">显示 45 组</output></div>
 <div class="gallery-layout">
 <nav id="case-toc" aria-labelledby="case-toc-title"><details open><summary id="case-toc-title">典型case</summary>
-<div class="toc-list"><section class="toc-group"><h3>视频指令遵循</h3><ul><li><a href="#case-01-02"><span class="toc-number">01-02</span> <span>寿司广告的三次切点</span></a></li><li><a href="#case-01-03"><span class="toc-number">01-03</span> <span>谁进了我的客厅</span></a></li><li><a href="#case-01-04"><span class="toc-number">01-04</span> <span>冰淇淋广告开场景别</span></a></li></ul></section><section class="toc-group"><h3>运动质量</h3><ul><li><a href="#case-02-03"><span class="toc-number">02-03</span> <span>桃林左上角的仙鹤</span></a></li><li><a href="#case-02-05"><span class="toc-number">02-05</span> <span>主播摘下耳机做展示</span></a></li><li><a href="#case-02-08"><span class="toc-number">02-08</span> <span>女生拿起桌上的筋膜枪</span></a></li><li><a href="#case-02-09"><span class="toc-number">02-09</span> <span>手到嘴之间的薄脆饼干</span></a></li><li><a href="#case-02-12"><span class="toc-number">02-12</span> <span>桌边戏剧动作的停顿</span></a></li><li><a href="#case-02-13"><span class="toc-number">02-13</span> <span>讲故事时男人的脸</span></a></li><li><a href="#case-02-14"><span class="toc-number">02-14</span> <span>小林停步回头</span></a></li></ul></section><section class="toc-group"><h3>时序一致性</h3><ul><li><a href="#case-03-02"><span class="toc-number">03-02</span> <span>沙发三人对话里的发型</span></a></li><li><a href="#case-03-03"><span class="toc-number">03-03</span> <span>梳妆台前多出的女主</span></a></li><li><a href="#case-03-05"><span class="toc-number">03-05</span> <span>咖啡馆里照在脸上的窗光</span></a></li><li><a href="#case-03-10"><span class="toc-number">03-10</span> <span>滑冰选手转圈时的场地</span></a></li><li><a href="#case-03-11"><span class="toc-number">03-11</span> <span>最后一帧的塔楼</span></a></li></ul></section><section class="toc-group"><h3>美感与画质</h3><ul><li><a href="#case-04-05"><span class="toc-number">04-05</span> <span>白毛衣女孩练琴</span></a></li><li><a href="#case-04-11"><span class="toc-number">04-11</span> <span>拆银色眼膜的博主</span></a></li><li><a href="#case-04-12"><span class="toc-number">04-12</span> <span>甲板对手的头发</span></a></li><li><a href="#case-04-14"><span class="toc-number">04-14</span> <span>冰湖上的极寒继承者</span></a></li><li><a href="#case-04-15b"><span class="toc-number">04-15b</span> <span>剑修落地后雪面冻结</span></a></li><li><a href="#case-04-17"><span class="toc-number">04-17</span> <span>第一人称游览水上乐园</span></a></li><li><a href="#case-04-18"><span class="toc-number">04-18</span> <span>走廊里女子受惊的近景</span></a></li><li><a href="#case-04-22"><span class="toc-number">04-22</span> <span>五场景时尚造型手册</span></a></li><li><a href="#case-04-25"><span class="toc-number">04-25</span> <span>陈柚试装时的双人构图</span></a></li><li><a href="#case-04-26"><span class="toc-number">04-26</span> <span>桌上的陶瓷茶壶</span></a></li><li><a href="#case-04-27"><span class="toc-number">04-27</span> <span>琉璃宫殿短时花屏</span></a></li><li><a href="#case-04-28"><span class="toc-number">04-28</span> <span>珍珠耳环与油画花园</span></a></li></ul></section><section class="toc-group"><h3>音频指令遵循</h3><ul><li><a href="#case-05-02"><span class="toc-number">05-02</span> <span>羽绒服广告的四句文案</span></a></li><li><a href="#case-05-03"><span class="toc-number">05-03</span> <span>深海神殿的一字之差</span></a></li><li><a href="#case-05-04"><span class="toc-number">05-04</span> <span>雪山口的内心独白</span></a></li><li><a href="#case-05-05"><span class="toc-number">05-05</span> <span>同事在桌边核对工作</span></a></li><li><a href="#case-05-07"><span class="toc-number">05-07</span> <span>客厅里谁说了哪句话</span></a></li><li><a href="#case-05-09"><span class="toc-number">05-09</span> <span>雨街女孩的台词语种</span></a></li><li><a href="#case-05-10"><span class="toc-number">05-10</span> <span>雨棚下八戒的哈欠</span></a></li><li><a href="#case-05-12"><span class="toc-number">05-12</span> <span>狗被碰醒时的叫声</span></a></li><li><a href="#case-05-14"><span class="toc-number">05-14</span> <span>理顺耳机后的音乐片段</span></a></li><li><a href="#case-05-18"><span class="toc-number">05-18</span> <span>地下车库逃离的结尾声轨</span></a></li><li><a href="#case-05-20"><span class="toc-number">05-20</span> <span>黑白夜市的禁台词长镜头</span></a></li></ul></section><section class="toc-group"><h3>基础音质</h3><ul><li><a href="#case-06-08"><span class="toc-number">06-08</span> <span>静置茶壶的贯穿底噪</span></a></li></ul></section><section class="toc-group"><h3>音画同步</h3><ul><li><a href="#case-07-08"><span class="toc-number">07-08</span> <span>街头说唱动作与鼓点</span></a></li><li><a href="#case-07-13"><span class="toc-number">07-13</span> <span>玻璃杯落地的材质声</span></a></li></ul></section><section class="toc-group"><h3>音频表现力</h3><ul><li><a href="#case-08-09"><span class="toc-number">08-09</span> <span>两个孩子在岸边泼水</span></a></li><li><a href="#case-08-10"><span class="toc-number">08-10</span> <span>人物变熊后的第一声</span></a></li><li><a href="#case-08-12"><span class="toc-number">08-12</span> <span>跨次元少女的回声</span></a></li><li><a href="#case-08-13"><span class="toc-number">08-13</span> <span>短句“就是现在”的机械感</span></a></li></ul></section></div></details></nav>
+<div class="toc-list"><section class="toc-group"><h3>视频指令遵循</h3><details class="toc-topic" name="case-toc-topics"><summary>时间戳偏差</summary><ul><li><a href="#case-01-02">寿司广告的三次切点</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>核心动作缺失</summary><ul><li><a href="#case-01-03">谁进了我的客厅</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>景别错误</summary><ul><li><a href="#case-01-04">冰淇淋广告开场景别</a></li></ul></details></section><section class="toc-group"><h3>运动质量</h3><details class="toc-topic" name="case-toc-topics"><summary>背景人／物持续结构错误</summary><ul><li><a href="#case-02-03">桃林左上角的仙鹤</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>道具崩坏</summary><ul><li><a href="#case-02-05">主播摘下耳机做展示</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>不合理转场／切镜／跳帧</summary><ul><li><a href="#case-02-08">女生拿起桌上的筋膜枪</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>物理不合理／凭空消失出现</summary><ul><li><a href="#case-02-09">手到嘴之间的薄脆饼干</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>动作不自然／僵硬</summary><ul><li><a href="#case-02-12">桌边戏剧动作的停顿</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>表演表情不自然</summary><ul><li><a href="#case-02-13">讲故事时男人的脸</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>运动幅度／节奏小</summary><ul><li><a href="#case-02-14">小林停步回头</a></li></ul></details></section><section class="toc-group"><h3>时序一致性</h3><details class="toc-topic" name="case-toc-topics"><summary>主体属性不一致(含主体互换)</summary><ul><li><a href="#case-03-02">沙发三人对话里的发型</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>主体数量不一致(含主体复制)</summary><ul><li><a href="#case-03-03">梳妆台前多出的女主</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>色彩／光影不一致</summary><ul><li><a href="#case-03-05">咖啡馆里照在脸上的窗光</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>场景不一致</summary><ul><li><a href="#case-03-10">滑冰选手转圈时的场地</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>尾帧突变</summary><ul><li><a href="#case-03-11">最后一帧的塔楼</a></li></ul></details></section><section class="toc-group"><h3>美感与画质</h3><details class="toc-topic" name="case-toc-topics"><summary>颗粒感／噪点／杂质／闪烁</summary><ul><li><a href="#case-04-05">白毛衣女孩练琴</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>油腻感／蜡像感</summary><ul><li><a href="#case-04-11">拆银色眼膜的博主</a></li><li><a href="#case-04-12">甲板对手的头发</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>比例失调／透视异常</summary><ul><li><a href="#case-04-14">冰湖上的极寒继承者</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>特效／后期包装粗糙</summary><ul><li><a href="#case-04-15b">剑修落地后雪面冻结</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>色彩饱和度异常</summary><ul><li><a href="#case-04-17">第一人称游览水上乐园</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>表情AI感</summary><ul><li><a href="#case-04-18">走廊里女子受惊的近景</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>光影扁无立体感</summary><ul><li><a href="#case-04-22">五场景时尚造型手册</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>构图差</summary><ul><li><a href="#case-04-25">陈柚试装时的双人构图</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>实体结构美感差</summary><ul><li><a href="#case-04-26">桌上的陶瓷茶壶</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>生成异常内容</summary><ul><li><a href="#case-04-27">琉璃宫殿短时花屏</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>色彩不协调</summary><ul><li><a href="#case-04-28">珍珠耳环与油画花园</a></li></ul></details></section><section class="toc-group"><h3>音频指令遵循</h3><details class="toc-topic" name="case-toc-topics"><summary>台词严重错误</summary><ul><li><a href="#case-05-02">羽绒服广告的四句文案</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>台词轻微错误</summary><ul><li><a href="#case-05-03">深海神殿的一字之差</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>旁白／画外音／内心独白错误</summary><ul><li><a href="#case-05-04">雪山口的内心独白</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>开放式台词不合理发挥</summary><ul><li><a href="#case-05-05">同事在桌边核对工作</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>台词归属错误</summary><ul><li><a href="#case-05-07">客厅里谁说了哪句话</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>语种／口音／方言错误</summary><ul><li><a href="#case-05-09">雨街女孩的台词语种</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>非语言人声音效错误／缺失</summary><ul><li><a href="#case-05-10">雨棚下八戒的哈欠</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>动物叫声错误／缺失</summary><ul><li><a href="#case-05-12">狗被碰醒时的叫声</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>BGM类型／氛围错误缺失</summary><ul><li><a href="#case-05-14">理顺耳机后的音乐片段</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>禁音效失败</summary><ul><li><a href="#case-05-18">地下车库逃离的结尾声轨</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>禁人声失败</summary><ul><li><a href="#case-05-20">黑白夜市的禁台词长镜头</a></li></ul></details></section><section class="toc-group"><h3>基础音质</h3><details class="toc-topic" name="case-toc-topics"><summary>持续底噪</summary><ul><li><a href="#case-06-08">静置茶壶的贯穿底噪</a></li></ul></details></section><section class="toc-group"><h3>音画同步</h3><details class="toc-topic" name="case-toc-topics"><summary>画面与BGM节拍／音调不同步</summary><ul><li><a href="#case-07-08">街头说唱动作与鼓点</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>碎裂音效缺失</summary><ul><li><a href="#case-07-13">玻璃杯落地的材质声</a></li></ul></details></section><section class="toc-group"><h3>音频表现力</h3><details class="toc-topic" name="case-toc-topics"><summary>环境音不真实</summary><ul><li><a href="#case-08-09">两个孩子在岸边泼水</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>动物叫声不真实</summary><ul><li><a href="#case-08-10">人物变熊后的第一声</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>声场混响不匹配</summary><ul><li><a href="#case-08-12">跨次元少女的回声</a></li></ul></details><details class="toc-topic" name="case-toc-topics"><summary>台词机械感</summary><ul><li><a href="#case-08-13">短句“就是现在”的机械感</a></li></ul></details></section></div></details></nav>
 <div class="case-content"><div id="cards"><article id="case-01-02" data-group="01-02" data-dim="01" tabindex="-1">
 <header class="case-head"><p class="meta"><span class="case-number">01-02</span> · <button type="button" class="attribution" aria-haspopup="dialog" popovertarget="taxonomy-01">视频指令遵循</button> · <button type="button" class="attribution" aria-haspopup="dialog" aria-controls="term-definition" aria-expanded="false" data-term-id="tax-term-01-1">时间戳偏差—P1</button></p><h2>寿司广告的三次切点</h2></header>
 <div class="prompt-suite" data-prompt-for="01-02-good" data-source-version="046f3f018ed6fd82a7563a4d13939e70a3cc48fbf0f4d69b5d1be5bd180ece0c" aria-label="正例原始提示词">
@@ -1104,18 +1115,19 @@ const tocList = toc.querySelector('.toc-list');
 const compactToc = window.matchMedia('(max-width: 1000px)');
 const tocLinks = new Map([...tocList.querySelectorAll('a')].map(link => [link.hash.slice(1), link]));
 
-const cards = [...document.querySelectorAll('article')].map(card => ({
-  card,
-  link: tocLinks.get(card.id),
-  text: [...card.querySelectorAll('.case-head,.target')].map(node => node.textContent).join(' ').toLowerCase()
-}));
+const cards = [...document.querySelectorAll('article')].map(card => {
+  const link = tocLinks.get(card.id);
+  const topic = link.closest('.toc-topic');
+  const searchable = [topic.querySelector('summary'), ...card.querySelectorAll('.case-head,.target')];
+  return {card, link, topic, text: searchable.map(node => node.textContent).join(' ').toLowerCase()};
+});
 
 let visibleCards = cards;
 let currentLink = null;
 let readingFrame = 0;
 
 function revealCurrentLink() {
-  if (!currentLink || !tocDetails.open) return;
+  if (!currentLink || !tocDetails.open || !currentLink.closest('.toc-topic').open) return;
   const link = currentLink.getBoundingClientRect();
   const list = tocList.getBoundingClientRect();
   if (link.top < list.top) tocList.scrollTop += link.top - list.top;
@@ -1137,6 +1149,7 @@ function updateReadingPosition() {
   if (link === currentLink) return;
   currentLink?.removeAttribute('aria-current');
   currentLink = link;
+  if (active) active.topic.open = true;
   currentLink?.setAttribute('aria-current', 'location');
   revealCurrentLink();
 }
